@@ -1,0 +1,20 @@
+* {
+	text-align: center;
+}
+
+body {
+	background:pink;
+}
+#divuno {
+	background:hotpink;
+}
+#divdos {
+	background:plum;
+}
+/*Soy un comentario*/
+
+h1 {
+	font-size: 64px;
+	color: lightyellow;
+	text-align:center;
+}
