@@ -1,0 +1,18 @@
+p {
+	font-weight:bold;
+	font-size:0.8em;
+}
+
+form {
+	border:solid 1.5px black;
+}
+
+#valores {
+	margin-left:4em;
+	margin-top:2em;
+	margin-bottom:6em;
+}
+
+button {
+	margin-left:0.9em;
+}
