@@ -1,0 +1,86 @@
+/*general*/
+
+#container {
+	margin: 0 auto;
+	text-align:center;
+	width:90%;
+}
+
+/*header*/
+
+header {
+	background:lightskyblue;
+}
+
+h1, .imagenheader { 
+vertical-align:middle;
+ }
+
+h1 {
+	display:inline-block;
+	padding:0% 35%;
+}
+
+.imagenheader {
+	width:80px;
+	height:55px;
+}
+
+/*nav*/
+
+ul li {
+	display:inline-block;
+	background:violet;
+	padding:0.5%;
+	margin-right:20px;
+}
+
+/*seccion uno*/
+#seccionuno article {
+	display:inline-block;
+	height:250px;
+	width:45%;
+	margin: 1%;
+	background:pink;
+}
+/*seccion dos*/
+
+#secciondos article {
+	display:inline-block;
+	height:150px;
+	width:92.5%;
+	background:hotpink;
+
+}	
+
+.imagensecciondos {
+	width:120px;
+	height:90px;
+	margin-left:80%;
+	margin-top:30px;
+
+}
+
+/*Sección tres*/
+
+#secciontres article {
+	display:inline-block;
+	height: 300px;
+	background:violet;
+	width:30%;
+	margin:1.25% 0.55%
+}
+
+/*footer*/
+footer article {
+	background:lightskyblue;
+	margin: 0 3.6%;
+	height:190px;
+}
+
+#imagenfooter {
+	width:200px;
+	height:170px;
+	margin-right:80%;
+	margin-top:10px;
+}
