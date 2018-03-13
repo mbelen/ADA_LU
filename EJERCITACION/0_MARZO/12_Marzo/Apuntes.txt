@@ -1,0 +1,9 @@
+(Me olvidé el cuaderno)
+-Los elementos con position:absolute no flotan
+-Margen: espacio entre elementos del mismo nivel
+-Position: las más importantes son absolute (tienen una posición left y top respecto del 00) y relative
+-Container: se puede centrar para evitar que se distorsione según el ancho de pantalla
+Como no le puedo dar un tamaño al body, hago un div class="container" (AKA "main") que abarque todo el contenido del body 
+y a la que puedo dar un ancho en particular.
+(adentro del container puedo anidar x ej -> header - content (en general es "class", a menos que el contenido vaya a ser único)- footer)
+ 

@@ -56,7 +56,9 @@ ul li {
 .imagensecciondos {
 	width:120px;
 	height:90px;
-	margin-left:80%;
+	/*margin-left:80%;*/
+	float:right;
+	margin-right:4%;
 	margin-top:30px;
 
 }

@@ -1,0 +1,60 @@
+/*General*/
+* {
+	margin:0 auto;
+	text-align:center;
+}
+#container {
+	margin-top:80px;
+	width:25%;
+	height:600px;
+	border: solid 2px #f0caca;
+}
+
+/*Foto*/
+h1 {
+	font-family: 'Baloo', cursive;
+	color:#aae4b7;
+}
+
+h4 {
+	color:#fd7690;
+}
+.foto {
+	position:relative;
+}
+
+#fotoid {
+	margin-top:7.5%;
+	width:65%;
+	height:45%;
+	border-radius:100%;
+	border: solid 10px #f4ff88;
+}
+
+#bandera {
+	width:30px;
+	height:30px;
+	border-radius:100%;
+	position:absolute;
+	top:75%;
+	right:25%;
+
+}
+
+/*Bio*/
+p {
+	margin-top:10%;
+	margin-left:40px;
+	margin-right:40px;
+}
+
+/*Social*/
+#social {
+	top:10%;
+	position:relative;
+}
+#social img {
+	height:15px;
+	width:15px;
+	margin-left:10px;
+}
