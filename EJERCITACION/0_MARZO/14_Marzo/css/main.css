@@ -1,0 +1,17 @@
+div {
+	width:40%;
+	height:400px;
+	background:limegreen;
+	display:inline-block;
+	margin:1%;
+}
+
+@media (max-width:780px) {
+
+div {
+	display:block;
+	width:95%;
+	background:blue;
+}
+
+}

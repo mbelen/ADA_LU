@@ -1,0 +1,43 @@
+.container {
+	width:90%;
+	margin: 0 auto;
+	text-align:center;
+}
+
+#logo, nav {
+	background:pink;
+	height:3em;
+	display:inline-block;
+}
+
+#logo {
+	margin-left:0.5%;
+	margin-right:3.5%;
+	width:40%;
+}
+
+nav {
+	margin-right:0.75;
+	width:55%;
+}
+
+.fila article {
+	width:23.75%;
+	margin:0.5%;
+	height:240px;
+	background:lightskyblue;
+	display:inline-block;
+}
+
+#boxes article {
+	width:31.5%;
+	margin:0.75%;
+	height:300px;
+	background:violet;
+	float:left;
+}
+
+footer {
+	height:5em;
+	background:limegreen;
+}

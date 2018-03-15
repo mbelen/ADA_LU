@@ -9,11 +9,17 @@
 	background:pink;
 }
 
+#logo {
+	margin-bottom:20px;
+}
 header {
 	margin-top:20px;
 	height:50px;
 }
 
+#algo {
+	/*position:relative;*/
+}
 aside {
 	margin-top:20px;
 	width:28%;
@@ -32,6 +38,11 @@ aside {
 
 footer {
 	height:150px;
+	margin-top:20px;
 	position:relative;
 	/*top:190px;*/
+}
+
+.clearfix {
+	clear:both;
 }

@@ -1,0 +1,65 @@
+.container {
+	height:460px;
+	width:800px;
+	margin:0 auto;
+	border:1px solid black;
+	position:relative;
+}
+
+
+/*Barra de navegación*/
+ul li {
+	display:inline-block;
+	margin-right:1%;
+}
+
+ul li a {
+	text-decoration:none;
+}
+
+/*Productos*/
+#productos {
+	position:absolute;
+	top:20%;
+}
+figure {
+	display:inline-block;
+	text-align:center;
+	margin-right:0;
+	
+}
+figure img {
+	width:200px;
+	height:200px;
+}
+
+figure p {
+	margin-top:0;
+
+}
+
+/*MEDIA QUERIES*/
+
+@media all and (max-width:640px) {
+
+.container {
+	height:800px;
+	width:460px;
+}
+
+#productos {
+	top:5%;
+	left:20%;
+}
+
+figure {
+	display:block;
+}
+
+figure img {
+	width:180px;
+	height:180px;
+
+}
+
+}
