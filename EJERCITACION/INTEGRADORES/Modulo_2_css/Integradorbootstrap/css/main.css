@@ -1,0 +1,104 @@
+* {
+	/*border:solid 1px red;*/
+}
+.container {
+margin-top:1%;
+}
+
+/*rectángulos*/
+.barra { 
+height:400px; }
+
+.cuadro {
+	height:50px;
+}
+
+.gradiente {
+	height:45px;
+	background:linear-gradient(to right, white, black);
+}
+
+#fichas, #barrote {
+	padding:0;
+
+}
+.ficha, #barrote {
+	height:40px;
+}
+/*colores*/
+.gris {
+	background:gainsboro;
+}
+
+.amarillo {
+
+	background:lightyellow;
+}
+
+.celeste {
+	background:cyan;
+}
+
+.verde {
+	background:lightgreen;
+}
+
+.lila {
+	background:plum;
+}
+
+.rosa {
+	background:pink;
+}
+
+.azul {
+	background:lightskyblue;
+}
+
+.negro {
+	background:black;
+}
+
+#griscero {
+	background: #191919;
+}
+
+#grisuno {
+	background:#323232;
+}
+
+#grisdos {
+	background:#4c4c4c;
+}
+
+#gristres {
+	background:#666666;
+}
+
+#griscuatro {
+	background:#7f7f7f;
+}
+
+#griscinco {
+	background:#999999;
+}
+
+#grisseis {
+	background:#b2b2b2;
+}
+
+#grissiete {
+	background:#cccccc;
+}
+
+#grisocho {
+	background:#e5e5e5;
+}
+
+#grisnueve {
+	background:#f1f1f1;
+}
+
+#grisdiez {
+	background:#fefefe;
+}

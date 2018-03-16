@@ -1,0 +1,37 @@
+/** {
+	border: 1px solid red;
+}*/
+
+.container {
+	border:1px solid black;
+}
+
+nav {
+	margin-top:0.5%;
+}
+nav p {
+	display:inline-block;
+}
+
+.menu {
+	height:50px;
+
+}
+
+.imagen {
+	height:50px;
+}
+
+#menu {
+	width:30px;
+	height:30px;
+}
+
+
+figure img {
+	max-width:100%;
+}
+
+figure p {
+	text-align:center;
+}

@@ -17,6 +17,8 @@ ul li a {
 	text-decoration:none;
 }
 
+
+
 /*Productos*/
 #productos {
 	position:absolute;
@@ -38,6 +40,16 @@ figure p {
 
 }
 
+nav img {
+	display:inline-block;
+	width:25px;
+	height:25px;
+	position:absolute;
+	margin-right:0;
+	right:10px;
+	top:10px;
+}
+
 /*MEDIA QUERIES*/
 
 @media all and (max-width:640px) {
@@ -45,6 +57,17 @@ figure p {
 .container {
 	height:800px;
 	width:460px;
+	position:relative;
+}
+ul {
+	position:absolute;
+	display:inline-block;
+	margin-right:0;
+	margin-left:0;
+}
+ul li {
+	margin-left:0;
+	margin-right:0;
 }
 
 #productos {
