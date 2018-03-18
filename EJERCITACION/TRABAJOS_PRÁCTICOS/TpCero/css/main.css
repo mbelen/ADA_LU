@@ -5,6 +5,7 @@
 }
 
 .container {
+	margin-top:2%;
 	width:1480px;
 }
 
@@ -59,8 +60,8 @@ input, label {
 
 @media all and (max-width:1480px) {
 
-* {
-	max-width:100%;
+.container {
+	max-width:95%;
 }
 
 #galaxia {
