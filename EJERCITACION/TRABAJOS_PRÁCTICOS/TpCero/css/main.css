@@ -1,0 +1,62 @@
+/*Generales*/
+
+* {
+	margin:0 auto;
+	text-align:center;
+}
+
+.container {
+	width:1480px;
+}
+
+form, #social {
+	margin-top:1.5%;
+	margin-bottom:1.5%;
+}
+
+/*Imagen*/
+
+#galaxia {
+	width:100%;
+	height:440px;
+}
+
+/*Formulario*/
+
+}
+input {
+	text-align:left;
+}
+
+/*Redes Sociales*/
+
+#social {
+	text-align:right;
+}
+
+#social img {
+	width:36px;
+	height:36px;
+}
+
+
+/*Media queries*/
+
+@media all and (max-width:991px) {
+#social {
+	text-align:center;
+}
+}
+
+@media all and (max-width:1480px) {
+
+* {
+	max-width:100%;
+}
+
+#galaxia {
+	height:auto;
+}
+
+}
+
