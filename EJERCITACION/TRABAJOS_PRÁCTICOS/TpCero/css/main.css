@@ -2,11 +2,14 @@
 
 * {
 	margin:0 auto;
-	text-align:center;
 }
 
 .container {
 	width:1480px;
+}
+
+#galaxia, form, #copyright {
+	text-align:center;
 }
 
 form, #social {
@@ -23,9 +26,9 @@ form, #social {
 
 /*Formulario*/
 
-}
 input {
-	text-align:left;
+	margin-left:15px;
+	margin-right:15px;
 }
 
 /*Redes Sociales*/
@@ -43,9 +46,15 @@ input {
 /*Media queries*/
 
 @media all and (max-width:991px) {
+input, label {
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
 #social {
 	text-align:center;
 }
+
 }
 
 @media all and (max-width:1480px) {
