@@ -1,1 +1,2 @@
-En esta carpeta subirÈ los trabajos pr·cticos a medida que los vaya haciendo.
+En esta carpeta subir√© los trabajos pr√°cticos a medida que los vaya haciendo.
+- UPDATE: 17-3-2018 Subo el TP CERO
