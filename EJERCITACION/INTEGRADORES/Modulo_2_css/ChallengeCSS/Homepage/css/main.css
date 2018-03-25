@@ -6,8 +6,8 @@
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
-	/*border:1px solid red;*/
 	font-family:'Open Sans';
+	/*outline:1px solid red;*/
 }
 
 .container {
@@ -17,6 +17,11 @@
 
 section,header,footer {
 	margin:15px;
+}
+
+a {
+	color:black;
+	text-decoration:none;
 }
 
 /**HEADER***/
@@ -32,25 +37,79 @@ h1 {
 /**Barra de navegación**/
 
 nav {
-	display:flex;
-	justify-content:center;
+	margin:0 auto;
 }
 
 nav a  {
-	margin:0 10px;
 	color:black;
 	text-decoration:none;
 	text-transform:uppercase;
+	margin-right:10px;
 }
 
 nav a:hover {
 	color:#dc5539;
 }
 
+/*Botón dropdown*/
+
+.dropdown {
+  position: relative;
+  text-transform:uppercase;
+  margin:0 10px 0 0;
+}
+
+.dropdown p {
+	display:inline;
+	margin-right:5px;
+}
+
+.dropdown p:hover {
+	color:#dc5539;
+}
+
+.dd-button {
+  display: inline-block;
+}
+
+.dd-input {
+  display: none;
+  width:70px;
+  height:20px;
+}
+
+.dd-menu {
+  position: absolute;
+  top: 100%;
+  left:0px;
+  padding: 0;
+  list-style-type: none;
+  z-index:1;
+  background:white;
+  text-align:left;
+}
+
+.dd-input + .dd-menu {
+  display: none;
+}
+
+.dd-input:checked + .dd-menu {
+  display: block;
+} 
+
+.dd-menu li {
+  padding: 10px 10px 10px 5px;
+}
+
+.dd-menu li a {
+  display: block;
+}
+
+/*menú hamburguesa*/
 #hamburguesa {
 	height:0px;
 	width:100%;
-	background:orange;
+	background:#c96571;
 	text-align:center;
 	color:white;
 	line-height:40px;	
@@ -62,6 +121,8 @@ nav a:hover {
 	max-width:100%;
 	display:flex;
 	flex-wrap:wrap;
+	position:relative;
+	z-index:0;
 }
 
 #destacado figure {
@@ -77,7 +138,8 @@ nav a:hover {
 width:100%;
 height:100px;
 opacity:0;
-background:orange;
+transition:0.8s;
+background:#c96571;
 color:white;
 position:absolute;
 bottom:5px;
@@ -135,7 +197,7 @@ padding:10px 0 10px 10px;
 }
 
 #botones figcaption:hover {
-	background:red;
+	background:#c96571;
 }
 
 /***VIDEO Y BIO***/
@@ -160,7 +222,7 @@ iframe {
 
 #video-bio h3 {
 	width:100%;
-	background:orange;
+	background:#efb8be;
 	padding:5px 0;
 }
 
@@ -171,55 +233,136 @@ iframe {
 
 /***ARTICULOS***/
 #articulos {
-	width:68.1%;
-	margin:0;
-	overflow:hidden;
+	margin-left:15px;
+	padding:0;
 }
 
 #articulos article {
 	display:flex;
-	text-align:left;
-	margin:10px 10px 10px 0;
+	margin-left:10px;
+	margin-bottom:10px;
+	width:68.1%;
 }
 
+
 #articulos figure {
+	margin:0;
 	width:50%;
 }
 
 #articulos figure img {
 	width:100%;
-	height:250px;
-
+	height:100%;
+	border-radius:10px;
 }
 
 .texto {
-	width:45%;
-	margin-left:10px;
-
+	margin:0 auto;
+	padding:0;
+	width:40%;
+	display:flex;
+	flex-direction:column;
+	justify-content:space-between;
 }
 
-.texto h4 {
-	margin-top:30px;
+.encabezado {
+	width:100%;
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:space-between;
+	color:gray;
 }
 
-.button {
-width:130px;
-background: orange;
-text-align:center;
-margin:20px 0 0 0;
-padding:15px;
-border-radius:5px;
-
+.encabezado p {
+	display:inline;
 }
 
+#articulos button {
+	margin:0;
+	width:50%;
+	background:#efb8be;
+	border:none;
+	padding:15px 35px;
+	border-radius:5px;
+}
+
+#articulos button:hover {
+	background:#e99ba4;
+}
+
+#articulos button:active {
+
+background:#e68d97;
+}
+
+/**FOOTER***/
 footer {
 	display:flex;
 	justify-content:space-between;
 	color:gray;
 }
 
+footer a {
+	color:black;
+}
 
-@media all and (max-width:780px) {
+footer a:hover {
+	color:darkgray;
+}
+
+
+/*Media queries*/
+
+
+@media all and (max-width:1480px) {
+iframe {
+	width:50%;
+	height:260px;
+}
+
+#video-bio { 
+	height:auto;
+}
+
+#video-bio article {
+	width:50%;
+	height:auto;
+}
+
+#articulos {
+	justify-content:space-around;
+}
+
+#articulos article {
+	width:100%;
+}
+
+#articulos button {
+	width:75%;
+}
+}
+
+@media all and (max-width:980px) and (orientation:landscape) {
+	.container {
+		width:95%;
+	}
+	#destacado {
+		display:none;
+	}
+
+	#botones figcaption {
+		margin:0 auto;
+		width:75%;
+		left:12.5%;
+	}
+
+
+#articulos article {
+width:100%;
+}
+}
+
+@media all and (orientation:portrait) {
 #destacado {
 	display:block;
 }
@@ -267,15 +410,15 @@ nav {
 }
 
 #articulos {
-	width:100%;
-	height:auto;
-	overflow:hidden;
+	box-sizing:border-box;
+	margin:0 auto;
+	width:93.7%;
 }
 
 #articulos article {
-	display:block;
-	margin-left:10px;
-	}
+	flex-direction:column;
+	width:95%;
+}
 
 #articulos figure {
 	width:100%;
@@ -283,7 +426,6 @@ nav {
 
 .texto {
 	width:100%;
-	margin-left:0px;
-}
 }
 
+}
