@@ -7,5 +7,4 @@ Homepage
 - Cambiar posición de la biografía en versión mobile.
 
 Entry
--Todo.
-
+-Terminar el texto principal (falta destacado y lista con ítems)
