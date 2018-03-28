@@ -1,0 +1,26 @@
+.ball {
+  border-radius: 90%;
+  width: 200px;
+  height: 200px;
+}
+.container div {
+  border-radius: 90%;
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+}
+.container .rojo {
+  background: red;
+}
+.container .rojo:hover {
+  background: #660000;
+}
+.container .azul {
+  background: blue;
+}
+.container .azul:hover {
+  background: #2626d9;
+}
+.container .verde {
+  background: green;
+}

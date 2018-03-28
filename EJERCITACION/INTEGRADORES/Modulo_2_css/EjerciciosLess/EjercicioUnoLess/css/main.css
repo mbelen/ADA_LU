@@ -1,0 +1,101 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.container {
+  width: 800px;
+}
+#primerafila {
+  height: auto;
+  padding: 10px;
+  background: lightyellow;
+}
+#primerafila article {
+  height: 400px;
+  width: 380px;
+  display: inline-block;
+}
+#primerafila #primero {
+  background: yellow;
+  margin-right: 5px;
+}
+#primerafila #primero:hover {
+  background: plum;
+}
+#primerafila #segundo {
+  background: peru;
+  margin-left: 5px;
+}
+#primerafila #segundo:hover {
+  background: lightskyblue;
+}
+#segundafila {
+  padding: 10px;
+  background: gray;
+}
+#segundafila article {
+  display: inline-block;
+  background: lightskyblue;
+  height: 200px;
+  width: 380px;
+}
+#segundafila article:hover {
+  background: coral;
+}
+#segundafila #one {
+  margin-right: 5px;
+}
+#segundafila #two {
+  margin-left: 5px;
+}
+#tercerafila {
+  text-align: center;
+  background: coral;
+  padding: 20px;
+}
+@media all and (max-width: 780px) {
+  .flexit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .container {
+    width: 85%;
+  }
+  #primerafila {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #primerafila article {
+    width: 90%;
+  }
+  #primerafila #primero,
+  #primerafila #segundo {
+    margin: 5px;
+  }
+  #segundafila {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #segundafila article {
+    width: 90%;
+  }
+  #segundafila #one,
+  #segundafila #two {
+    margin: 5px;
+  }
+  #tercerafila {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    padding: 10px;
+  }
+  #tercerafila p {
+    margin: 5px;
+  }
+}

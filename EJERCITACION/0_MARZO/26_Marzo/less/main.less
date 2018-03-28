@@ -1,0 +1,62 @@
+.yes {
+	display:flex;
+}
+
+@ancho:800px;
+@colordivs:pink;
+@marpad:10px;
+@alto:@ancho / 4;
+@anchocelu:100%;
+
+.container {
+	width:@ancho;
+	margin:@marpad;
+	
+	flex-direction:column;
+	flex-wrap:wrap;
+	.yes;
+	div {
+		max-width:100%;
+	}
+}
+
+.filauno {
+	padding:@marpad;
+	.yes;
+	background:lightskyblue;
+	div {
+		height:@alto;
+		margin:@marpad;
+		width:(@ancho - @marpad * 4) / 2;
+	}
+}
+
+.uno {
+	background:yellow;
+	&:hover{background:plum;}
+}
+
+.dos {
+	background:peru;
+	&:hover{background:palegreen;}
+} 
+
+.filados {
+	background:yellow;
+	.yes;
+	
+	div {
+		background:@colordivs;
+		margin:@marpad;
+		height:@alto / 2;
+		width:(@ancho - @marpad * 4) / 2;
+	}
+}
+
+@media all and (max-width:500px) {
+
+.container {
+	width:100%;
+}
+
+}	

@@ -1,0 +1,32 @@
+.redondear {
+  border-radius: 90%;
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  margin: 0 5px;
+}
+.container div {
+  border-radius: 90%;
+  width: 200px;
+  height: 200px;
+  display: inline-block;
+  margin: 0 5px;
+}
+#uno {
+  background: pink;
+}
+#uno:hover {
+  background: #ecd3d7;
+}
+#dos {
+  background: lightskyblue;
+}
+#dos:hover {
+  background: #0000ff;
+}
+#tres {
+  background: palegreen;
+}
+#tres:hover {
+  background: #068e06;
+}
