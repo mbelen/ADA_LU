@@ -5,9 +5,9 @@
 }
 
 .container {
-	margin:0 auto;
 	text-align:center;
 }
+
 form {
 	margin:1.5% 0;
 }
@@ -31,8 +31,8 @@ input {
 #social {
 	width:1480px;
 	text-align:right;
-	margin:0 auto;
 }
+
 #social img {
 	width:36px;
 	height:36px;
@@ -50,6 +50,7 @@ input {
 /*Media queries*/
 
 @media all and (orientation:portrait) {
+
 input, label {
 	margin:10px 0;
 }
