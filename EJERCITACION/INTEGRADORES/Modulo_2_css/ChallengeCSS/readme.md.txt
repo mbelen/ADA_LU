@@ -1,10 +1,10 @@
-Versión 0
+VersiÃ³n 0
 Tareas pendientes
 
 Homepage 
--Hacer andar el menú hamburguesa de la versión mobile
-- Mejorar las media queries de la versión tablet e intermedias.
-- Cambiar posición de la biografía en versión mobile.
+-Hacer andar el menÃº hamburguesa de la versiÃ³n mobile
+- Mejorar las media queries de la versiÃ³n tablet e intermedias.
+- Cambiar posiciÃ³n de la biografÃ­a en versiÃ³n mobile.
 
 Entry
--Terminar el texto principal (falta destacado y lista con ítems)
+-Listo
