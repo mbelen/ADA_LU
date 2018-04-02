@@ -172,6 +172,35 @@ img {
 h2 {
 	margin:30px 0;
 }
+
+.destacado {
+	margin:5px 0;
+	padding: 0 10px;
+	font-size:1.4em;
+	font-weight:bold;
+	border-left:5px solid #ffb38a;
+}
+
+.destacado span {
+	display:block;
+	font-size:0.75em;
+	font-weight:normal;
+	text-transform:uppercase;
+	margin-top:10px;
+}
+
+ul {
+	margin-top:10px;
+	margin-left:16px;
+}
+ul li {
+	color:#ffb38a;
+}
+
+ul li span {
+	color: black;
+}
+
 /**FOOTER***/
 footer {
 	margin-top:20px;
