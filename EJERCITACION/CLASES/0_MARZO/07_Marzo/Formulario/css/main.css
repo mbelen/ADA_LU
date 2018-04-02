@@ -1,0 +1,21 @@
+p {
+	display:inline;
+}
+
+.categoria {
+	font-weight:bold;
+	font-size:0.8em;
+	display:block;
+}
+
+#valores {
+	margin-left:4em;
+	margin-top:2em;
+	margin-bottom:6em;
+}
+
+button {
+	margin-left:0.9em;
+}
+
+
