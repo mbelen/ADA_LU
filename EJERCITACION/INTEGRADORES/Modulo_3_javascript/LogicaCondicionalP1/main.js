@@ -54,6 +54,25 @@ switch(mes) {
 	console.log("Ejercicio 3: Por favor, inserte un mes válido"); break; 
 }
 
+/*5- Dada una variable que puede ser una letra, determinar si es una vocal.*/
+console.log("Ejercicio 5:")
+
+var letra="j";
+switch(letra) {
+	case "a":
+	case "e":
+	case "i":
+	case "o":
+	case "u":
+	var vocal = true;
+	console.log("Es vocal"); break;
+	default: 
+		var vocal = false;
+		console.log("Es consonante"); break;
+	}
+
+
+
 /*6- Dados tres números, x y z, si x es mayor que y calcular la resta entre x y z, y 
 determinar si eso es mayor que y, de lo contrario sumar x y z (x+z) y 
 multiplicarlo por y.*/
@@ -62,7 +81,7 @@ var x=14;
 var y=12;
 var z=5;
 console.log("Ejercicio 6:");
-
+/* Versión propia:
 if(x>y){
 	var resta=x-z;
 	console.log("'x' es mayor que 'y' -> x-z="+resta);
@@ -81,22 +100,47 @@ if(resta<y){
 else{
 	console.log("La resta de 'x' y 'z' es mayor que y");
 }
-
+*/
 
 /*Forma correcta*/
-console.log("Opción vista en clase, esta es la correcta")
+console.log("Resolucion hecha en clase, esta es la correcta:")
 
 if(x>y) {
 	w = x - z;
-	console.log("W es la resta " + w);
-	
+	console.log("x es mayor que y. x-z=" + w);
+
 	if(w>y) {
-		console.log("w es mayor que y: " + w);
+		console.log("x-z es mayor que y");
 	}
 	
 	else{
 		w=(x+z)*y;
-		console.log("w es menor que y: "+w);
+		console.log("x-z es menor que y (x+z)*y="+w);
 	}
 }
 
+/*7- Que calcule el sueldo que le corresponde al 
+trabajador de una empresa que cobra 40.000 euros anuales, 
+se deben realizar los cálculos en función de los siguientes criterios:
+a. Si lleva más de 10 años en la empresa se le aplica un aumento del 10%.
+b. Si lleva menos de 10 años pero más que 5 se le aplica un aumento del 7%.
+c. Si lleva menos de 5 años pero más que 3 se le aplica un aumento del 5%.
+d. Si lleva menos de 3 años se le aplica un aumento del 3%*/
+
+var sueldo = 40000;
+var antig = 2;
+
+switch(true) {
+	case(antig>10): 
+	var nuevoSueldo = sueldo * 1.1;
+	console.log("El sueldo actualizado es $" + nuevoSueldo); break;
+	case(antig<10 && antig>5):
+	var nuevoSueldo = sueldo * 1.07;
+	console.log("El sueldo actualizado es $" + nuevoSueldo); break;
+	case(antig<5 && antig>3):
+	var nuevoSueldo = sueldo * 1.05;
+	console.log("El sueldo actualizado es $" + nuevoSueldo); break;
+	case(antig<3):
+	var nuevoSueldo = sueldo * 1.03;
+	console.log("El sueldo actualizado es $" + nuevoSueldo); break;
+}
