@@ -1,7 +1,20 @@
 /*1) Dada una variable "x" determinar si es par o impar*/
+function dato() {
+	var h3 = document.createElement('h3');
+	h3.textContent = "Ejercicio 1";
+	var consigna1 = document.createElement('p');
+	consigna1.textContent = "Consigna: Dada una variable 'x' determinar si es par o impar"
+	var input = document.createElement('input');
+	input.setAttribute("type", "number");
+	input.id = "numerito";
+	var cargadiv = document.getElementById('ejercicio1');
+	cargadiv.appendChild(h3); 
+	cargadiv.appendChild(consigna1);
+	cargadiv.appendChild(input);
 
-var x=57
-
+var x =  document.getElementById("numerito").value;
+console.log(x);
+/*
 if(x % 2 == 0) {
 	var valor="Ejercicio 1: par";
 	console.log(valor);
@@ -10,13 +23,15 @@ if(x % 2 == 0) {
 else {
 	var valor="Ejercicio 1: impar";
 	console.log(valor);
+}*/
 }
 
+dato();
 /*2) Dada una variable y que puede contener un número de 1 a 7, determinar a que día 
 de la semana corresponde. 
 Incluir la opción si la variable toma un valor no válido (por ejemplo 0 u 8).*/
 
-var dia=9
+var dia=2
 
 switch(dia) {
 	case 1:console.log("Ejercicio 2: Lunes"); break;
@@ -29,7 +44,7 @@ switch(dia) {
 	default: console.log("Ejercicio 2: Por favor, inserte un número del 1 al 7"); break;
 }
 
-/*Dada una variable donde se ingresa el nombre del mes, 
+/*3 - Dada una variable donde se ingresa el nombre del mes, 
 devolver la cantidad de días correspondiente.*/
 
 var mes="diciembre";
@@ -54,6 +69,44 @@ switch(mes) {
 	console.log("Ejercicio 3: Por favor, inserte un mes válido"); break; 
 }
 
+/*Dados tres números determinar si son mayores de 0 (los tres)*/
+console.log("Ejercicio 6");
+
+var num1 = -4;
+var num2 = -5;
+var num3 = -6;
+
+if(num1<0 && num2<num1 && num3<num1) {
+	negativo=true;
+	console.log("todos son negativos");
+}
+
+else if(num1<0 && num2>0 && num3>0) {
+	negatuvo="true";
+	console.log("num1 es negativo");
+
+}
+else if(num2<0 && num3<num2){
+		negativo=true;
+		console.log("num2 y num3 son negativos")
+	}
+
+else if(num3<0){
+	negativo=true;
+	console.log("num3 es negativo");
+}
+
+else if (num2<0 && num3>0) {
+	negativo=true;
+	console.log("num2 es negativo")
+}
+
+else{
+	console.log("positivos")
+}
+
+
+
 /*5- Dada una variable que puede ser una letra, determinar si es una vocal.*/
 console.log("Ejercicio 5:")
 
@@ -70,8 +123,6 @@ switch(letra) {
 		var vocal = false;
 		console.log("Es consonante"); break;
 	}
-
-
 
 /*6- Dados tres números, x y z, si x es mayor que y calcular la resta entre x y z, y 
 determinar si eso es mayor que y, de lo contrario sumar x y z (x+z) y 

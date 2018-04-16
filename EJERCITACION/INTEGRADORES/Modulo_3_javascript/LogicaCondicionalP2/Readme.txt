@@ -8,12 +8,14 @@ Ejercicio 1 – Un sistema de fidelización de usuarios implementa la siguiente reg
 - Si el cliente tiene el 50% de los puntos requeridos, podrá completar el canje con dinero, en ese caso cada peso equivaldrá a 3 puntos.
 - Si el cliente tiene el 50% de los puntos requeridos, pero a su vez tiene categoría premium, la relación pesos puntos será 1 a 5.
 
-PENDIENTES:
-
 Ejercicio 2 - Ana desea inscribir a su hijo Tomás a la colonia de vacaciones, para tomar la decisión tiene en cuenta distintas variables.
 A) Si la colonia queda a más de 10 km, tendrá que contratar un transporte, por lo que para elegir esta opción el costo mensual deberá ser menor a $1500.
 B) Si la colonia queda a menos de 10 km, su presupuesto total se incrementa en un 20%, con lo cual evaluará incluir almuerzo en la colonia si este no excede el 15% del valor de la cuota.
 C) Finalmente, si la colonia está más lejos de 10km, y su costo es mayor a $1500, pero es doble turno y le brinda almuerzo, está dispuesta a pagar hasta $2800.
+
+PENDIENTES:
+
+
 
 Ejercicio 3 – Dados distintas tarjetas de crédito, mostrar por consola la cantidad de cuotas sin interés según el siguiente criterio.
 - Mastercard – hasta 6 cuotas s/interés

@@ -1,0 +1,94 @@
+.container {
+	width:95%;
+	background:lightskyblue;
+	margin:0 auto;
+}
+
+.fila {
+	display:flex;
+	align-items:center;
+}
+#uno {
+	width:50%;
+	background:pink;
+	text-align:center;
+}
+
+
+
+#uno img {
+	text-align:center;
+	display:block;
+	margin:0 auto;
+	max-width:50%;
+}
+
+#dos {
+	width:50%;
+}
+
+#dos figure {
+	display:flex;
+	align-items:center;
+	justify-content:space-around;
+	background:lightyellow;
+}
+
+#dos img {
+	width:150px;
+	height:150px;
+}
+
+figcaption {
+	margin:5px;
+	text-align:center;
+}
+
+#tres {
+	width:50%;
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:center;
+}
+
+#tres img {
+	width:200px;
+	height:200px;
+	margin:5px;
+}
+
+#cuatro {
+	margin:0 auto;
+	width:40%;
+	background:limegreen;
+	padding:60px 0;
+	border-radius:20px;
+	text-align:center;
+}
+
+ul {
+	list-style:none;
+}
+
+ul li {
+	display:flex;
+	align-items:center;
+}
+
+
+
+@media all and (max-width:780px){
+	.fila {
+		flex-direction:column; 
+	}
+
+	#uno, #dos, #tres #cuatro {
+		width:90%;
+	}
+
+	#tres figure {
+		width:80%;
+	}
+}
+
+/*

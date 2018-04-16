@@ -35,4 +35,49 @@ else {
 	console.log("No se puede hacer la transacción");
 }
 
+/*Ejercicio 2 - Ana desea inscribir a su hijo Tomás a la colonia de vacaciones, para tomar 
+la decisión tiene en cuenta distintas variables.
+A) Si la colonia queda a más de 10 km, tendrá que contratar un transporte, por lo que 
+para elegir esta opción el costo mensual deberá ser menor a $1500.
+B) Si la colonia queda a menos de 10 km, su presupuesto total se incrementa en un 20%, 
+con lo cual evaluará incluir almuerzo en la colonia si este no excede el 15% del valor 
+de la cuota.
+C) Finalmente, si la colonia está más lejos de 10km, y su costo es mayor a 
+$1500, pero es doble turno y le brinda almuerzo, está dispuesta a pagar hasta $2800.*/
 
+console.log("Ejercicio 2");
+
+var distancia = 20;
+var costo = 2700;
+var dobleTurno = true;
+var costoAlmuerzo = 34;
+
+if(distancia>10){
+	if(dobleTurno==true){
+		if(costo<2800){
+			console.log("Doble turno y menos de $2800. Puede ir");
+		}else{
+			console.log("Es muy cara");
+		}
+	}
+	else {
+		if(costo<1500){
+		console.log("Menos de 10km y menos de $1500. Puede ir");
+		}else{console.log("Es muy cara");}
+	}
+}
+
+else{
+	var presupuesto = 1500 * 1.2;
+	if(costo<presupuesto){
+		if(costoAlmuerzo<presupuesto*0.15) {
+			console.log("Compramos almuerzo");
+		}else {
+			console.log("No compramos almuerzo");
+		}
+
+	}else {
+		console.log("Muy cara");
+	}
+
+}
