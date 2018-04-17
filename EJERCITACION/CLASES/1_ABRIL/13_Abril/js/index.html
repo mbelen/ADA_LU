@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Challenge II</title>
+		<link rel="stylesheet" href="css/main.css" type="text/css">
+	</head>
+	<body>
+		<div class="container">
+			<h1>Formulario de inscripción</h1>
+			<form>
+				<!--NOMBRE-->
+				<div>
+					<label for="nombre">Nombre</label>
+					<input class="validar" type="text" name="nombre"/>
+					<span>*</span>
+					<label class="obligatorio"></label>
+				</div>
+				<!--APELLIDO-->
+				<div>
+					<label for="apellido">Apellido</label>
+					<input class="validar" type="text" name="apellido"/>
+					<span>*</span>
+					<label class="obligatorio"></label>
+				</div>
+				
+				<!--NACIONALIDAD-->
+				<div>
+					<label for="nacionalidad">Nacionalidad</label>
+					<select id="nacionalidad" class="validar" name="nacionalidad">
+						<option value="0">Seleccione una opción
+						</option>
+						<label class="obligatorio"></label>
+					</select>
+					<span>*</span>
+				</div>
+
+				<!--FECHA DE NACIMIENTO-->
+				<div>
+					<label for="birthday">Fecha de nacimiento</label>
+					<input class="validar" type="text" name="birthday"/>
+					<span>*</span>
+					<label class="obligatorio"></label>
+				</div>
+
+				<!--DOCUMENTO-->
+				<div class="documento">
+					<div>
+						<label for="tipodoc">Tipo de documento</label>
+							<select class="validar" name="tipodoc">
+								<option value="0">Seleccione una opción</option>
+							</select>
+						<span>*</span>
+					</div>
+					<div>
+					<label for="numdoc">N°</label>
+						<input class="validar" type="text" name="numdoc">
+						<span>*</span>
+						<label class="obligatorio"></label>
+					</div>
+				</div>
+
+				<!--DOMICILIO-->
+				<div class="direccion">
+					<label for="calle">Calle</label>
+					<input type="text" name="calle">
+					<div class="datosdir">
+						<label for="num">Número</label>
+							<input type="text" name="dirnum">
+						<label for="piso">Piso</label>
+							<input type="text" name="piso">
+						<label for="depto">Departamento</label>
+							<input type="text" name="depto">
+					</div>
+					<label for="provincia">Provincia</label>
+						<select id="provincia" name="provincia">
+							<option value="0">Seleccione una opción</option>
+						</select>
+					<label for="ciudad">Ciudad</label>
+						<select name="ciudad">
+							<option value="0"></option>
+						</select>
+				</div>
+				<!--GÉNERO-->
+				<div id="genero">
+					<label for="genero" class="validar">Género*</label>
+					<input type="radio" name="genero" value="femenino"><label>Femenino</label>
+					<input type="radio" name="genero" value="masculino"><label>Masculino</label>
+					<label class="obligatorio"></label>
+				</div>
+				<!--DEPORTES-->
+				<div class="deportes">
+					<label for="deportes">Deportes</label>
+						<label for="sport1">
+							<input type="checkbox" name="sport1">
+							Tenis
+						</label>
+						<label for="sport2">
+							<input type="checkbox" name="sport2">Ajedrez
+						</label>
+						<label for="sport3">
+							<input type="checkbox" name="sport3">Natación
+						</label>
+				</div>
+				<div class="biopolitica">
+					<label for="altura">Altura</label>
+						<input type="text" name="altura">
+					<label for="peso">Peso</label>
+						<input type="text" name="altura">
+				</div>
+				
+				<!--CONTACTO-->		
+				<div>
+					<label for="tel">Teléfono</label>
+					<input type="text" name="tel">
+				</div>
+				<div>
+					<label for="mail">E-mail</label>
+						<input type="text" name="mail" class="validar">
+						<span>*</span>
+					<label class="obligatorio"></label>
+				</div>
+				<label for="observaciones">Observaciones</label>
+					<input class="box" type="text" name="observaciones">
+				
+				<input id="submitme" type="button" value="botóooon"/>
+			</form>
+		</div>
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+	</html>
