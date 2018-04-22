@@ -36,7 +36,7 @@ var ciudades = [
 	provincia:"3"
 },
 {
-	nombre:"Marlargüe",
+	nombre:"Tartagal",
 	provincia:"3"
 }
 ]
@@ -167,3 +167,10 @@ function validatodo() {
 ////////////////////EVENTOS///////////////////////////
 enviar.addEventListener('click',validatodo);
 prov.addEventListener('change',cargaciudad);
+
+/*Función limpiar
+
+Botón de reset.
+
+
+*/
