@@ -81,3 +81,21 @@ else{
 	}
 
 }
+
+/*Ejercicio 3 – Dadas distintas tarjetas de crédito, mostrar por consola la cantidad de cuotas sin interés 
+según el siguiente criterio.
+- Mastercard – hasta 6 cuotas s/interés
+- Visa – hasta 9 cuotas s/interés
+- Amex – hasta 3 cuotas sin interés
+- Todas las demás - 1 cuota sin interés*/
+
+
+console.log("Ejercicio 3")
+var tarjeta="Visa"
+
+switch(tarjeta) {
+	case "Mastercard":console.log("Mastercard tiene hasta seis cuotas sin interés"); break;
+	case "Visa":console.log("Visa tiene hasta nueve cuotas sin interés"); break;
+	case "Amex":console.log("Amex tiene hasta 3 cuotas sin interés"); break;
+	default: console.log("Las tarjetas no asociadas tienen una sola cuota sin interés"); break;
+}

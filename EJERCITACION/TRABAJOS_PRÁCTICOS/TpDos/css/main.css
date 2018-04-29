@@ -1,0 +1,83 @@
+/*Generales*/
+* {
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	font-family: 'Open Sans', sans-serif;
+}
+
+html, body {
+	height:100%;
+	background-image: url('../img/background.jpg');
+	background-size:500px auto;
+}
+
+.container {
+	padding:20px;
+	display:flex;
+	flex-wrap:wrap;
+	width:85%;
+	margin:0 auto;
+	background-color:#9582a7;
+	color:white;
+	min-height:100%;
+}
+
+aside {
+	margin-top:60px;
+	padding:0 10px;
+	width:35%;
+	text-align:justify;
+}
+
+h1, form, p{
+	margin-bottom:40px;
+}
+
+h1 {
+	color:#fada82;
+}
+
+#nombre {
+	height:30px;
+	border-radius:10px;
+	background:lightyellow;
+	text-align:center;
+}
+
+h3 {
+	color:pink;
+}
+
+button {
+	width:150px;
+	height:50px;
+	border-radius:15px;
+	border-color:#87cfc8 ;
+	background:#a3dad5;
+
+}
+
+#tablero {
+	margin-top:50px;
+	display:flex;
+	flex-wrap:wrap;
+	width:65%;
+	height:620px;
+}
+
+.slotficha {
+	width:180px;
+	height:180px;
+	overflow:hidden;
+	background-image: url('../img/backgroundfichas.jpg');
+	background-size: 100px auto;
+	background-color:pink;
+	margin:10px;
+	border-radius:10px;
+}
+
+img {
+	max-width:100%;
+	height:auto;
+}

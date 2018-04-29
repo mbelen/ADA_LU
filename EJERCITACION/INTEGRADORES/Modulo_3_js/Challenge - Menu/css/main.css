@@ -1,0 +1,73 @@
+* {
+	margin:0;
+	padding:0;
+	font-family: 'Open Sans', sans-serif;
+
+}
+body {
+	background:#c1fcc1;
+}
+
+.container {
+	width:70%;
+	margin:30px auto;
+	background:white;
+	min-height:680px;
+	padding:5px;
+}
+
+.wrap {
+	display:flex;
+	flex-flow:row wrap;
+	width:80%;
+	margin:0 auto;
+	background:lightyellow;
+	padding:20px;
+	position:relative;
+}
+
+form {
+	width: 70%;
+
+}
+
+label {
+	display:block;
+}
+
+.plato {
+	margin:60px 0;
+}
+
+#platoprincipal {
+	margin-top:0px;
+}
+
+#board {
+	width:250px;
+	height:550px;
+	background:pink;
+}
+
+button {
+	margin-top:50px;
+	padding:10px;
+	background:none;
+	border:none;
+	outline:5px solid turquoise;
+	position:absolute;
+
+}
+
+button:hover {
+	outline:10px double #98fb98;
+}
+
+button:active {
+	outline:10px double pink;
+	transform:translateY(4px);
+}
+
+h2 {
+	padding:5px;
+}

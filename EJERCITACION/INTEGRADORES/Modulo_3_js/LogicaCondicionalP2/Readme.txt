@@ -1,6 +1,6 @@
 Ejercicios de lógica parte 2
 
-LISTOS:
+LISTOS (¡Todos!):
 
 Ejercicio 1 – Un sistema de fidelización de usuarios implementa la siguiente regla para la adquisición de productos del catálogo. Se pide determinar la lógica de canje.
 - El producto X que se desea canjear tiene un valor determinado en cantidad de puntos.
@@ -13,12 +13,10 @@ A) Si la colonia queda a más de 10 km, tendrá que contratar un transporte, por l
 B) Si la colonia queda a menos de 10 km, su presupuesto total se incrementa en un 20%, con lo cual evaluará incluir almuerzo en la colonia si este no excede el 15% del valor de la cuota.
 C) Finalmente, si la colonia está más lejos de 10km, y su costo es mayor a $1500, pero es doble turno y le brinda almuerzo, está dispuesta a pagar hasta $2800.
 
-PENDIENTES:
-
-
-
 Ejercicio 3 – Dados distintas tarjetas de crédito, mostrar por consola la cantidad de cuotas sin interés según el siguiente criterio.
 - Mastercard – hasta 6 cuotas s/interés
 - Visa – hasta 9 cuotas s/interés
 - Amex – hasta 3 cuotas sin interés
 - Todas las demás - 1 cuota sin interés
+
+

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link href="https://fonts.googleapis.com/css?family=Gamja+Flower|Open+Sans" rel="stylesheet">
+	<title>Mi formulario de JQuery</title>
+</head>
+<body>
+	<div class="container">
+		<div class="wrap">
+			<h1>Formulario JQuery</h1>
+				<form>
+					<h3>Completá tus datos</h3>
+					<div class="campo">
+						<label class="dato" for="nombre">Nombre</label>
+						<input type="text" name="nombre" id="nombre"/>
+					</div>
+					<div class="campo">
+						<label class="dato" for="apellido">Apellido</label>
+						<input type="text" name="apellido" id="apellido"/>
+					</div>
+					<div class="campo">
+						<label class="dato" for="mail">E-mail</label>
+						<input type="text" name="mail" id="mail"/>
+					</div>
+					<div id="checkbox">
+						<h3>Elegí tu película</h3>
+						<div>
+							<input type="checkbox" for="comedia" class="genero"><label for="comedia">Comedia</label>
+						</div>
+						<div>
+							<input type="checkbox" for="terror" class="genero"><label for="terror">Terror</label>
+						</div>
+						<div>
+							<input type="checkbox" for="romance" class="genero"><label for="romance">Romance</label>
+						</div>
+						<div>
+							<input type="checkbox" for="drama" class="genero"><label for="drama">Drama</label>
+						</div>
+					</div>
+					<label id="error"></label>
+					<button type="submit" id="enviar">Enviar pedido</button>
+				</form>
+			</div>
+		</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>

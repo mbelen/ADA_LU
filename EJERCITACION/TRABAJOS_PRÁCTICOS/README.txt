@@ -1,3 +1,7 @@
-En esta carpeta subiré los trabajos prácticos a medida que los vaya haciendo.
+﻿En esta carpeta subiré los trabajos prácticos a medida que los vaya haciendo.
+
+- 28-4 Arranco TP 2 (En proceso)
+- 19-4 TP UNO LISTO (Trabajo grupal. Está subido al repositorio de Estefanía Aranguren)
 - 28-3 TP CERO LISTO
-- UPDATE: 17-3-2018 Subo el TP CERO - Versión preliminar (todavía le falta algún ajuste, no está listo para entregar)
+
+

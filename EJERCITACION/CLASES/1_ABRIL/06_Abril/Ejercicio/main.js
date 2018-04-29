@@ -27,7 +27,7 @@ if(esta) {
 }*/
 
 /*FUNCIONES*/
-
+/*
 function validar(usuario, password) {
 	if(usuario=="pepe" && password==1234){
 		return true;
@@ -58,4 +58,6 @@ if(valido) {
 
 if(cantidad == 3) {
 	console.log("Bloqueado");
-}
+}*/
+
+

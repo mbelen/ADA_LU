@@ -1,0 +1,43 @@
+
+* {
+	margin:0;
+	padding:0;
+	font-family: 'Open Sans', sans-serif;
+}
+
+body {
+	background-image:url("725.jpg");
+	background-size:700px auto;
+}
+
+.container {
+	width:40%;
+	margin:0 auto;
+	background:oldlace;
+	margin-top:75px;
+}
+
+.wrap {
+	width:45%;
+	margin:0 auto;
+	padding:10px;
+}
+
+form {
+	margin:10px 0;
+}
+
+.campo {
+	margin:5px 0;
+}
+
+#checkbox {
+	margin:10px 0;
+}
+
+#error {
+	font-size:10px;
+	text-transform:uppercase;
+	color:brown;
+	font-weight:bold;
+}
