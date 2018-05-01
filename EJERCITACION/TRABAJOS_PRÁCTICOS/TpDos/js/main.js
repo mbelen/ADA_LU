@@ -64,10 +64,29 @@ var fichas = [{ nombre:0,
 /////////////////////////////////FUNCIONES////////////////////////////////////////////
 
 //Función para que el jugador ponga su nombre
-function nombre() {
-  var nombre=$("#nombre").val();
-  
-}
+ $("#ingreso").on("click", function () {
+  var nombre = $("#nombre").val();
+    if(nombre != "") {
+      $("#nombre").hide();
+      $("#nombre").prev().hide();
+      $(this).hide();
+      var jugador = "<p id='player'>Jugador/x actual: "+nombre+"<span id='editar' class='ion-edit icono'></span></p>"    
+      $("form").append(jugador);
+      $("#error").text("")
+    }else{
+      $("#error").text("Ingresá tu nombre");
+  }
+})
+
+//Función para editar o cambiar el nombre
+$(document).on("click", "#editar", function(e) {
+  $("#nombre").show();
+  $("#nombre").prev().show();
+  $("#ingreso").show();
+  $("#player").remove();
+  $(this).remove();  
+})
+
 
 //Función que mezcla las fichas 
 function mezclar(){
@@ -86,14 +105,28 @@ console.log(fichas)
 function repartir() {
 var tablero = $('#tablero');
 for(i=0;i<fichas.length;i++){
-var img ='<figure class="slotficha"><img src="'+fichas[i]["img"]+'"/></figure>'
+var img ='<figure class="slotficha"><img class="reverso"src="'+fichas[i]["img"]+'"/></figure>'
 tablero.append(img);
+console.log("repartido")
 }
 }
 
-nombre()
+
+//Función que rehace mezcla y reparto al clickear "reiniciar" (habrá probablemente que agregarle que reinicie el contador)
+$('#reinicio').on('click', function() {
+  console.log("what")
+  $('#tablero').children().remove();
+  mezclar();
+  repartir();
+})
+
+//Función Gameplay
+
+/////////////////////////////LLAMADAS A FUNCIONES////////////////////////////////
 mezclar();
 repartir();
+
+
 
 
 /*Apuntes varios
@@ -108,5 +141,6 @@ el atributo "valor"
 - Para que no pueda dar vuelta más de dos cartas a la vez, capaz haya que hacer un
 contador que no deje ejecutar el onclick si está en 2.
 
-También: hacer la función que permita introducir el nombre.
+También: Embellecer la función de nombre. Agregar botón para cambiar que vuelva atrás. 
+Ponerle estilo
 */
