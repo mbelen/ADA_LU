@@ -1,20 +1,6 @@
 /*1) Dada una variable "x" determinar si es par o impar*/
-function dato() {
-	var h3 = document.createElement('h3');
-	h3.textContent = "Ejercicio 1";
-	var consigna1 = document.createElement('p');
-	consigna1.textContent = "Consigna: Dada una variable 'x' determinar si es par o impar"
-	var input = document.createElement('input');
-	input.setAttribute("type", "number");
-	input.id = "numerito";
-	var cargadiv = document.getElementById('ejercicio1');
-	cargadiv.appendChild(h3); 
-	cargadiv.appendChild(consigna1);
-	cargadiv.appendChild(input);
 
-var x =  document.getElementById("numerito").value;
-console.log(x);
-/*
+var x = 0
 if(x % 2 == 0) {
 	var valor="Ejercicio 1: par";
 	console.log(valor);
@@ -23,10 +9,9 @@ if(x % 2 == 0) {
 else {
 	var valor="Ejercicio 1: impar";
 	console.log(valor);
-}*/
 }
 
-dato();
+
 /*2) Dada una variable y que puede contener un número de 1 a 7, determinar a que día 
 de la semana corresponde. 
 Incluir la opción si la variable toma un valor no válido (por ejemplo 0 u 8).*/

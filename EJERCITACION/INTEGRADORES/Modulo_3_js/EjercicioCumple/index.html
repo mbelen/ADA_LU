@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=	, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<title>Ejercicio Cumples</title>
+		<!--Google font-->
+		<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+		<!--hoja de estilo-->
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+	</head>
+
+	<body>
+		<div class="container">
+			<h2>¡Cumpleaaaaaaños!</h2>
+				<form id="formulario">
+					<!--Campos del formulario-->
+					<div id="campos">
+						<!--nombre-->
+						<div class="campo">
+							<label for="nombre">Nombre</label>
+							<input type="text" name="nombre" class="validar" id="nombre"/>
+							<label class="error"></label>
+						</div>
+						<!--fecha de nacimiento-->
+						<div class="campo">
+							<label for="cumple">Fecha de nacimiento</label>
+							<input type="date" min="1950-01-01" max="2010-12-31" name="cumple" id="cumple" class="validar"/>
+							<label class="error"></label>
+						</div>
+						<!--gato de cumpleaños-->
+						<div class="campo">
+							<label for="imagen">Hacé click en tu gato de cumpleaños</label>
+							<input readonly class="validar" name="imagen" id="imagen" placeholder="seleccioná una imagen"/>
+							<label class="error"></label>
+						</div>
+					</div>
+					<!--galería de imágenes-->
+					<div id="imagenes">
+						<figure><img class="opcion" src="img/Gato one.jpg" data-name="Gato one"/></figure>
+						<figure><img class="opcion" src="img/Gato two.jpg" data-name="Gato two"/></figure>
+						<figure><img class="opcion" src="img/Gato three.jpg" data-name="Gato three"/></figure>
+						<figure><img class="opcion" src="img/Gato four.jpg" data-name="Gato four"/></figure>					
+						<figure><img class="opcion" src="img/Gato five.jpg" data-name="Gato five"/></figure>
+						<figure><img class="opcion" src="img/Gato six.jpg" data-name="Gato six"/></figure>					
+						<figure><img class="opcion" src="img/Gato seven.jpg" data-name="Gato seven"/></figure>
+						<figure><img class="opcion" src="img/Gato eight.jpg" data-name="Gato eight"/></figure>
+					</div>
+					<!--botón submit-->
+					<input type="button" id="boton" value="Botóoooon">
+				</form>
+		</div>
+
+		<!--scripts-->
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+	</html>
