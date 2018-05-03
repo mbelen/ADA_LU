@@ -1,0 +1,118 @@
+* {
+	margin:0;
+	padding:0;
+	font-family:"roboto";
+}
+
+.container {
+	width:80%;
+	margin:0 auto;
+	margin-top:20px;
+}
+
+header{
+	text-align:center;
+	height: 190px;
+	background: #ff4081;
+	border-radius:5px;
+}
+
+#checkout {
+	display:flex;
+	align-items:center;
+	justify-content:space-between;
+	padding:5px;
+}
+
+#checkout p {
+	margin-right:25px;
+	padding:3px;
+	color:#ffff72;
+	cursor:pointer;
+}
+
+#checkout p:hover {
+	outline:3px double #ffff72;
+	color:white;
+	transition:0.3s;
+}
+
+header h2{
+	font-size: 22px;
+	color:#ffff72;
+	padding:5px;
+
+}
+
+#carrito {
+	margin:10px;
+	border:2px dashed white;
+	height:65%;
+	overflow:scroll;
+}
+
+.products-row{
+	height:420px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.product{
+	width: 20%;
+	text-align:center;
+}
+
+.product input {
+	width:30px;
+	text-align:center;
+}
+
+.add {
+	cursor:pointer;
+}
+
+.add:hover {
+	color:#ffeb3b;
+}
+
+.precio{
+
+	font-weight: bold;
+}
+
+.precio::before {
+	content: "$";
+}
+
+ul {
+	width:80%;
+	margin:3px auto;
+}
+
+li {
+	list-style:none;
+	display:flex;
+	justify-content:space-between;
+	align-content:center;
+	align-items:center;
+}
+
+.item span {
+	margin:0 5px;
+}
+
+.eliminar {
+	margin-left:5px;
+	color:#b0003a;
+}
+
+.eliminar:hover {
+	color:#ffff72;
+}
+
+footer{
+
+	height: 60px;
+	background: #c60055;
+	text-align: center;
+}
