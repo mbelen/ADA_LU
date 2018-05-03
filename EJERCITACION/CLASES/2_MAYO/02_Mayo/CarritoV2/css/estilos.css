@@ -112,12 +112,11 @@ li {
 	list-style:none;
 	display:flex;
 	justify-content:space-between;
-	align-content:center;
-	align-items:center;
 }
 
 .item span {
 	margin:0 5px;
+	width:25%;
 }
 
 .eliminar {
@@ -132,6 +131,9 @@ li {
 .cantsalida {
 	width:25px;
 	background:#ffc5d9;
+	border-color:#ff4081;
+	text-align:center;
+	border-radius:5px;
 }
 
 footer{

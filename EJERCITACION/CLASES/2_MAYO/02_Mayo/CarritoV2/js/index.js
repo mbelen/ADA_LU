@@ -20,15 +20,13 @@ if(carritoStorage==null) {
 		$.each(carrito, function(key,value){
 			var precio =
 			console.log(value.producto);
-			let lis = `<li class="item"><input class="cantsalida" type="number" min="1" id="input${key}" value="${value.producto.cantidad}"<span>${value.producto.nombre}</span><span class="subtotal" data-precio=${value.producto.precio}>${value.subtotal}</span><i class="far fa-trash-alt eliminar" data-id=${key}></li>`
+			let lis = `<li class="item"><input class="cantsalida" type="number" min="1" id="${key}input" value="${value.producto.cantidad}"/><span>${value.producto.nombre}</span><span class="subtotal" data-precio=${value.producto.precio}>${value.subtotal}</span><i class="far fa-trash-alt eliminar" data-id=${key}></li>`
 			
 			$("#items").append(lis)
 		})
 	
 }
 	console.log(carrito)
-
-
 
 //Empiezo a agregar productos
 $(".add").on("click", function(){
@@ -38,7 +36,6 @@ $(".add").on("click", function(){
 	}else{
 		var precioString = $(this).prev().prev().text();
 		var precio = parseInt(precioString);
-
 	//Creo el objeto item
 	var item = {	stock:10,
 					producto: {
@@ -49,6 +46,7 @@ $(".add").on("click", function(){
 					}
 
 	}
+
 	
 	//Calculo el stock
 	item.stock = item.stock - item.producto.cantidad; //Esto solamente anda si pido más del stock total en una sentada. Hay que hacero todo.
@@ -80,7 +78,7 @@ $(".add").on("click", function(){
 		localStorage.setItem("carrito",carro);
 		console.log(carrito)
 		//Creo el ítem que se va a ver en el carrito
-		var li = '<li class="item"><input class="cantsalida" type="number" min="1" value="'+item.producto.cantidad+'"/><span>'+item.producto.nombre+'</span><span class="subtotal" data-precio="'+item.producto.precio+'">'+subtotal+'</span><i class="far fa-trash-alt eliminar" data id="'+(carrito.length-1)+'"></li>'
+		var li = '<li class="item"><input class="cantsalida" type="number" min="1" value="'+item.producto.cantidad+'" id="'+(carrito.length-1)+'input"/><span>'+item.producto.nombre+'</span><span class="subtotal" data-precio="'+item.producto.precio+'">'+subtotal+'</span><i class="far fa-trash-alt eliminar" data id="'+(carrito.length-1)+'"></li>'
 		$("#vacio").text("")
 		$("#items").append(li)
 
@@ -99,7 +97,6 @@ $(document).on('click','.eliminar',function(e){
 		console.log(carrito);
 		let nuevoCarrito = JSON.stringify(carrito);
 		console.log(nuevoCarrito);
-		localStorage.setItem("carrito", nuevoCarrito);
 	})
 
 //Elimina todo el carrito
@@ -125,6 +122,25 @@ $(document).on('change', '.cantsalida', function(e){
 	console.log(cant)
 	console.log(nuevosub); 
 	nuevosub.text(nuevoValor);
+	
+	//Lo paso a localStorage
+	for(i=0; i<carrito.length; i++) {
+		var data = parseInt($(this).attr("id"));
+		console.log(data)
+		console.log(carrito[i])
+		if(data==i) {
+			console.log(carrito[i])
+			carrito[i].producto.cantidad = cant;
+			carrito[i].subtotal = nuevoValor;
+			console.log(carrito[i]);
+			console.log(carrito);
+			let nuevoCarrito = JSON.stringify(carrito);
+			console.log(nuevoCarrito);
+			localStorage.setItem("carrito", nuevoCarrito);
+		}
+	}
+	console.log(carrito);
+	console.log($(this).parent())
 })
 
 /////////////////////////////////////LLAMADAS////////////////////////////////////////////
