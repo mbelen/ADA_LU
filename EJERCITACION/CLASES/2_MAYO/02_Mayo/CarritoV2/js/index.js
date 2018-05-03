@@ -18,7 +18,8 @@ if(carritoStorage==null) {
 		console.log(carrito)
 		
 		$.each(carrito, function(key,value){
-			let lis = `<li class="item"><span>${value.productos.cantidad}</span><span>${value.productos.nombre}</span><span>Subtotal: $ ${value.subtotal}</span><i class="far fa-trash-alt eliminar" data-id=${key}></li>`
+			console.log(value.producto);
+			let lis = `<li class="item"><span>${value.producto.cantidad}</span><span>${value.producto.nombre}</span><span>Subtotal: $ ${value.subtotal}</span><i class="far fa-trash-alt eliminar" data-id=${key}></li>`
 			$("#items").append(lis)
 		})
 	
@@ -65,7 +66,7 @@ $(".add").on("click", function(){
 		var compra = item.producto;
 		var subtotalCompra = subtotal;
 		var datosCompra = {
-			productos:compra,
+			producto:compra,
 			subtotal:subtotalCompra
 		};
 		carrito.push(datosCompra);
@@ -87,10 +88,24 @@ $(".add").on("click", function(){
 }
 });
 
+//Elimina elementos de a uno
+
 $(document).on('click','.eliminar',function(e){
 		var indice = $(this).data("id");
 		$(this).parent().remove();	
 		carrito.splice(indice,1);
+		console.log(carrito);
+		let nuevoCarrito = JSON.stringify(carrito);
+		console.log(nuevoCarrito);
+		localStorage.setItem("carrito", nuevoCarrito);
+	})
+
+//Elimina todo el carrito
+
+$(document).on('click','#cancel',function(e){
+		console.log($("#items").children())
+		$("#items").children().remove();	
+		carrito=[]
 		console.log(carrito);
 		let nuevoCarrito = JSON.stringify(carrito);
 		console.log(nuevoCarrito);

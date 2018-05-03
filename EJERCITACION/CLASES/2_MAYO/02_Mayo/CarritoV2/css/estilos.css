@@ -24,17 +24,32 @@ header{
 	padding:5px;
 }
 
-#checkout p {
+#botones {
+	display:flex;
+}
+
+#botones p {
 	margin-right:25px;
 	padding:3px;
-	color:#ffff72;
+	
 	cursor:pointer;
 }
 
-#checkout p:hover {
+#final {
+	color:#ffff72;
+}
+
+#final:hover {
 	outline:3px double #ffff72;
 	color:white;
 	transition:0.3s;
+}
+
+#cancel {
+	color:white;
+}
+#cancel:hover  {
+	color:#ffc5d9;
 }
 
 header h2{
