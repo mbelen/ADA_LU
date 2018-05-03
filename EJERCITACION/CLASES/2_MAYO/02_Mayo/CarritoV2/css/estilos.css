@@ -99,6 +99,10 @@ header h2{
 	content: "$";
 }
 
+.subtotal::before {
+	content:"$";
+}
+
 ul {
 	width:80%;
 	margin:3px auto;
@@ -123,6 +127,11 @@ li {
 
 .eliminar:hover {
 	color:#ffff72;
+}
+
+.cantsalida {
+	width:25px;
+	background:#ffc5d9;
 }
 
 footer{

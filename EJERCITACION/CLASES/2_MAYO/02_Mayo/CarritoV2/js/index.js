@@ -18,8 +18,10 @@ if(carritoStorage==null) {
 		console.log(carrito)
 		
 		$.each(carrito, function(key,value){
+			var precio =
 			console.log(value.producto);
-			let lis = `<li class="item"><span>${value.producto.cantidad}</span><span>${value.producto.nombre}</span><span>Subtotal: $ ${value.subtotal}</span><i class="far fa-trash-alt eliminar" data-id=${key}></li>`
+			let lis = `<li class="item"><input class="cantsalida" type="number" min="1" id="input${key}" value="${value.producto.cantidad}"<span>${value.producto.nombre}</span><span class="subtotal" data-precio=${value.producto.precio}>${value.subtotal}</span><i class="far fa-trash-alt eliminar" data-id=${key}></li>`
+			
 			$("#items").append(lis)
 		})
 	
@@ -49,7 +51,7 @@ $(".add").on("click", function(){
 	}
 	
 	//Calculo el stock
-	item.stock = item.stock - item.producto.cantidad;
+	item.stock = item.stock - item.producto.cantidad; //Esto solamente anda si pido más del stock total en una sentada. Hay que hacero todo.
 	if(item.stock<=0){
 		console.log("no hay stock");
 		return alert("no hay suficiente stock");
@@ -78,7 +80,7 @@ $(".add").on("click", function(){
 		localStorage.setItem("carrito",carro);
 		console.log(carrito)
 		//Creo el ítem que se va a ver en el carrito
-		var li = '<li class="item"><span>'+item.producto.cantidad+'</span><span>'+item.producto.nombre+'</span><span> Subtotal: $'+subtotal+'</span><i class="far fa-trash-alt eliminar" data id="'+(carrito.length-1)+'"></li>'
+		var li = '<li class="item"><input class="cantsalida" type="number" min="1" value="'+item.producto.cantidad+'"/><span>'+item.producto.nombre+'</span><span class="subtotal" data-precio="'+item.producto.precio+'">'+subtotal+'</span><i class="far fa-trash-alt eliminar" data id="'+(carrito.length-1)+'"></li>'
 		$("#vacio").text("")
 		$("#items").append(li)
 
@@ -112,13 +114,33 @@ $(document).on('click','#cancel',function(e){
 		localStorage.setItem("carrito", nuevoCarrito);
 	})
 
+//Cambia subtotal al cambiar cantidad
+$(document).on('change', '.cantsalida', function(e){
+	console.log("cambioooo");
+	var contenedor = $(this).parent();
+	var nuevosub= contenedor.find(".subtotal");
+	var precio = nuevosub.data('precio');
+	var cant = parseInt(contenedor.children().first().val());
+	var nuevoValor=precio*cant;
+	console.log(cant)
+	console.log(nuevosub); 
+	nuevosub.text(nuevoValor);
+})
+
 /////////////////////////////////////LLAMADAS////////////////////////////////////////////
 
 /*
-Preguntas:
-¿Por qué no se me crea el array carrito si está vacío?
-¿Cómo creo data-id continuados entre lo que me traigo y lo nuevo que voy creando?
 
+falta 
+- Posibilidad de modificar dinámicamente la cantidad. Esto significa:
+  cambiarla en el li
+  recalcular subtotal
+  mover cantidad y subtotal nuevos a localStorage para que los traiga bien a partir de ahí
+  (eso último será un tema)
+Preguntas:
+-Traté de meter lo de traerme el carrito en una función y, cuando no hay carrito creado, no se me crea
+¿Cómo puedo pasar variables de una función al scope global?
+- ¿Cómo encaro el stock?
 
 /*
 - Los inputs llevan cantidad
@@ -159,3 +181,48 @@ if(carrito.length==0) {
 
   */
 
+/*////////////////////////////////////////////////////////////3/5
+Versión vista en clase
+
+
+// Creo un objeto producto vacio para guardar la información
+var producto = {};
+
+
+$('.add').on('click',function(e){
+
+	let hermanos = $(this).siblings(); //me traigo un arreglo que va a tener todo el div producto
+
+	// Recupero la información del HTML
+
+	producto.url = hermanos[0].src; //imagen
+	producto.descripcion = hermanos[1].innerText; 
+	producto.precio = hermanos[2].innerText;
+	
+	// Creo un objeto item, para agregar luego al carrito
+
+	var item ={
+		cantidad : hermanos[3].value,
+		producto : producto
+	}
+		
+	console.log(item);
+	carrito.push(item);
+
+	//Creo el localStorage
+	let jsonCarrito = {'productos':carrito};
+	localStorage.setItem('carrito', JSON.stringify(jsonCarrito))
+});
+
+/*Para controlar stock:
+Cuando agrego: si cantidad>stock sale un alert.
+Puedo cargar el stock en el html o directamente por JS.
+Si lo cargo en html:
+Lo agrego en mi objeto producto
+producto.stock = hermanos[3].innerText; //estoy asumiendo que lo incluí en el div como un ítem de igual jerarquía que el botón add.
+if cantidad > stock
+no creo el item.
+
+¿Cómo actualizo el stock?
+
+*/
