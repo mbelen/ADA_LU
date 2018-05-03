@@ -3,7 +3,7 @@ console.log("cargado")
 /////////////////////////////////////VARIABLES////////////////////////////////////////////
 
 var carritoStorage = localStorage.getItem("carrito");
-console.log(carritoStorage);
+//console.log(carritoStorage);
 var carrito = [];
 
 ////////////////////////////////////FUNCIONES/////////////////////////////////////////////
@@ -15,7 +15,7 @@ if(carritoStorage==null) {
 		console.log(carrito)
 }else {
 		var carrito = JSON.parse(carritoStorage);
-		console.log(carrito)
+		//console.log(carrito)
 		
 		$.each(carrito, function(key,value){
 			var precio =
@@ -26,13 +26,13 @@ if(carritoStorage==null) {
 		})
 	
 }
-	console.log(carrito)
+	//console.log(carrito)
 
 //Empiezo a agregar productos
 $(".add").on("click", function(){
 	//Convierto el precio en un número
 	if($(this).prev().val()==0) {
-		console.log("nope")
+		//console.log("nope")
 	}else{
 		var precioString = $(this).prev().prev().text();
 		var precio = parseInt(precioString);
@@ -51,7 +51,7 @@ $(".add").on("click", function(){
 	//Calculo el stock
 	item.stock = item.stock - item.producto.cantidad; //Esto solamente anda si pido más del stock total en una sentada. Hay que hacero todo.
 	if(item.stock<=0){
-		console.log("no hay stock");
+		//console.log("no hay stock");
 		return alert("no hay suficiente stock");
 		return false
 	}
@@ -60,7 +60,7 @@ $(".add").on("click", function(){
 	else {
 		//Calculo el subtotal
 		var subtotal = item.producto.cantidad*item.producto.precio;
-		console.log(subtotal);
+		//console.log(subtotal);
 
 		//Llevo el ítem al array
 		var compra = item.producto;
@@ -70,15 +70,15 @@ $(".add").on("click", function(){
 			subtotal:subtotalCompra
 		};
 		carrito.push(datosCompra);
-		console.log(carrito);
+		//console.log(carrito);
 		
 		//Guardo en localStorage
 		let carro = JSON.stringify(carrito);
-		console.log(carro);
+		//console.log(carro);
 		localStorage.setItem("carrito",carro);
-		console.log(carrito)
+		//console.log(carrito)
 		//Creo el ítem que se va a ver en el carrito
-		var li = '<li class="item"><input class="cantsalida" type="number" min="1" value="'+item.producto.cantidad+'" id="'+(carrito.length-1)+'input"/><span>'+item.producto.nombre+'</span><span class="subtotal" data-precio="'+item.producto.precio+'">'+subtotal+'</span><i class="far fa-trash-alt eliminar" data id="'+(carrito.length-1)+'"></li>'
+		var li = '<li class="item"><input class="cantsalida" type="number" min="1" value="'+item.producto.cantidad+'" id="'+(carrito.length-1)+'input"/><span>'+item.producto.nombre+'</span><span class="subtotal" data-precio="'+item.producto.precio+'">'+subtotal+'</span><i class="far fa-trash-alt eliminar" data-id="'+(carrito.length-1)+'"></li>'
 		$("#vacio").text("")
 		$("#items").append(li)
 
@@ -94,53 +94,77 @@ $(document).on('click','.eliminar',function(e){
 		var indice = $(this).data("id");
 		$(this).parent().remove();	
 		carrito.splice(indice,1);
-		console.log(carrito);
+		console.log("carrito"+carrito);
 		let nuevoCarrito = JSON.stringify(carrito);
-		console.log(nuevoCarrito);
+		localStorage.setItem("carrito", nuevoCarrito);
+		var li = $(".eliminar");
+		console.log("largo del carrito"+carrito.length);
+		
+		//mi solución redundante
+		$("#items").children().remove();
+		$.each(carrito, function(key,value){
+			var precio =
+			console.log(value.producto);
+			let lis = `<li class="item"><input class="cantsalida" type="number" min="1" id="${key}input" value="${value.producto.cantidad}"/><span>${value.producto.nombre}</span><span class="subtotal" data-precio=${value.producto.precio}>${value.subtotal}</span><i class="far fa-trash-alt eliminar" data-id=${key}></li>`
+			
+			$("#items").append(lis)
+		})
+		/*Problemón: al hacer el splice haciendo coincidir posición y data-id, si elimino un elemento
+		y después trato de eliminar uno más abajo, la posición y el data-id ya no coinciden (las
+		posiciones cambian al reducirse el array) y por lo tanto no se borra correctamente).	
+		Para solucionarlo, quisiera reiniciar los data-id de 0 a carrito.length cada vez que hago el 
+		splice. No me estaría saliendo*/
+		
+		/*$.each(li, function(indice, elemento){ 
+			console.log($(this).index())
+			li.removeAttr( "data-id" );
+			li.attr('data-id',$(this).indice);
+		})*/
 	})
-
 //Elimina todo el carrito
 
 $(document).on('click','#cancel',function(e){
-		console.log($("#items").children())
+		//console.log($("#items").children())
 		$("#items").children().remove();	
 		carrito=[]
-		console.log(carrito);
+		//console.log(carrito);
 		let nuevoCarrito = JSON.stringify(carrito);
-		console.log(nuevoCarrito);
+		//console.log(nuevoCarrito);
 		localStorage.setItem("carrito", nuevoCarrito);
+
 	})
 
 //Cambia subtotal al cambiar cantidad
 $(document).on('change', '.cantsalida', function(e){
-	console.log("cambioooo");
+	//console.log("cambioooo");
 	var contenedor = $(this).parent();
 	var nuevosub= contenedor.find(".subtotal");
 	var precio = nuevosub.data('precio');
 	var cant = parseInt(contenedor.children().first().val());
 	var nuevoValor=precio*cant;
-	console.log(cant)
-	console.log(nuevosub); 
+	//console.log(cant)
+	//console.log(nuevosub); 
 	nuevosub.text(nuevoValor);
 	
 	//Lo paso a localStorage
-	for(i=0; i<carrito.length; i++) {
+for(i=0; i<carrito.length; i++) {
 		var data = parseInt($(this).attr("id"));
-		console.log(data)
-		console.log(carrito[i])
+		//console.log(data)
+		//console.log(carrito[i])
 		if(data==i) {
 			console.log(carrito[i])
 			carrito[i].producto.cantidad = cant;
 			carrito[i].subtotal = nuevoValor;
-			console.log(carrito[i]);
-			console.log(carrito);
+			//console.log(carrito[i]);
+			//console.log(carrito);
 			let nuevoCarrito = JSON.stringify(carrito);
-			console.log(nuevoCarrito);
+			//console.log(nuevoCarrito);
 			localStorage.setItem("carrito", nuevoCarrito);
 		}
 	}
-	console.log(carrito);
-	console.log($(this).parent())
+	//console.log(carrito);
+	console.log($(this).parent());
+
 })
 
 /////////////////////////////////////LLAMADAS////////////////////////////////////////////
