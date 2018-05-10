@@ -1,268 +1,211 @@
 console.log("cargado")
 //localStorage.clear()
+
 /////////////////////////////////////VARIABLES////////////////////////////////////////////
 
 var carritoStorage = localStorage.getItem("carrito");
-//console.log(carritoStorage);
 var carrito = [];
+var total = 0;
+//busco el total en storage
+var totalStorage = localStorage.getItem("total");
+console.log(totalStorage)
 
 ////////////////////////////////////FUNCIONES/////////////////////////////////////////////
 
-
 //Chequeo si mi carrito está vacío
 if(carritoStorage==null) {
-		let carrito=[];
-		console.log(carrito)
+	let carrito=[];
+	console.log(carrito)
 }else {
-		var carrito = JSON.parse(carritoStorage);
-		//console.log(carrito)
-		
-		$.each(carrito, function(key,value){
-			var precio =
-			console.log(value.producto);
-			let lis = `<li class="item"><input class="cantsalida" type="number" min="1" id="${key}input" value="${value.producto.cantidad}"/><span>${value.producto.nombre}</span><span class="subtotal" data-precio=${value.producto.precio}>${value.subtotal}</span><i class="far fa-trash-alt eliminar" data-id=${key}></li>`
-			
-			$("#items").append(lis)
-		})
-	
+	var carrito = JSON.parse(carritoStorage);
+	$.each(carrito, function(key,value){
+		var precio =
+		console.log(value.producto);
+		let lis = `<li class="item"><input class="cantsalida" type="number" min="1" id="${key}input" value="${value.producto.cantidad}"/><span>${value.producto.nombre}</span><span class="subtotal" data-precio=${value.producto.precio}>${value.subtotal}</span><i class="far fa-trash-alt eliminar" data-id=${key}></li>`
+		$("#items").append(lis)
+	})
 }
-	//console.log(carrito)
+	
+if(totalStorage==null){
+	let total = 0;
+	console.log(total)
+}else{
+	var total = JSON.parse(totalStorage);
+	$('#total').text(total);
+}
+
+console.log(total)
 
 //Empiezo a agregar productos
 $(".add").on("click", function(){
-	//Convierto el precio en un número
 	if($(this).prev().val()==0) {
-		//console.log("nope")
+		console.log("nope")
+		//Agregar etiqueta de aviso de que no seleccionó nada
 	}else{
+		//Convierto el precio en un número
 		var precioString = $(this).prev().prev().text();
 		var precio = parseInt(precioString);
-	//Creo el objeto item
-	var item = {	stock:10,
+		console.log(total);
+		//Creo el objeto item
+		var item = {	
+					stock:10,
 					producto: {
 						codigo: 0,
 						nombre: $(this).prev().attr("name"),
 						precio: precio,
 						cantidad: parseInt($(this).prev().val())
 					}
+			}
 
-	}
-
+		//Calculo el stock
+		item.stock = item.stock - item.producto.cantidad; //Esto solamente anda si pido más del stock total en una sentada. Hay que hacero todo.
 	
-	//Calculo el stock
-	item.stock = item.stock - item.producto.cantidad; //Esto solamente anda si pido más del stock total en una sentada. Hay que hacero todo.
-	if(item.stock<=0){
-		//console.log("no hay stock");
+		//Si me pasé, hago que aparezca alerta
+		if(item.stock<=0){
 		return alert("no hay suficiente stock");
-		return false
-	}
-
-	//Si no me pasé del stock, mando el item al array
-	else {
-		//Calculo el subtotal
-		var subtotal = item.producto.cantidad*item.producto.precio;
-		//console.log(subtotal);
-
-		//Llevo el ítem al array
-		var compra = item.producto;
-		var subtotalCompra = subtotal;
-		var datosCompra = {
+	
+		//Si no me pasé del stock, mando el item al array
+		}else {
+			//Calculo el subtotal
+			var subtotal = item.producto.cantidad*item.producto.precio;
+			total+=subtotal;
+			console.log(total)
+			let mitotal = JSON.stringify(total);
+			localStorage.setItem("total",total);
+			//Escribo el total
+			var tot = $("#total");
+			console.log(tot);
+			tot.text(total);
+			//Llevo el ítem al array
+			var compra = item.producto;
+			var subtotalCompra = subtotal;
+			var datosCompra = {
 			producto:compra,
 			subtotal:subtotalCompra
-		};
-		carrito.push(datosCompra);
-		//console.log(carrito);
+			};
+			carrito.push(datosCompra);
 		
-		//Guardo en localStorage
-		let carro = JSON.stringify(carrito);
-		//console.log(carro);
-		localStorage.setItem("carrito",carro);
-		//console.log(carrito)
-		//Creo el ítem que se va a ver en el carrito
-		var li = '<li class="item"><input class="cantsalida" type="number" min="1" value="'+item.producto.cantidad+'" id="'+(carrito.length-1)+'input"/><span>'+item.producto.nombre+'</span><span class="subtotal" data-precio="'+item.producto.precio+'">'+subtotal+'</span><i class="far fa-trash-alt eliminar" data-id="'+(carrito.length-1)+'"></li>'
-		$("#vacio").text("")
-		$("#items").append(li)
+			//Guardo en localStorage
+			let carro = JSON.stringify(carrito);
+			localStorage.setItem("carrito",carro);
 
+			//Creo el ítem que se va a ver en el carrito
+			var li = '<li class="item"><input class="cantsalida" type="number" min="1" value="'+item.producto.cantidad+'" id="'+(carrito.length-1)+'input"/><span>'+item.producto.nombre+'</span><span class="subtotal" data-precio="'+item.producto.precio+'">'+subtotal+'</span><i class="far fa-trash-alt eliminar" data-id="'+(carrito.length-1)+'"></li>'
+			$("#vacio").text("")
+			$("#items").append(li)
+			$("#comprafinal").css("display","none"); //hace que el cartel de "gracias por su compra" se vaya si vuelvo a agregar ítems
+		}
 	}
-
-	
-}
 });
 
-//Elimina elementos de a uno
-
+//Función para eliminar elementos de a uno al tocar el tachito
 $(document).on('click','.eliminar',function(e){
-		var indice = $(this).data("id");
-		$(this).parent().remove();	
-		carrito.splice(indice,1);
-		console.log("carrito"+carrito);
-		let nuevoCarrito = JSON.stringify(carrito);
-		localStorage.setItem("carrito", nuevoCarrito);
-		var li = $(".eliminar");
-		console.log("largo del carrito"+carrito.length);
+	var indice = $(this).data("id");
+	$(this).parent().remove();	
+	carrito.splice(indice,1);
+	console.log("carrito"+carrito);
+	let nuevoCarrito = JSON.stringify(carrito);
+	localStorage.setItem("carrito", nuevoCarrito);
+	var li = $(".eliminar");
+	console.log("largo del carrito"+carrito.length);
+	var contenedor = $(this).parent();
+	var borroSub= contenedor.find(".subtotal");
+	var subValue = parseInt(borroSub.text());
+	total-=subValue;
+	localStorage.setItem("total", total);
+	$("#total").text(total);
+	console.log(total);
 		
-		//mi solución redundante
-		$("#items").children().remove();
-		$.each(carrito, function(key,value){
-			var precio =
-			console.log(value.producto);
-			let lis = `<li class="item"><input class="cantsalida" type="number" min="1" id="${key}input" value="${value.producto.cantidad}"/><span>${value.producto.nombre}</span><span class="subtotal" data-precio=${value.producto.precio}>${value.subtotal}</span><i class="far fa-trash-alt eliminar" data-id=${key}></li>`
-			
-			$("#items").append(lis)
-		})
-		/*Problemón: al hacer el splice haciendo coincidir posición y data-id, si elimino un elemento
-		y después trato de eliminar uno más abajo, la posición y el data-id ya no coinciden (las
-		posiciones cambian al reducirse el array) y por lo tanto no se borra correctamente).	
-		Para solucionarlo, quisiera reiniciar los data-id de 0 a carrito.length cada vez que hago el 
-		splice. No me estaría saliendo*/
-		
-		/*$.each(li, function(indice, elemento){ 
-			console.log($(this).index())
-			li.removeAttr( "data-id" );
-			li.attr('data-id',$(this).indice);
-		})*/
+	//Borro y rehago los li para que se reinicien los data-id
+	$("#items").children().remove();
+	$.each(carrito, function(key,value){
+		console.log(value.producto);
+		let lis = `<li class="item"><input class="cantsalida" type="number" min="1" id="${key}input" value="${value.producto.cantidad}"/><span>${value.producto.nombre}</span><span class="subtotal" data-precio=${value.producto.precio}>${value.subtotal}</span><i class="far fa-trash-alt eliminar" data-id=${key}></li>`
+		$("#items").append(lis)
 	})
-//Elimina todo el carrito
+})
 
+//Elimina todo el carrito al tocar "cancelar compra"
 $(document).on('click','#cancel',function(e){
-		//console.log($("#items").children())
-		$("#items").children().remove();	
-		carrito=[]
-		//console.log(carrito);
-		let nuevoCarrito = JSON.stringify(carrito);
-		//console.log(nuevoCarrito);
-		localStorage.setItem("carrito", nuevoCarrito);
-
-	})
+	$("#items").children().remove();	
+	carrito=[];
+	total = 0;
+	localStorage.setItem("total", total);
+	$("#total").text("0")
+	let nuevoCarrito = JSON.stringify(carrito);
+	localStorage.setItem("carrito", nuevoCarrito);
+})
 
 //Cambia subtotal al cambiar cantidad
-$(document).on('change', '.cantsalida', function(e){
-	//console.log("cambioooo");
+	$(document).on('change', '.cantsalida', function(e){
 	var contenedor = $(this).parent();
 	var nuevosub= contenedor.find(".subtotal");
+	var viejosub = parseInt(nuevosub.text());
+	total-=viejosub
+	console.log(total);
 	var precio = nuevosub.data('precio');
 	var cant = parseInt(contenedor.children().first().val());
 	var nuevoValor=precio*cant;
-	//console.log(cant)
-	//console.log(nuevosub); 
 	nuevosub.text(nuevoValor);
-	
-	//Lo paso a localStorage
-for(i=0; i<carrito.length; i++) {
+	total+=nuevoValor
+	console.log(total)
+	localStorage.setItem("total", total);
+	$("#total").text(total)
+//Lo paso a localStorage
+	for(i=0; i<carrito.length; i++) {
 		var data = parseInt($(this).attr("id"));
-		//console.log(data)
-		//console.log(carrito[i])
+		//primero busco el elemento correspondiente en el array con un for que compara data-id y posición
 		if(data==i) {
-			console.log(carrito[i])
+			//cuando lo encuentro, cambio el valor correspondiente y creo el JSON de vuelta
 			carrito[i].producto.cantidad = cant;
 			carrito[i].subtotal = nuevoValor;
-			//console.log(carrito[i]);
-			//console.log(carrito);
 			let nuevoCarrito = JSON.stringify(carrito);
-			//console.log(nuevoCarrito);
 			localStorage.setItem("carrito", nuevoCarrito);
 		}
 	}
-	//console.log(carrito);
-	console.log($(this).parent());
-
 })
 
-/////////////////////////////////////LLAMADAS////////////////////////////////////////////
-
-/*
-
-falta 
-- Posibilidad de modificar dinámicamente la cantidad. Esto significa:
-  cambiarla en el li
-  recalcular subtotal
-  mover cantidad y subtotal nuevos a localStorage para que los traiga bien a partir de ahí
-  (eso último será un tema)
-Preguntas:
--Traté de meter lo de traerme el carrito en una función y, cuando no hay carrito creado, no se me crea
-¿Cómo puedo pasar variables de una función al scope global?
-- ¿Cómo encaro el stock?
-
-/*
-- Los inputs llevan cantidad
-- Hay que guardar la data en localstorage donde se guarde mi carrito y generar una página de 
-checkout
-- Mi carrito debe:
-  -agregar producto -> ¿qué es mi producto?¿Es un objeto?¿Qué atributos tiene?
-  (producto=objeto con descripción, precio y cantidad)
-  (o código:número, descripción:string, precio:número '¿flotante?', cantidad, img)
-  -vaciar
-  -hacer la compra
-  -eliminar producto
-  -modificar la cantidad
-  -Calcular subtotales y total
-La compra arranca o con un carro vacío o con lo que tenía guardado en el carro, así
-que primero debe haber una función que confirme si ya hay cosas en el carrito.
-- Stock: es un atributo del producto. Hay un máximo que se puede comprar y en la
-medida en que compramos va bajando. 
-Puede ser así:
-item{
-	cantidad:stock (int)
-	producto:{código,descripción,precio,cantidad}
-}
-El stock debería validarse al cerrar la compra?
-Podemos agregar un tiempo de sesión
-  
-//Creo el cartelito de que el carrito está vacío si no hay nada
-function vacio() {
-if(carrito.length==0) {
-	$("#vacio").text("no hay elementos en tu carrito");
-	console.log(carrito)
-}else{
-	$("#vacio").text("");
-}
-
-}
-
-
-  */
-
-/*////////////////////////////////////////////////////////////3/5
-Versión vista en clase
-
-
-// Creo un objeto producto vacio para guardar la información
-var producto = {};
-
-
-$('.add').on('click',function(e){
-
-	let hermanos = $(this).siblings(); //me traigo un arreglo que va a tener todo el div producto
-
-	// Recupero la información del HTML
-
-	producto.url = hermanos[0].src; //imagen
-	producto.descripcion = hermanos[1].innerText; 
-	producto.precio = hermanos[2].innerText;
-	
-	// Creo un objeto item, para agregar luego al carrito
-
-	var item ={
-		cantidad : hermanos[3].value,
-		producto : producto
-	}
+//Función para finalizar compra
+$(document).on('click','#final',function(e){
+	//borro todo y reseteo el carrito
+	$("#items").children().remove();	
+	carrito=[];
+	total=0;
+	$("#total").text("0")
+	localStorage.setItem("total", total);
+	let nuevoCarrito = JSON.stringify(carrito);
+	localStorage.setItem("carrito", nuevoCarrito);
 		
-	console.log(item);
-	carrito.push(item);
+	//aparece cartel de gracias por su compra
+	$("#comprafinal").css("display","flex");
+})
 
-	//Creo el localStorage
-	let jsonCarrito = {'productos':carrito};
-	localStorage.setItem('carrito', JSON.stringify(jsonCarrito))
-});
+/////////////////////////////////////NOTAS////////////////////////////////////////////
 
-/*Para controlar stock:
-Cuando agrego: si cantidad>stock sale un alert.
-Puedo cargar el stock en el html o directamente por JS.
-Si lo cargo en html:
-Lo agrego en mi objeto producto
-producto.stock = hermanos[3].innerText; //estoy asumiendo que lo incluí en el div como un ítem de igual jerarquía que el botón add.
-if cantidad > stock
-no creo el item.
+/*
 
-¿Cómo actualizo el stock?
+
+
+Apuntes sobre cómo evitar la duplicación de productos y que, al agregar más del mismo, varíe la 
+cantidad.
+
+function chequearExistencia(producto){
+
+
+	let cod = item.producto.codigo; //toma el código del producto al que le di click
+	let encontrado = false;
+	let i = 0;
+
+	while(encontrado && i<carrito.length){
+		
+
+	if(cod=carrito[i].producto.codigo==cod){
+		return i
+		encontrado = true; // también podría return true directamente.
+	}
+	i++;
+}
+return encontrado;
+}
 
 */

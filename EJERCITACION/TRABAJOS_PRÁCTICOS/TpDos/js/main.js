@@ -105,7 +105,7 @@ console.log(fichas)
 function repartir() {
 var tablero = $('#tablero');
 for(i=0;i<fichas.length;i++){
-var img ='<figure class="slotficha"><img class="reverso"src="'+fichas[i]["img"]+'"/></figure>'
+var img ='<figure class="slotficha"><img id="'+fichas[i].nombre+'" class="reverso" src="'+fichas[i].img+'" data-valor="'+fichas[i].valor+'"/></figure>'
 tablero.append(img);
 console.log("repartido")
 }
@@ -118,29 +118,93 @@ $('#reinicio').on('click', function() {
   $('#tablero').children().remove();
   mezclar();
   repartir();
-})
+  gameplay();
+}) //Por alguna razón, cuando la uso no se aplica más la función gameplay. VER.
 
 //Función Gameplay
+
+function gameplay(){
+  var par = [];
+  var controlNombre = [];
+  var turno = 24;
+  var puntos = 0
+
+  $(".reverso").on('click', function vuelta() {
+  console.log("listen")
+  console.log(par)
+  //da vuelta la ficha
+  $(this).addClass("anverso");
+  $(this).removeClass("reverso");
+
+  
+  //manda el valor al array "par" y el nombre al array de control
+  par.push($(this).data("valor"));
+  controlNombre.push($(this).attr('id'));
+  console.log(par)
+
+    //Dispara la comparación cuando hay dos elementos en el array
+    if(par.length===2) {
+    
+      //Controlo el nombre de ficha para asegurarme de no haber clickeado dos veces la misma
+      if(controlNombre[0]===controlNombre[1]){
+      
+      //si efectivamente di click dos veces en la misma, quito una de cada array, así puedo elegir otra
+      par.splice(0,1);
+      controlNombre.splice(0,1)
+      console.log(par)
+      
+      //entro a la comparación
+      }else{
+        //trabo las otras fichas con una clase para que no pueda dar vuelta más de dos a la vez
+        $(".reverso").addClass("lock");
+        $(".lock").removeClass("reverso")
+        
+        if(par[0]===par[1]) {
+        console.log("yay");
+          //Si gané, les cambio la clase para no poder tocarlas más y destrabo las otras fichas
+          function win(){
+          $(".anverso").addClass("win"); //creo que ahora sobra
+          $(".win").removeClass("anverso"); //creo que ahora sobra
+          $("#"+controlNombre[0]).off('click');
+          $("#"+controlNombre[1]).off('click');
+          $(".lock").addClass("reverso");
+          $(".reverso").removeClass("lock");
+          par=[]
+          controlNombre=[];
+          puntos++
+          console.log(puntos)
+          }
+        setTimeout(win, 1000)
+        
+        }else{
+        console.log("nay");
+        
+          //si perdí, doy vuelta las fichas seleccionadas y destrabo las demás
+          function lose() {
+          $(".anverso").addClass("reverso");
+          $(".reverso").removeClass("anverso");
+          $(".lock").addClass("reverso");
+          $(".reverso").removeClass("lock");
+          par=[];
+          controlNombre=[];
+          turno--
+          console.log(turno)
+          }
+        setTimeout(lose, 1000) 
+        }
+      }
+    }
+  })
+}
+
 
 /////////////////////////////LLAMADAS A FUNCIONES////////////////////////////////
 mezclar();
 repartir();
+$( document ).ready(gameplay)
 
 
-
-
-/*Apuntes varios
-Próximo objetivo: empezar la función propia del juego. En un primer momento,
-lograr que me deje clickear dos y solo dos elementos, tomar sus valores y, pasado un
-tiempo, volverlos a dar vuelta:
-
-- Las cartas dadas vuelta se compararán, en principio, con un if que compare 
-el atributo "valor"
-- Va a haber que poner un set timeout que revierta las cartas incorrectas
-- Las cartas se darán vuelta agregándoles-quitándoles display:none u opacity:0
-- Para que no pueda dar vuelta más de dos cartas a la vez, capaz haya que hacer un
-contador que no deje ejecutar el onclick si está en 2.
-
-También: Embellecer la función de nombre. Agregar botón para cambiar que vuelva atrás. 
-Ponerle estilo
+/*
+- Averiguar por qué el botón reiniciar me rompe la función Gameplay
+- Averiguar por qué me toma el onclick de .anverso cuando ya cambié la clase a lock
 */
