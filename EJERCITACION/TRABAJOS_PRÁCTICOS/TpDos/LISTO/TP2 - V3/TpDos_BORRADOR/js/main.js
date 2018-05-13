@@ -61,15 +61,15 @@ var fichas = [{ nombre:0,
               },
               ];
 
-  var par = [];
-  var controlNombre = [];
+  var par = []; //traerá los valores de cada ficha. Las cartas iguales tienen igual valor
+  var controlNombre = []; //traerá los nombres de cada ficha. Cada ficha tiene un nombre único
   var turno = 24;
   var puntos = 0;
 
 /////////////////////////////////FUNCIONES////////////////////////////////////////////
 
 //Función para que el jugador ponga su nombre
- $("#ingreso").on("click", function () {
+ function cargaNombre() {
   var nombre = $("#nombre").val();
     if(nombre != "") {
       $("#nombre").hide();
@@ -81,16 +81,16 @@ var fichas = [{ nombre:0,
     }else{
       $("#error").text("Ingresá tu nombre");
   }
-})
+}
 
 //Función para editar o cambiar el nombre
-$(document).on("click", "#editar", function(e) {
+function editaNombre() {
   $("#nombre").show();
   $("#nombre").prev().show();
   $("#ingreso").show();
   $("#player").remove();
   $(this).remove();  
-})
+}
 
 
 //Función que mezcla las fichas 
@@ -106,64 +106,62 @@ function mezclar(){
 //Función que reparte las fichas creando dinámicamente los figs e img en el tablero
 
 function repartir() {
-var tablero = $('#tablero');
 for(i=0;i<fichas.length;i++){
 var img ='<figure class="slotficha"><img id="'+fichas[i].nombre+'" class="reverso" src="'+fichas[i].img+'" data-valor="'+fichas[i].valor+'" draggable="false"/></figure>'
-tablero.append(img);
+var tile = $("#tile"+i)
+tile.append(img);
 }
 console.log("repartido")
 }
 
 //Función que resetea valores y rehace mezcla/reparto al clickear "reiniciar" 
-
-$('#reinicio').on('click', function() {
+function reiniciar() {
   turno = 24;
   puntos = 0;
   par = [];
   controlNombre = [];
-  $("#contador").text(turno)
-  $('#tablero').children().remove();
+  $("#tablero").children().show();
+  $("#contador").text(turno);
+  $('.tile').children().remove();
+  $(".result").remove()
   mezclar();
   repartir();
 
-}) 
+}
 
-//Función Gameplay
-
-$(document).on("click", ".reverso", function gameplay(e) {
+//Función Gameplay (se activa al clickear una ficha)
+ function gameplay() {
   console.log(par)
-  //da vuelta la ficha
+  //doy vuelta las fichas y mando sus valores a los arrays
   $(this).addClass("anverso");
   $(this).removeClass("reverso");
-
-  //manda el valor al array "par" y el nombre al array de control
   par.push($(this).data("valor"));
   controlNombre.push($(this).attr('id'));
   console.log(par)
 
-    //Dispara la comparación cuando hay dos elementos en el array
+    //Condicional que se dispara cuando hice click en dos fichas
     if(par.length===2) {
     
-      //Primero controlo no haber clickeado dos veces la misma ficha y, de ser así, remuevo un valor.
+      //Controlo no haber clickeado dos veces la misma ficha
       if(controlNombre[0]===controlNombre[1]){
       
       par.splice(0,1);
       controlNombre.splice(0,1)
       
-      //Si está todo ok, entro a la comparación
+      //Entro a la comparación
       }else{
-        comparar()
+        comparar();
       }
     }
-})
-
+}
 
 //Función que compara las fichas y llama las funciones win/lose según corresponda        
 function comparar() {
-
+    //traba las fichas para que no pueda seguir dándolas vuelta durante la comparación
     $(".reverso").addClass("lock");
     $(".lock").removeClass("reverso")
-        
+    
+    //compara    
     if(par[0]===par[1]) {
       console.log("yay");
       setTimeout(win, 1000)
@@ -174,7 +172,6 @@ function comparar() {
     } 
 }
 
-
 //Función que se activa si acierto el par
 function win(){
   $(".anverso").addClass("win");
@@ -183,19 +180,21 @@ function win(){
   $("#"+controlNombre[1]).off('click');
   $(".lock").addClass("reverso");
   $(".reverso").removeClass("lock");
-  par=[]
+  par=[];
   controlNombre=[];
-  puntos++
+  puntos++;
   console.log(puntos);
+
+  //Si fue el último par, se muestra pantalla ganadora
   if(puntos===6) {
-    alert("ganamos");
-    $("#tablero").children().remove();
-    var win = `<div id="ganamos"><figure><img src="img/ganador.gif" alt="gato celebratorio"/></figure><h2>¡Felicidades! ¡Has ganado!</h2><h5>¡¡¡¡Presiona "reiniciar" para jugar de nuevo!!!!</h5></div>`
-    $("#tablero").append(win)  
+    $(".tile").children().remove();
+    $("#tablero").children().hide();
+    var win = `<div class="result"><figure><img src="img/ganador.gif" alt="gato celebratorio"/></figure><h2>¡Felicidades! ¡Has ganado!</h2><h5>¡¡¡¡Presiona "reiniciar" para jugar de nuevo!!!!</h5></div>`;
+    $("#tablero").append(win);  
   }
 }
 
-//Función que se activa si NO acierto el par
+//Función que se activa si no acierto el par
 function lose() {
   $(".anverso").addClass("reverso");
   $(".reverso").removeClass("anverso");
@@ -203,15 +202,23 @@ function lose() {
   $(".reverso").removeClass("lock");
   par=[];
   controlNombre=[];
-  turno--
-  $("#contador").text(turno)
-  console.log(turno)
+  turno--;
+  $("#contador").text(turno);
+  console.log(turno);
+
+  //Si fue el último turno, se muestra pantalla perdedora 
   if(turno===0) {
-    alert("perdimos")
-    $("#tablero").children().remove();
+    $(".tile").children().remove();
+    $("#tablero").children().hide();
+    var lost = `<div class="result"><figure><img src="img/losecat.jpg" alt="gato triste"/></figure><h2>¡Lo sentimos! ¡Has perdido!</h2><h5>¡¡¡¡Presiona "reiniciar" para jugar de nuevo!!!!</h5></div>`;
+    $("#tablero").append(lost);  
   }
 }
 
 /////////////////////////////LLAMADAS A FUNCIONES////////////////////////////////
+$("#ingreso").on("click", cargaNombre);
+$(document).on("click", "#editar", editaNombre);
 mezclar();
 repartir();
+$(document).on("click", ".reverso", gameplay);
+$('#reinicio').on('click', reiniciar);

@@ -69,7 +69,7 @@ var fichas = [{ nombre:0,
 /////////////////////////////////FUNCIONES////////////////////////////////////////////
 
 //Función para que el jugador ponga su nombre
- $("#ingreso").on("click", function () {
+function ingreso() {
   var nombre = $("#nombre").val();
     if(nombre != "") {
       $("#nombre").hide();
@@ -81,16 +81,16 @@ var fichas = [{ nombre:0,
     }else{
       $("#error").text("Ingresá tu nombre");
   }
-})
+}
 
 //Función para editar o cambiar el nombre
-$(document).on("click", "#editar", function(e) {
+function editar() {
   $("#nombre").show();
   $("#nombre").prev().show();
   $("#ingreso").show();
   $("#player").remove();
   $(this).remove();  
-})
+}
 
 
 //Función que mezcla las fichas 
@@ -130,7 +130,7 @@ $('#reinicio').on('click', function() {
 
 //Función Gameplay
 
-$(document).on("click", ".reverso", function gameplay(e) {
+function gameplay() {
   console.log(par)
   //da vuelta la ficha
   $(this).addClass("anverso");
@@ -155,7 +155,7 @@ $(document).on("click", ".reverso", function gameplay(e) {
         comparar()
       }
     }
-})
+}
 
 
 //Función que compara las fichas y llama las funciones win/lose según corresponda        
@@ -213,5 +213,8 @@ function lose() {
 }
 
 /////////////////////////////LLAMADAS A FUNCIONES////////////////////////////////
+$("#ingreso").on("click", ingreso);
+$(document).on("click", "#editar", editar);
+$(document).on("click", ".reverso", gameplay);
 mezclar();
 repartir();
