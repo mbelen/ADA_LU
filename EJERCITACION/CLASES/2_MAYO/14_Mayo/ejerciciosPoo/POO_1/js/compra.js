@@ -1,10 +1,10 @@
 class Compra {
-	constructor(subtotal,descuento,subtotalconDescuento,subtotalFinanciado,cuotas,pesaje,distancia){
+	constructor(subtotal,descuento,cuotas,pesaje,distancia){
 		this._subtotal = subtotal;
 		this._descuento = descuento;
 		this._subtotalconDescuento;
 		this._subtotalFinanciado;
-		this._cuotas = cuotas
+		this._cuotas = cuotas;
 		this._pesaje = pesaje;
 		this._distancia = distancia;
 	}
@@ -72,14 +72,17 @@ class Compra {
 	}
 
 	getEnvio(){
-		var bruto = this._subtotal_Financiado;
+		var bruto = this._subtotalFinanciado;
 		var pesaje = this._pesaje;
 		var distancia = this._distancia;
 
 		switch(true){
 			case pesaje<10 && distancia<20: this._total=bruto;break;
 			case pesaje<10 && distancia>20: var recargo =(((distancia-20)/5)*15);
-											this._total=bruto+recargo;break; 
+											this._total=bruto+recargo;break;
+			case pesaje>10 && distancia>20: var recargo = (((distancia-20)/5)*15)+(((pesaje-20)/5)*35);
+											this._total=bruto+recargo;break;
 		}
+		return this._total;
 	}
 }
