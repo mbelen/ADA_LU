@@ -1,0 +1,55 @@
+.container {
+	width:85%;
+	margin:0 auto;
+}
+
+.plato {
+	display:flex;
+	flex-wrap:wrap;
+	align-items:center;
+	padding:10px;
+}
+
+.etiqueta {
+	font-weight:bold;
+	margin-bottom:5px;
+}
+
+h2 {
+	width:25%;
+}
+
+.opciones {
+	width:25%;
+	display:flex;
+	flex-direction:column;
+}
+
+.nombre {
+	display:flex;
+	flex-direction:column;
+}
+
+.calorias, .alcohol {
+	width:25%;
+}
+
+#primerPlato {
+	background:#73e8ff;
+}
+
+#segundoPlato {
+	background:#ff77a9;
+}
+
+#tercerPlato {
+	background:#98ee99;
+}
+
+#cuartoPlato {
+	background:#df78ef;
+}
+
+#enviar {
+	margin-top:10px;
+}

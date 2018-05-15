@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejercicio 2 - POO</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+	</head>
+	<body>
+		<div class="container">
+			<div class="plato" id="primerPlato">
+				<h2>Entrada</h2>
+				<div class="opciones">
+					<label class="etiqueta">Mostrar opciones</label>
+					<div>
+						<input type="radio" name="entry" value="entradatodas"/>
+						<label for="entradatodas">Todas</label>
+					</div>
+					<div>
+						<input type="radio" name="entry" value="entradavegetariano"/>
+						<label for="entradavegetariano">Vegetarianas</label>
+					</div>
+					<div>
+						<input type="radio" name="entry" value="entradavegano"/>
+						<label for="entradavegano">Veganas</label>
+					</div>
+					<div>
+						<input type="radio" name="entry" value="entradagluten"/>	
+						<label for="entradagluten">Aptas para celíacos</label>
+					</div>
+				</div>
+				<div class="nombre">
+					<label class="etiqueta">Nombre del plato</label>
+					<select id="selectEntrada">
+						<option>Elegí una opción</option>
+					</select>
+				</div>
+			</div>
+			<div class="plato" id="segundoPlato">
+				<h2>Plato Principal</h2>
+				<div class="opciones">
+					<label class="etiqueta">Mostrar opciones</label>
+					<div>
+						<input type="radio" name="main" value="ppaltodas"/>
+						<label for="ppaltodas">Todas</label>
+					</div>
+					<div>
+						<input type="radio" name="main" value="ppalvegetariano"/>
+						<label for="ppalvegetariano">Vegetarianas</label>
+					</div>
+					<div>
+						<input type="radio" name="main" value="ppalvegano"/>
+						<label for="ppalvegano">Veganas</label>
+					</div>
+					<div>
+						<input type="radio" name="main" value="ppalgluten"/>	
+						<label for="ppalgluten">Aptas para celíacos</label>
+					</div>
+				</div>
+				<div class="nombre">
+					<label class="etiqueta">Nombre del plato</label>
+					<select id="selectPpal">
+						<option>Elegí una opción</option>
+					</select>
+				</div>
+			</div>				
+
+			<div class="plato" id="tercerPlato">
+				<h2>Postre</h2>
+				<div class="opciones">
+					<label class="etiqueta">Mostrar solamente opciones</label>
+					<div>
+						<input type="checkbox" name="postrevegetariano"/>
+						<label for="postrevegetariano">Vegetarianas</label>
+					</div>
+					<div>
+						<input type="checkbox" name="postrevegano"/>
+						<label for="postrevegano">Veganas</label>
+					</div>
+					<div>
+						<input type="checkbox" name="postregluten"/>	
+						<label for="postregluten">Aptas para celíacos</label>
+					</div>
+				</div>
+				<div class="calorias">
+					<label class="etiqueta">¿Querés que tu postre sea light?</label>
+					<div>
+						<input type="radio" name="light" value="si">Sí
+						<input type="radio" name="light" value="no">No
+					</div>
+				</div>
+				<div class="nombre">
+					<label class="etiqueta">Nombre del plato</label>
+					<select>
+						<option>Elegí una opción</option>
+					</select>
+				</div>
+			</div>								
+			<div class="plato" id="cuartoPlato">
+				<h2>Bebida</h2>
+				<div class="alcohol">
+					<label class="etiqueta">¿Querés que tu bebida tenga alcohol?</label>
+					<div>
+						<input type="radio" name="alcohol" value="si">Sí
+						<input type="radio" name="alcohol" value="no">No
+					</div>
+				</div>
+				<div class="nombre">
+					<label class="etiqueta">Nombre de la bebida</label>
+					<select>
+						<option>Elegí una opción</option>
+					</select>
+				</div>
+			</div>
+			<button id="enviar">Enviar pedido</button>
+			<div id="print">
+			</div>
+		</div>
+		
+	</div>
+	<!--scripts-->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/plato.js"></script>
+	<script src="js/postre.js"></script>
+	<script src="js/bebida.js"></script>
+	<script src="js/menu.js"></script>
+	<script src="js/main.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,40 @@
+Método declarado como estático
+
+class MedioPago{
+
+	construct(){}
+
+	static calcularDescuento(monto,descuento){
+		let valor = monto*descuento/100
+		return valor
+	}
+}
+
+al hacer esto puedo usar el método sin instanciar el objeto. Se llama poniendo MedioPago.calcularDescuento(parámetros). O sea, Clase.metodo.
+Puedo tener métodos estáticos y métodos normales en la misma clase.
+
+Ejercicio POO 2
+
+Clase menú {
+	atributos: entrada, plato principal, postre, bebida (son objetos definidos como clases);
+	método: listar menú;
+	precio: hardcoded;
+}
+
+clase plato: incluye entrada y plato principal
+atributos:
+tipo: (entrada o principal postre)
+nombre: 
+veggie: true-false
+vegan: true-false
+celiaco: true-false
+
+postre extends plato
+super(todo)
+light: true-false
+
+bebida
+nombre:
+alcohol: true-false
+
+

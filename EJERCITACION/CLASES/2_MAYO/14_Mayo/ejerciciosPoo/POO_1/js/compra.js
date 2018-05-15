@@ -50,11 +50,11 @@ class Compra {
 	}
 
 	getDescuento(){
-		var bruto = this._subtotal;
+		var bruto = this._subtotal;  
 		var porcentual = this._descuento;
 		var subtotalDescontado = bruto - ((bruto*porcentual)/100);
 		this._subtotalconDescuento=subtotalDescontado;
-		return subtotalDescontado
+		return subtotalDescontado;
 	}
 
 	getFinanciacion(){
