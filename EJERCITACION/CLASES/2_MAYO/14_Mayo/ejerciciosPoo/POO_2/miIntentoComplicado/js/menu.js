@@ -12,7 +12,7 @@ class Menu {
 		this._entrada = value;
 	}
 
-	get lightness(){
+	get entrada(){
 		return this._entrada; 
 	}
 

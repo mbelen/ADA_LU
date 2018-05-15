@@ -2,6 +2,7 @@
 Cosas para resolver
 Por ahora, solamente andan las entradas y platos principales.
 Falta postre y bebida.
+HAY QUE VALIDAR EL FORMULARIO. AHORA SE ENVÍA VACÍO
 Tengo que cambiar el valor que toma para determinar si el plato es o no veggie, vegan, 
 etc. Por ahora, toma el input que seleccione, pero de este modo no distingue si alguien
 que seleccionó entre todas las opciones, elige un plato vegetariano, celíaco etc.
@@ -48,7 +49,49 @@ var principales = [
 	name:"Principal celiac 1",
 	value:"celiac"
 }
-]
+];
+
+var postres = [
+{
+	name: "Postre omnívoro 1",
+	value:"omni",
+	light:"si"
+},
+{
+	name: "Postre omnívoro 2",
+	value: "omni",
+	light:"no"
+},
+{
+	name:"Postre veggie 1",
+	value:"veggie",
+	light:"si"
+},
+{
+	name:"Postre veggie 2",
+	value:"veggie",
+	light:"no"
+},
+{
+	name:"Postre vegan 1",
+	value:"Vegan",
+	light:"si"
+},
+{
+	name:"Postre vegan 2",
+	value:"Vegan",
+	light:"no"
+},
+{
+	name:"Postre celiac 1",
+	value:"celiac",
+	light:"si"
+},
+{
+	name:"Postre celiac 2",
+	value:"celiac",
+	light:"no"
+}]
 
 var entradaTodas = $("input[value='entradatodas']");
 var entradaVegetariana = $("input[value='entradavegetariano']");
@@ -57,7 +100,11 @@ var entradaCeliaca = $("input[value='entradagluten']");
 var principalTodas = $("input[value='ppaltodas']");
 var principalVegetariana = $("input[value='ppalvegetariano']");
 var principalVegana = $("input[value='ppalvegano']");
-var principalCeliaca = $("input[value='ppalgluten']")		
+var principalCeliaca = $("input[value='ppalgluten']");
+var postreTodas = $("input[value='postretodos']");
+var postreVegetariana = $("input[value='postrevegetariano']");
+var postreVegana = $("input[value='postrevegano']");
+var principalCeliaca = $("input[value='postregluten']")			
 
 function cargarEntradas(){
 	if(entradaTodas.is(":checked")){
@@ -72,23 +119,24 @@ function cargarEntradas(){
 		for(i=0;i<entradas.length;i++){
 			if(entradas[i].value === "veggie")
 			var option = `<option>${entradas[i].name}</option>`
-			$("#selectEntrada").append(option)
 		}
-
+		$("#selectEntrada").append(option)
 	}else if(entradaVegana.is(":checked")){
 		$("#selectEntrada").children().remove();
 		for(i=0;i<entradas.length;i++){
 			if(entradas[i].value === "vegan")
 			var option = `<option>${entradas[i].name}</option>`
-			$("#selectEntrada").append(option)
+			
 		}
+		$("#selectEntrada").append(option)
 	}else if(entradaCeliaca.is(":checked")){
 		$("#selectEntrada").children().remove();
 		for(i=0;i<entradas.length;i++){
 			if(entradas[i].value === "celiac")
 			var option = `<option>${entradas[i].name}</option>`
-			$("#selectEntrada").append(option)
+			
 		}
+		$("#selectEntrada").append(option)
 	}	
 }
 
@@ -105,25 +153,53 @@ function cargarPrincipales(){
 		for(i=0;i<principales.length;i++){
 			if(principales[i].value === "veggie")
 			var option = `<option>${principales[i].name}</option>`
-			$("#selectPpal").append(option)
+			
 		}
-
+	$("#selectPpal").append(option)
 	}else if(principalVegana.is(":checked")){
 		$("#selectPpal").children().remove();
 		for(i=0;i<principales.length;i++){
 			if(principales[i].value === "vegan")
 			var option = `<option>${principales[i].name}</option>`
-			$("#selectPpal").append(option)
+			
 		}
+		$("#selectPpal").append(option)
 	}else if(principalCeliaca.is(":checked")){
 		$("#selectPpal").children().remove();
 		for(i=0;i<principales.length;i++){
 			if(principales[i].value === "celiac")
 			var option = `<option>${principales[i].name}</option>`
-			$("#selectPpal").append(option)
+			
 		}
+		$("#selectPpal").append(option)
 	}	
 }
+
+function cargarPostres() {
+		if(postreTodas.is(":checked")){
+			if($("input[value='no']").is(":checked")){
+				$("#selectPostre").children().remove();
+				for(i=0;i<postres.length;i++){
+					var option = `<option>${postres[i].name}</option>`;
+					$("#selectPostre").append(option);
+				}
+
+			}else if($("input[value='si']").is(":checked")){
+				for(i=0;i<postres.length;i++){
+					if(postres[i].light==="si") {
+						$("#selectPostre").children().remove();	
+						console.log("whaaat")
+						var option = `<option>${postres[i].name}</option>`;
+						$("#selectPostre").append(option);
+					}
+					
+					
+				}	
+				
+			}
+		}
+}
+
 
 $("#enviar").on('click', function crear() {
 	var entrada = new Plato;
@@ -187,3 +263,4 @@ principalTodas.on('change',cargarPrincipales);
 principalVegetariana.on('change',cargarPrincipales);
 principalVegana.on('change', cargarPrincipales);
 principalCeliaca.on('change', cargarPrincipales);
+ $("input[name='postre']").on('change', cargarPostres)

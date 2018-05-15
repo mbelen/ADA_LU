@@ -131,13 +131,11 @@ function reiniciar() {
 
 //Función Gameplay (se activa al clickear una ficha)
  function gameplay() {
-  console.log(par)
   //doy vuelta las fichas y mando sus valores a los arrays
   $(this).addClass("anverso");
   $(this).removeClass("reverso");
   par.push($(this).data("valor"));
   controlNombre.push($(this).attr('id'));
-  console.log(par)
 
     //Condicional que se dispara cuando hice click en dos fichas
     if(par.length===2) {
@@ -183,7 +181,6 @@ function win(){
   par=[];
   controlNombre=[];
   puntos++;
-  console.log(puntos);
 
   //Si fue el último par, se muestra pantalla ganadora
   if(puntos===6) {
@@ -204,7 +201,6 @@ function lose() {
   controlNombre=[];
   turno--;
   $("#contador").text(turno);
-  console.log(turno);
 
   //Si fue el último turno, se muestra pantalla perdedora 
   if(turno===0) {

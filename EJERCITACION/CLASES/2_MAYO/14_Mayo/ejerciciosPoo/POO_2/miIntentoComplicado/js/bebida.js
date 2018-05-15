@@ -13,7 +13,6 @@ class Bebida {
 
 	get nombre(){
 		return this._nombre;
-
 	}
 
 	//alcohol

@@ -66,30 +66,34 @@
 			<div class="plato" id="tercerPlato">
 				<h2>Postre</h2>
 				<div class="opciones">
-					<label class="etiqueta">Mostrar solamente opciones</label>
+					<label class="etiqueta">Mostrar opciones</label>
 					<div>
-						<input type="checkbox" name="postrevegetariano"/>
+						<input type="radio" name="postre" value="postretodos"/>
+						<label for="postretodos">Todas</label>
+					</div>
+					<div>
+						<input type="radio" name="postre" value="postrevegetariano"/>
 						<label for="postrevegetariano">Vegetarianas</label>
 					</div>
 					<div>
-						<input type="checkbox" name="postrevegano"/>
+						<input type="radio" name="postre" value="postrevegano"/>
 						<label for="postrevegano">Veganas</label>
 					</div>
 					<div>
-						<input type="checkbox" name="postregluten"/>	
+						<input type="radio" name="postre" value="postregluten"/>	
 						<label for="postregluten">Aptas para celíacos</label>
 					</div>
 				</div>
 				<div class="calorias">
 					<label class="etiqueta">¿Querés que tu postre sea light?</label>
 					<div>
-						<input type="radio" name="light" value="si">Sí
+						<input type="radio" name="light" value="si" checked="checked">Sí
 						<input type="radio" name="light" value="no">No
 					</div>
 				</div>
 				<div class="nombre">
 					<label class="etiqueta">Nombre del plato</label>
-					<select>
+					<select id="selectPostre">
 						<option>Elegí una opción</option>
 					</select>
 				</div>
@@ -99,7 +103,7 @@
 				<div class="alcohol">
 					<label class="etiqueta">¿Querés que tu bebida tenga alcohol?</label>
 					<div>
-						<input type="radio" name="alcohol" value="si">Sí
+						<input type="radio" name="alcohol"  value="si" checked="checked">Sí
 						<input type="radio" name="alcohol" value="no">No
 					</div>
 				</div>
