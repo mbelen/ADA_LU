@@ -74,12 +74,12 @@ var postres = [
 },
 {
 	name:"Postre vegan 1",
-	value:"Vegan",
+	value:"vegan",
 	light:"si"
 },
 {
 	name:"Postre vegan 2",
-	value:"Vegan",
+	value:"vegan",
 	light:"no"
 },
 {
@@ -91,7 +91,26 @@ var postres = [
 	name:"Postre celiac 2",
 	value:"celiac",
 	light:"no"
-}]
+}];
+
+var bebidas = [
+{
+	name:"Bebida alcohólica 1",
+	alcohol:"si"
+},
+{
+	name:"Bebida alcohólica 2",
+	alcohol:"si",
+},
+{
+	name:"Bebida sin alcohol 1",
+	alcohol:"no",
+},
+{
+	name:"Bebida sin alcohol 2",
+	alcohol:"no"
+}
+]
 
 var entradaTodas = $("input[value='entradatodas']");
 var entradaVegetariana = $("input[value='entradavegetariano']");
@@ -104,7 +123,7 @@ var principalCeliaca = $("input[value='ppalgluten']");
 var postreTodas = $("input[value='postretodos']");
 var postreVegetariana = $("input[value='postrevegetariano']");
 var postreVegana = $("input[value='postrevegano']");
-var principalCeliaca = $("input[value='postregluten']")			
+var postreCeliaca = $("input[value='postregluten']")			
 
 function cargarEntradas(){
 	if(entradaTodas.is(":checked")){
@@ -176,29 +195,94 @@ function cargarPrincipales(){
 }
 
 function cargarPostres() {
-		if(postreTodas.is(":checked")){
-			if($("input[value='no']").is(":checked")){
-				$("#selectPostre").children().remove();
-				for(i=0;i<postres.length;i++){
-					var option = `<option>${postres[i].name}</option>`;
-					$("#selectPostre").append(option);
-				}
+	if(postreTodas.is(":checked" ) && $("input[value='nolight']").is(":checked")){
+		console.log("entrando")
+		$("#selectPostre").children().remove();
+		for(i=0;i<postres.length;i++){
 
-			}else if($("input[value='si']").is(":checked")){
-				for(i=0;i<postres.length;i++){
-					if(postres[i].light==="si") {
-						$("#selectPostre").children().remove();	
-						console.log("whaaat")
-						var option = `<option>${postres[i].name}</option>`;
-						$("#selectPostre").append(option);
-					}
-					
-					
-				}	
-				
+			var option = `<option>${postres[i].name}</option>`
+			$("#selectPostre").append(option)
+		}
+	}else if(postreTodas.is(":checked" ) && $("input[value='silight']").is(":checked")){
+		$("#selectPostre").children().remove();
+		for(i=0;i<postres.length;i++){
+			if(postres[i].light==="si"){
+			var option = `<option>${postres[i].name}</option>`
+			$("#selectPostre").append(option)
 			}
 		}
-}
+	}else if(postreVegetariana.is(":checked") && $("input[value='nolight']").is(":checked")){
+		$("#selectPostre").children().remove();
+		for(i=0;i<postres.length;i++){
+			if(postres[i].value==="veggie"){
+			var option = `<option>${postres[i].name}</option>`
+			$("#selectPostre").append(option)
+			}
+		}
+	}else if(postreVegetariana.is(":checked") && $("input[value='silight']").is(":checked")){
+		$("#selectPostre").children().remove();
+		for(i=0;i<postres.length;i++){
+			if(postres[i].value==="veggie" && postres[i].light==="si"){
+			var option = `<option>${postres[i].name}</option>`
+			$("#selectPostre").append(option)
+			}
+		}	
+	}else if(postreVegana.is(":checked") && $("input[value='nolight']").is(':checked')){
+		$("#selectPostre").children().remove();
+		for(i=0;i<postres.length;i++){
+			if(postres[i].value==="vegan"){
+			var option = `<option>${postres[i].name}</option>`
+			$("#selectPostre").append(option)
+			}
+		}
+
+	}else if(postreVegana.is(":checked")&& $("input[value='silight']").is(':checked')){
+		$("#selectPostre").children().remove();
+		for(i=0;i<postres.length;i++){
+			if(postres[i].value==="vegan" && postres[i].light==="si"){
+			var option = `<option>${postres[i].name}</option>`
+			$("#selectPostre").append(option)
+			}
+		}
+
+	}else if(postreCeliaca.is(":checked")&&$("input[value='nolight']").is(':checked')){
+		$("#selectPostre").children().remove();
+		for(i=0;i<postres.length;i++){
+			if(postres[i].value==="celiac"){
+			var option = `<option>${postres[i].name}</option>`
+			$("#selectPostre").append(option)
+			}
+		}
+
+	}else if(postreCeliaca.is(":checked")&&$("input[value='silight']").is(':checked')){
+		$("#selectPostre").children().remove();
+		for(i=0;i<postres.length;i++){
+			if(postres[i].value==="celiac" && postres[i].light==="si"){
+			var option = `<option>${postres[i].name}</option>`
+			$("#selectPostre").append(option)
+			}
+		}
+	}
+}		
+
+function cargarBebidas()
+{
+	if($("input[value='sialcohol']").is(':checked')){
+		$("#selectBebidas").children().remove();
+		for(i=0;i<bebidas.length;i++){
+			if(bebidas[i].alcohol==="si"){
+			var option = `<option>${bebidas[i].name}</option>`
+			$("#selectBebidas").append(option)
+			}}
+	}else if($("input[value='noalcohol']").is(':checked')){
+		$("#selectBebidas").children().remove();
+		for(i=0;i<bebidas.length;i++){
+			if(bebidas[i].alcohol==="no"){
+			var option = `<option>${bebidas[i].name}</option>`
+			$("#selectBebidas").append(option)
+			}
+	}
+}	}
 
 
 $("#enviar").on('click', function crear() {
@@ -245,12 +329,37 @@ $("#enviar").on('click', function crear() {
 		principali._vegetariano = false;
 		principali._aptoCeliaco = true;
 	}
+	console.log(principali)
 
-	console.log(principali);
+	var postri = new Postre;
+	postri._nombre = $("#selectPostre :selected").val();
+	postri._tipo = "Postre";
+	if(postreTodas.is(":checked")){
+		postri._vegano = false;
+		postri._vegetariano = false;
+		postri._aptoCeliaco = false;
+	}else if(postreVegetariana.is(":checked")){
+		postri._vegano = false;
+		postri._vegetariano = true;
+		postri._aptoCeliaco = false;
+	}else if(postreVegana.is(":checked")){
+		postri._vegano = true;
+		postri._vegetariano = true;
+		postri._aptoCeliaco = false;
+	}else{
+		postri._vegano = false;
+		postri._vegetariano = false;
+		postri._aptoCeliaco = true;
+	}
 
+	console.log(postri);
+	var bebida = new Bebida
+	bebida._nombre = $("#selectBebidas :selected").val();
+	console.log(bebida)
 	var menu = new Menu;
 	menu.entrada = entrada._nombre 
 	menu.principal = principali._nombre
+	menu.postre = postri._nombre
 	menu.mostrarMenu();
 	console.log(menu);
 })
@@ -264,3 +373,5 @@ principalVegetariana.on('change',cargarPrincipales);
 principalVegana.on('change', cargarPrincipales);
 principalCeliaca.on('change', cargarPrincipales);
  $("input[name='postre']").on('change', cargarPostres)
+ $("input[name='light']").on('change', cargarPostres)
+ $("input[name='alcohol']").on('change', cargarBebidas)

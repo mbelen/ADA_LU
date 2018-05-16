@@ -11,7 +11,7 @@
 				<div class="opciones">
 					<label class="etiqueta">Mostrar opciones</label>
 					<div>
-						<input type="radio" name="entry" value="entradatodas"/>
+						<input type="radio" name="entry" value="entradatodas" checked="checked"/>
 						<label for="entradatodas">Todas</label>
 					</div>
 					<div>
@@ -39,7 +39,7 @@
 				<div class="opciones">
 					<label class="etiqueta">Mostrar opciones</label>
 					<div>
-						<input type="radio" name="main" value="ppaltodas"/>
+						<input type="radio" name="main" value="ppaltodas" checked="checked"/>
 						<label for="ppaltodas">Todas</label>
 					</div>
 					<div>
@@ -68,7 +68,7 @@
 				<div class="opciones">
 					<label class="etiqueta">Mostrar opciones</label>
 					<div>
-						<input type="radio" name="postre" value="postretodos"/>
+						<input type="radio" name="postre" value="postretodos" checked="checked"/>
 						<label for="postretodos">Todas</label>
 					</div>
 					<div>
@@ -87,8 +87,8 @@
 				<div class="calorias">
 					<label class="etiqueta">¿Querés que tu postre sea light?</label>
 					<div>
-						<input type="radio" name="light" value="si" checked="checked">Sí
-						<input type="radio" name="light" value="no">No
+						<input type="radio" name="light" value="silight" checked="checked">Sí
+						<input type="radio" name="light" value="nolight">No
 					</div>
 				</div>
 				<div class="nombre">
@@ -103,13 +103,13 @@
 				<div class="alcohol">
 					<label class="etiqueta">¿Querés que tu bebida tenga alcohol?</label>
 					<div>
-						<input type="radio" name="alcohol"  value="si" checked="checked">Sí
-						<input type="radio" name="alcohol" value="no">No
+						<input type="radio" name="alcohol"  value="sialcohol" checked="checked">Sí
+						<input type="radio" name="alcohol" value="noalcohol">No
 					</div>
 				</div>
 				<div class="nombre">
 					<label class="etiqueta">Nombre de la bebida</label>
-					<select>
+					<select id="selectBebidas">
 						<option>Elegí una opción</option>
 					</select>
 				</div>
