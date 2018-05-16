@@ -1,0 +1,37 @@
+
+.container {
+	display: flex;
+	justify-content:center;
+	align-items:center;
+	align-content:center;
+	background:plum;
+	height:200px;
+}
+
+form, #resultados {
+	width:48%;
+	padding:20px;
+}
+
+form {
+	background:plum;
+	height:100%;
+}
+
+#resultados {
+	background:pink;
+	min-height:100%;
+}
+
+#resultados label {
+	display:block;
+	font-weight:bold;
+}
+
+.campo {
+	margin:10px 0;
+}
+
+#envio {
+	margin-top:20px;
+}

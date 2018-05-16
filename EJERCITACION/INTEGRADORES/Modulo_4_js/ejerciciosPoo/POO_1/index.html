@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Ejercicio 1 - POO</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+	</head>
+	<body>
+		<div class="container">
+			<form>
+				<div class="campo">
+					<label>Precio</label>
+					<input id="precio" type="number" min="0"/>
+					<label>Descuento</label>
+					<select id="descuento">
+						<option>10</option>
+						<option>20</option>
+						<option>30</option>
+						<option>40</option>
+						<option>50</option>
+					</select>
+				</div>
+				<div class="campo">
+					<label>Cuotas</label>
+					<select id="cuotas">
+						<option>3</option>
+						<option>6</option>
+						<option>12</option>
+					</select>
+				</div>
+				<div class="campo">
+					<label>Peso</label>
+					<input id="peso" type="number" min="0"/>
+				</div>
+				<div class="campo">
+					<label>Distancia</label>
+					<input id="distancia" type="number" min="0"/>
+				</div>
+				<button id="envio">Calcular</button>
+			</form>
+			<div id="resultados">
+				<label>Subtotal</label>
+				<span id="subtotal"></span>
+				<label>Subtotal con descuento</label>
+				<span id="descontado"></span>
+				<label>Subtotal financiado</label>
+				<span id="cuotado"></span>
+				<label>Total con envío</label>
+				<span id="total"></span>
+			</div>
+		</div>
+	<!--scripts-->
+	<script src="js/jquery.min.js"></script>
+	<script src="js/compra.js"></script>
+	<script src="js/main.js"></script>
+
+	</body>
+</html>
