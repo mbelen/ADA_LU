@@ -1,0 +1,62 @@
+ENTORNO DE TRABAJO
+
+(ppt)
+LIBRERÍA =/= FRAMEWORK
+- Librería: trae patrones y funcionalidades. Conjunto de métodos o funciones que ya tengo disponibles para usar. Puedo bajarla y usar lo que quiero/me sirva.
+- Framework: se compone de librerías. Da un marco de trabajo, impone una estructura de trabajo. Da características. La bajo y tengo que usarla según la estructura que me impone (si no, no me va a andar). Ventajas: trabajan con un patrón de diseño particular.
+(googleá 16 patrones de diseño)
+
+librerías/FW
+- view
+- react
+- modernizr
+- jquery
+- angular
+
+Patrón de diseño
+Modelo vista y controlador (MVC)
+Lo que nos define es la interfaz con el usuario/cliente. 
+Yo tengo objetos. A cada uno de ellos se les define un comportamiento adicional. Cada uno especifica cada vez más su funcionalidad. Los patrones le dan a cada elemento/componente una función específica (por lo que entiendo, van de lo general a lo particular).El patrón de diseño es el más común en web porque tengo una interfaz gráfica y tres capas de abstracción (visualisación, capa lógica o de negocio (me dice qué es lo que quiero hacer y cómo lo hago), y el modelo que tiene que ver con todos los objetos/estructuras que tienen vinculación con la capa de datos (esto es, la persistencia, la base de datos)). 
+
+Funcionamiento 
+- Client
+- Controller-server 
+- Model / database 
+
+NODE
+
+Es un servidor de Javascript. Es una aplicación que tiene como funcionalidad servir los contenidos que tengo cuando hay un request (la relación es cliente -> servidor).
+Javascript maneja peticiones asincrónicas. Node es un servidor con capacidad de responder a ellas (los servidores comunes también pueden - xej es lo que pasa con AJAX). 
+Javascript es un lenguaje que es interpretado por el cliente (el navegador). Otros lenguajes necesitan de un servidor local para interpretar (ponele). PERO además yo no puedo tener código JS que corra 100% en el cliente. 
+
+NODE NO ES UN SERVIDOR LOCAL. Es la aplicación que yo corro en un servidor.
+
+Vamos a trabajar en dos capas: cliente y servidor. La estructura de proyecto va a tener las dos capas. También tendremos una estructura de modelo, vista y controlador.
+
+Aprenderemos a hacer nuestros propios módulos y cargarlos en Node.
+
+NPM - es un gestor de paquetes. Es el que suele venir por defecto (y el que se usa para Node). Nos permite instalar nuevos módulos y ayuda a actualizar la versión de Node (podemos preguntar y actualizarla si no lo estamos). 
+Built-in-Modules: vienen con Node, pero los tengo que invocar para tenerlos precargados en mi aplicación.
+
+Requerimiento. Si quiero cargar un módulo trayéndolo así:
+var http = require('http') -> el 'http' sería el módulo. Este en particular me va a dejar generar contenido http.
+
+Después:
+http.createServer(function(req,res))
+
+http: es mi módulo
+createServer: es mi método 
+
+Parámetros:
+req: es el requerimiento del cliente (callback)
+res: es la respuesta
+
+MÓDULOS PROPIOS
+
+La palabra reservada para crear módulos es:
+exports
+
+Voy a tener una carpeta con mis módulos. Luego voy a tener que requerir el módulo usando una referencia. Para que el módulo pueda cargarse el archivo debe tener ciertas características.
+
+la palabra exports hace hace que las propiedades y métodosdel módulo estén disponiblesfuera de él.
+

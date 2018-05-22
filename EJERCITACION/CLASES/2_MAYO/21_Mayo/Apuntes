@@ -1,0 +1,12 @@
+Node es un servidor que corre JS del lado del server (en lugar de del lado del cliente). Permite agregar funcionalidad, incorporar código.
+Nos permite agregar módulos. Hay ciertos módulos que ya vienen precargados en el servidor y solamente hay que invocarlos. Nosotrxs podemos crear nuestros propios módulos.
+toString() -> muestra una cadena de caracteres
+La url puede pasarse como parámetro de una request (WHAT). Se queda con lo ultimito (xej: www.wainfeld.com/FAQ -> me va a traer FAQ). Se trae así:
+res.write(req.url);
+
+Todo lo que traigo por get va a ser una cadena de caracteres.
+
+Para correr Nodemon me paro en mi directorio y mando
+nodemon nombredelarchivo
+(con esto no tengo que estar bajando y volviendo a subir mi archivo en la consola cada vez que cambio algo. Es como el less watch).
+Para saber qué módulos tengo en Node puedo consultar la documentación
