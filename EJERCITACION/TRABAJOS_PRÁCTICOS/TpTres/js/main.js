@@ -63,15 +63,17 @@ var fichas = [{ nombre:0,
 
   var par = []; //traerá los valores de cada ficha. Las cartas iguales tienen igual valor
   var controlNombre = []; //traerá los nombres de cada ficha. Cada ficha tiene un nombre único
-  var turno = 24;
+  var turno;
+  var turnoDificultad;
   var puntos = 0;
 
 /////////////////////////////////FUNCIONES////////////////////////////////////////////
+function hideTodo(){
+	$("#hideme").hide();
+};
 
-$("#hideme").hide();
-
-//Función para que el jugador ponga su nombre
- function cargaNombre() {
+//Función que carga el nombre del/lx jugador
+ function cargaDatos() {
    var nombre = $("#nombre").val();
     if(nombre != "") {
       $("#inicio").hide();
@@ -82,6 +84,25 @@ $("#hideme").hide();
     }else{
       $("#error").text("Ingresá tu nombre");
   }
+};
+
+//Función que carga la dificultad seleccionada
+function selectDificultad(){
+	var opcion = $('#dificultad :selected').val();
+	switch(opcion){
+		case "Principiante": console.log("Uno"); 
+ 												 turno = 18;			
+												 break;
+
+		case "Intermedio": console.log("Dos"); 
+											 turno = 12;
+											 break;
+		case "Experto": console.log("Tres"); 
+										turno = 8;
+										break;
+	};
+turnoDificultad = turno;
+$("#contador").text(turno);
 }
 
 //Función que mezcla las fichas 
@@ -107,7 +128,7 @@ console.log("repartido");
 
 //Función que resetea valores y rehace mezcla/reparto al clickear "reiniciar" 
 function reiniciar() {
-  turno = 24;
+  turno = turnoDificultad;
   puntos = 0;
   par = [];
   controlNombre = [];
@@ -123,7 +144,6 @@ function reiniciar() {
 //Función Gameplay (se activa al clickear una ficha)
  function gameplay() {
   //doy vuelta las fichas y mando sus valores a los arrays
-  $(this).parent().effect('bounce', {distance: -20}, "slow");
   $(this).addClass("anverso");
   $(this).removeClass("reverso");
   par.push($(this).data("valor"));
@@ -153,6 +173,7 @@ function comparar() {
     
     //compara    
     if(par[0]===par[1]) {
+    	rebotar();
       setTimeout(win, 1000);
         
     }else{
@@ -162,6 +183,7 @@ function comparar() {
 
 //Función que se activa si acierto el par
 function win(){
+
   $(".anverso").addClass("win");
   $(".win").removeClass("anverso"); 
   $("#"+controlNombre[0]).off('click');
@@ -201,21 +223,24 @@ function lose() {
   }
 }
 
-/////////////////////////////LLAMADAS A FUNCIONES////////////////////////////////
-$("#ingreso").on("click", cargaNombre);
+function rebotar() {
+	$("#"+controlNombre[0]).parent().effect('bounce', {distance: -20}, "slow");
+ 	$("#"+controlNombre[1]).parent().effect('bounce', {distance: -20}, "slow");
+};
 
-$( "#nombre" ).on('keypress', function(e) {
+/////////////////////////////LLAMADAS A FUNCIONES////////////////////////////////
+hideTodo();
+$("#comenzar").on("click", selectDificultad);
+$("#comenzar").on("click", cargaDatos);
+
+/*$( "#nombre" ).on('keypress', function(e) {
 	if(e.keyCode == 13) {
  		event.preventDefault()
     	cargaNombre();
 	}
-})
+})*/
 
 mezclar();
 repartir();
 $(document).on("click", ".reverso", gameplay);
 $('#reinicio').on('click', reiniciar);
-
-//apuntes para resolver la dificultad
-//Ponerle un evento onclick al botón inicial (y quitarle el keypress al input). Cambiar el valor según
-//lo que esté seleccionado. Crear una variable que guarde lo que elegí, para poder usarla al reiniciar.

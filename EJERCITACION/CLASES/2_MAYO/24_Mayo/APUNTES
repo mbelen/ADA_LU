@@ -1,0 +1,24 @@
+EXPRESS (CONT)
+
+Nos facilita la estructura de trabajo para usar Node como servidor.
+Módulos de express:
+ROUTE
+Nos permite armar nuestras url y pasar parámetros y trabajar con distintos requests del cliente.
+
+Los módulos que instalamos globalmente serán aquellos que usaremos en =/= proyectos y por lo tanto los queremos en el servidor. Express, por ejemplo, puedo no quererlo en todos los proyectos, por eso conviene instalarlo en modo local.
+
+Express es un framework, como tal nos da un marco de trabajo y funciones predefinidas.
+
+ROUTING
+del /para adelante es mi ruta.
+Puedo tener módulos definidos para rutas específicas.
+
+Los métodos con los que puedo trabajar con express son los de siempre (get, post, put, etc).
+Handler es una función de devolución que e ejecuta cuando se encuentra un tipo de solicitud que coincida con la ruta relevante.
+
+PARÁMETROS
+(y cómo manejarlos desde Express)
+req.params permite acceder a todos los parámetros enviados en la url. Me trae, entiendo, un objeto.
+
+MIMETYPES
+
