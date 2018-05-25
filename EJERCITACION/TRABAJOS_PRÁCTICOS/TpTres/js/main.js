@@ -1,4 +1,17 @@
 console.log("cargado");
+//localStorage.clear();
+
+function getPuntajes(){
+var puntajesGuardados = localStorage.getItem("puntajes");
+console.log(puntajesGuardados);
+
+if(puntajesGuardados==null) {
+  puntuacionesMaximas=[];
+}else {
+  puntuacionesMaximas = JSON.parse(puntajesGuardados);
+}
+}
+
 /////////////////////////////////VARIABLES//////////////////////////////////////////
 var fichas = [{ nombre:0, 
                 valor:0, 
@@ -64,22 +77,59 @@ var fichas = [{ nombre:0,
   var par = []; //traerá los valores de cada ficha. Las cartas iguales tienen igual valor
   var controlNombre = []; //traerá los nombres de cada ficha. Cada ficha tiene un nombre único
   var turno;
-  var turnoDificultad;
+  var turnoDificultad; //Guarda el número de turnos de la dificultad seleccionada para traerlo al tocar "reiniciar"
   var puntos = 0;
+  var player;
+  var score;
+  var puntuacionesMaximas;
 
 /////////////////////////////////FUNCIONES////////////////////////////////////////////
+
+//Función que esconde tablero e instrucciones al entrar a la página 
 function hideTodo(){
 	$("#hideme").hide();
 };
 
+//Función que cambia la imagen al cambiar el nivel de dificultad
+function imagenesDificultad() {
+var imagenes = [
+{
+  nombre:"Principiante",
+  img: "principiante.jpg",
+  alt: "Perro hipster principiante"
+},
+{
+  nombre:"Intermedio",
+  img: "intermedio.jpg",
+  alt: "Perro hipster intermedio"
+},
+{
+  nombre:"Experto",
+  img: "experto.jpg",
+  alt: "Perro hipster experto"
+},
+];
+
+var opcion = $('#dificultad :selected').val();
+  $.each(imagenes, function(key,value){
+    if(opcion == value.nombre){
+      $('#imgdificultad').children().remove();
+      var imagenDificultad = `<img src=img/niveles/${value.img} alt="${value.alt}">`;
+      $('#imgdificultad').append(imagenDificultad); 
+    }
+  }
+)}
+
 //Función que carga el nombre del/lx jugador
  function cargaDatos() {
    var nombre = $("#nombre").val();
+   player=nombre;
     if(nombre != "") {
       $("#inicio").hide();
-      var jugador = "<p>Jugador/x actual: "+nombre+"</p>";    
+      var jugador = "<p id='jugadorActual'>Jugador/x actual: "+nombre+"</p>";    
       $("#jugadorActual").append(jugador);
-      $("#hideme").show()
+      $('.hide').removeClass('hide'); //agregada porque, en firefox, los elementos ocultos se ven por un segundo al iniciar.
+      $("#hideme").show();
       $("#error").text("");
     }else{
       $("#error").text("Ingresá tu nombre");
@@ -91,19 +141,23 @@ function selectDificultad(){
 	var opcion = $('#dificultad :selected').val();
 	switch(opcion){
 		case "Principiante": console.log("Uno"); 
- 												 turno = 18;			
+ 												 turno = 18;
+                         score = 0;			
 												 break;
 
 		case "Intermedio": console.log("Dos"); 
 											 turno = 12;
+                       score = 50;
 											 break;
 		case "Experto": console.log("Tres"); 
 										turno = 8;
+                    score = 100;
 										break;
 	};
-turnoDificultad = turno;
-$("#contador").text(turno);
-}
+  turnoDificultad = turno;
+  console.log(score);
+  $("#contador").text(turno);
+};
 
 //Función que mezcla las fichas 
 function mezclar(){
@@ -161,6 +215,7 @@ function reiniciar() {
       //Entro a la comparación
       }else{
         comparar();
+        console.log(score);
       }
     }
 }
@@ -183,9 +238,6 @@ function comparar() {
 
 //Función que se activa si acierto el par
 function win(){
-
-  $(".anverso").addClass("win");
-  $(".win").removeClass("anverso"); 
   $("#"+controlNombre[0]).off('click');
   $("#"+controlNombre[1]).off('click');
   $(".lock").addClass("reverso");
@@ -193,13 +245,15 @@ function win(){
   par=[];
   controlNombre=[];
   puntos++;
+  score+=10;
 
   //Si fue el último par, se muestra pantalla ganadora
   if(puntos===6) {
     $(".tile").children().remove();
     $("#tablero").children().hide();
     var win = `<div class="result"><figure><img src="img/ganador.gif" alt="gato celebratorio"/></figure><h2>¡Felicidades! ¡Has ganado!</h2><h5>¡¡¡¡Presiona "reiniciar" para jugar de nuevo!!!!</h5></div>`;
-    $("#tablero").append(win);  
+    $("#tablero").append(win); 
+    highScore(); 
   }
 }
 
@@ -212,6 +266,7 @@ function lose() {
   par=[];
   controlNombre=[];
   turno--;
+  score-=5;
   $("#contador").text(turno);
 
   //Si fue el último turno, se muestra pantalla perdedora 
@@ -226,20 +281,37 @@ function lose() {
 function rebotar() {
 	$("#"+controlNombre[0]).parent().effect('bounce', {distance: -20}, "slow");
  	$("#"+controlNombre[1]).parent().effect('bounce', {distance: -20}, "slow");
+ 	$(".anverso").addClass("win");
+  $(".win").removeClass("anverso"); 
 };
+
+function highScore(){
+  var highScore ={};
+  highScore.nombre=player;
+  highScore.puntaje=score;
+  console.log(highScore);
+  if(puntuacionesMaximas.length<5){
+    puntuacionesMaximas.push(highScore);
+    var guardoPuntos = JSON.stringify(puntuacionesMaximas)
+    localStorage.setItem("puntajes",guardoPuntos);
+  }else{
+    for(i=0;i=puntuacionesMaximas.length;i++){
+      if(score>puntuacionesMaximas[i].puntaje);
+      puntuacionesMaximas.slice(4,0);
+      puntuacionesMaximas.push(highScore);
+      var guardoPuntos = JSON.stringify(puntuacionesMaximas)
+      localStorage.setItem("puntajes",guardoPuntos);
+    }
+  }
+}
+
 
 /////////////////////////////LLAMADAS A FUNCIONES////////////////////////////////
 hideTodo();
+getPuntajes();
+$("#dificultad").on("change", imagenesDificultad);
 $("#comenzar").on("click", selectDificultad);
 $("#comenzar").on("click", cargaDatos);
-
-/*$( "#nombre" ).on('keypress', function(e) {
-	if(e.keyCode == 13) {
- 		event.preventDefault()
-    	cargaNombre();
-	}
-})*/
-
 mezclar();
 repartir();
 $(document).on("click", ".reverso", gameplay);

@@ -6,7 +6,7 @@
 	font-family: 'Open Sans', sans-serif;
 }
 
-html, body {
+body {
 	background-image: url('../img/background.jpg');
 	background-size: 500px auto;
 }
@@ -38,11 +38,10 @@ html, body {
 #player label {
 	font-size:20px;
 	font-weight:normal;
-	margin:15px 0;
+	margin:20px 0;
 }
 
 select, #nombre {
-	width:250px;
 	height:40px;
 	border:none;
 	border-radius:5px;
@@ -50,14 +49,18 @@ select, #nombre {
 	color:gray;
 }
 
+select {
+	width:130px;
+}
+
 select:focus {
 	outline:none;
 }
 
 #nombre {
+	width:250px;
 	text-align: center;
 }
-
 
 #player img {
 	width:220px;
@@ -67,10 +70,8 @@ select:focus {
 }
 
 #comenzar {
-	margin:10px;
 	margin-top:20px;
-	width:35%;
-	height:60px;
+	width:100%;
 	display:block;
 }
 
@@ -83,7 +84,18 @@ select:focus {
 	text-transform: uppercase;
 	color: crimson;
 	margin-bottom:0px;
-	text-align:center;
+	margin-left:12%;
+	position:absolute;
+}
+
+select {
+	display:block;
+	margin:0 auto;
+}
+
+#imgdificultad {
+	height:250px;
+	width:250px;
 }
 
 h1, form, p{
@@ -116,11 +128,13 @@ h3 {
 
 button {
 	width: 100%;
-	height: 40px;
+	height: 60px;
 	border-radius: 15px;
 	border-color: #87cfc8 ;
-	background: #a3dad5;
-
+	background: #23b89f;
+	text-transform:uppercase;
+	color:white;
+	font-size:1.5em;
 }
 
 figure {
@@ -145,6 +159,13 @@ img {
 	border-radius: 10px;
 }
 
+#reinicio {
+	margin-left:10px;
+}
+
+.hide {
+	visibility:hidden;
+}
 
 /*Clases utilizadas en JS*/
 
@@ -177,3 +198,30 @@ img {
 	width:100%;
 }
 
+/***********MEDIA QUERY*********/
+
+@media all and (max-width:980px){
+	.tile {
+		padding:5px;
+	}
+
+	#filaAside {
+		padding-left:0px;
+	}
+
+	#instrucciones {
+		margin-left:5px;
+	}
+
+	#tablero {
+		margin-top:10px;
+	}
+
+	#reinicio {
+		margin-left:0px;
+	}
+
+	#error {
+		margin-left:20%;
+	}
+}
