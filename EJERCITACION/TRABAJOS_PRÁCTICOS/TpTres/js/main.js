@@ -142,16 +142,16 @@ function selectDificultad(){
 	switch(opcion){
 		case "Principiante": console.log("Uno"); 
  												 turno = 18;
-                         score = 0;			
+                         score = 50;			
 												 break;
 
 		case "Intermedio": console.log("Dos"); 
 											 turno = 12;
-                       score = 50;
+                       score =100;
 											 break;
 		case "Experto": console.log("Tres"); 
 										turno = 8;
-                    score = 100;
+                    score = 200;
 										break;
 	};
   turnoDificultad = turno;
@@ -292,17 +292,24 @@ function highScore(){
   console.log(highScore);
   if(puntuacionesMaximas.length<5){
     puntuacionesMaximas.push(highScore);
+    puntuacionesMaximas.sort(function(a,b){
+       return b.puntaje - a.puntaje;
+    });
+    console.log(puntuacionesMaximas);
     var guardoPuntos = JSON.stringify(puntuacionesMaximas)
     localStorage.setItem("puntajes",guardoPuntos);
   }else{
-    for(i=0;i=puntuacionesMaximas.length;i++){
-      if(score>puntuacionesMaximas[i].puntaje);
-      puntuacionesMaximas.slice(4,0);
-      puntuacionesMaximas.push(highScore);
-      var guardoPuntos = JSON.stringify(puntuacionesMaximas)
-      localStorage.setItem("puntajes",guardoPuntos);
-    }
-  }
+   if(score>puntuacionesMaximas[4].puntaje){
+    puntuacionesMaximas.splice(4,1);
+    puntuacionesMaximas.push(highScore);
+    puntuacionesMaximas.sort(function(a,b){
+       return b.puntaje - a.puntaje;
+       });
+   };
+  };
+    console.log(puntuacionesMaximas);
+    var guardoPuntos = JSON.stringify(puntuacionesMaximas)
+    localStorage.setItem("puntajes",guardoPuntos);
 }
 
 
