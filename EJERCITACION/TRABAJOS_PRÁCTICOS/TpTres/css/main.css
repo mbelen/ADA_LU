@@ -94,8 +94,8 @@ select {
 }
 
 #imgdificultad {
-	height:250px;
-	width:250px;
+	max-height:250px;
+	max-width:250px;
 }
 
 h1, form, p{

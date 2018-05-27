@@ -1,0 +1,23 @@
+un objeto JSON tiene la misma sintaxis que un objeto común, salvo porque los nombres también van entre comillas
+
+var objetoComun = {
+	nombre:valor,
+}
+
+var objetoJSON = {
+	"nombre":valor,
+}
+
+el valor puede ser una variable de cualquiera de los siguientes tipos:
+- String
+- Número
+- Booleana
+- Array 
+- Null
+
+Los objetos JSON se utilizan, entre otras cosas, para enviar/recibir información a través de un servidor. Para enviar datos a un servidor, estos deben ser un string. Por eso usamos la función JSON.stringify para convertirlos.
+
+var JSONString = JSON.stringify(obj); 
+
+Cuando recuperamos un objeto JSON que fue convertido en un string, tenemos que parsearlo para volverlo a su estado original. Para eso, usamos JSON parse
+
