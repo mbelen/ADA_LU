@@ -1,0 +1,16 @@
+ROUTING
+Permite acomodar en un documento los ruteos. Se pueden definir por entidad (x ej: usuarios, productos, etc).
+var mimodulo = require('./mimodulo')
+app.use('/ruta', mimodulo) -> le estoy diciendo que cuando la url es /ruta, tiene que usar mimodulo.
+
+
+MIMES
+Son formatos genéricos que se pueden incluir en el servidor o, por ejemplo, al adjuntar archivos en e-mails. Define las extensiones de archivos que se pueden manipular con una herramienta determinada.
+Por default, el server interpreta html. Si quiero que interprete otra cosa, se la tengo que definir. 
+
+TEMPLATES
+No son propios del framework, entonces unx puede elegir cuál usar dentro del FW.
+Es un formato intermedio. 
+Es una sintaxis particular. Junta la estructura de HTML con la parte lógica. La gracia de un framework es generar vistas dinámicas. 
+Son una combinación de código html interpretado y pequeños bloques de código dinámico (que gralmente es javascript).
+Los templates tienen una sintaxis particular.

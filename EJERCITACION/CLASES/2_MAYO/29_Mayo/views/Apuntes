@@ -1,0 +1,42 @@
+App.js -> reparte las responsabilidades
+app.use("/productos",productos)
+app.use("/usuarios",usuarios)
+app.use("/categorías",categorias)
+
+Módulos:
+/productos
+productos.js
+
+/usuarios
+usuarios.js
+
+/categorías
+categorias.js
+
+El generator se activa en la consola con esto:
+$ express --view=pug myapp
+
+MIDDLEWARE
+Aplicación monolítica:
+hay un solo archivo que resuelve todo (mi main.js)
+Aplicación multicapa:
+aplicamos el mvc.
+Tenemos las vistas que son una respuesta dinámica que no tienen lógica (más allá de algún condicional o un pasaje de variables).
+La mayoría de los frameworks web aplican mvc.
+Cuando empiezo a tener algo multicapa voy a tener una entrada que define cómo rutear a los distintos módulos.
+Middleware: indica cómo voy a manipular el flujo de programa. Lo que va pasando responsabilidades a distintos módulos/métodos.
+
+PILA DE MIDDLEWARE
+cómo voy pasando de mano en mano la resolución del request(?);
+
+solicitud http -> pila de middleware -> respuesta http
+la pila procesa el request
+en teoría, la respuesta va a ser un render.
+
+REGISTRO DE FUNCIONES
+
+app.use(módulo) o
+app.use("ruta", módulo)
+
+La función next salta por defecto al siguiente bloque de la pila, pero le puedo pasar un parámetro para que salte directamente a una función específica.
+
