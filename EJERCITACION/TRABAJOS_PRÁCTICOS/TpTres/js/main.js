@@ -189,7 +189,7 @@ function repartir() {
 
 //Función que resetea valores y rehace mezcla/reparto al clickear "reiniciar" 
 function reiniciar() {
-  if(par.length<2){ //el condicional evita que pueda reiniciar en medio de una comparación, lo cual a su vez evita que se reste el turno erróneamente
+  //if(par.length<2){ //el condicional evita que pueda reiniciar en medio de una comparación, lo cual a su vez evita que se reste el turno erróneamente
     turno = turnoDificultad;
     puntos = puntosDificultad;
     aciertos = 0;
@@ -202,9 +202,9 @@ function reiniciar() {
     mezclar();
     repartir();
     esconderPuntuaciones();
-  }else{
-    alert("Por favor, espera a que termine el turno antes de reiniciar ¡gracias!")
-  }
+  //}else{
+  //  alert("Por favor, espera a que termine el turno antes de reiniciar ¡gracias!")
+  //}
 }
 
 //Función Gameplay (se activa al clickear una ficha)
@@ -370,7 +370,13 @@ $("#comenzar").on("click", cargarDatos);
 mezclar();
 repartir();
 $(document).on("click", ".reverso", gameplay);
-$('#reinicio').on('click', reiniciar);
+$('#reinicio').on('click', function(){
+  if(par.length===2){
+      setTimeout(reiniciar,1000) //evita que se reste el turno al reiniciar en medio de una comparación
+  }else{
+      reiniciar()
+  }
+});
 crearTablaPuntuaciones();
 $("#cerrar").on('click', esconderPuntuaciones);
 $('#verPuntuaciones').on('click', mostrarPuntuaciones);

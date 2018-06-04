@@ -1,0 +1,28 @@
+CLIENTE
+Es el que pide datos
+Cuando un usuario entra a xej localhost:3000, lo que hace el navegador es ir al navegador que hay en esa dirección y hace un get a ese servidor. Se pide el directorio raíz a través del protocolo http. Ahí es donde entra express.
+Al hacer el get, normalmente le pedimos que traiga la vista index.pug (o html). 
+
+SERVIDOR
+Es el que entrega los datos
+En el servidor, yo tengo un montón de directorios y no todos son del servidor.
+public -> (adentro tiene stylesheet, js, imágenes)
+routes 
+views -> (index.pug-> Este es el archivo con el que normalmente se contesta, error.pug, users.pug, blah -tb podría ser html plano-)
+app.js 
+
+En mi index.pug o html, voy a tener mi propio javascript, además de frameworks, librerías y demases. El JQuery o el bootstrap puedo levantarlos con CDN. Lo que sería mi main.js o index.js va en la carpeta javascript dentro de public. Ese código se va a ejecutar EN EL CLIENTE. Para el servidor, va a ser un archivo estático.
+
+Server site rendering -> hago mi html en express (ponele, ver)
+El problema es que eso hace laburar mucho al servidor y lo vuelve lento
+En el ejemplo del ejercicio del libro corregir esto implicaría, en vez de llamar mis libros desde el servidor, como hice, sino con js en el html del cliente que le va a pedir al servidor el array de objetos. De este modo, express ya no me devuelve una vista armada, sino que solamente me devuelve datos (pasa a ser una api y no un servidor de vistas armadas).
+El client-side es peor para SEO. Tiene como ventaja el dinamismo. Puedo mostrar cosas en menos tiempo.
+
+Agregar al ejercicio del viernes:
+la posibilidad de eliminar un libro (DELETE)
+la posibilidad de agregar un libro (POST) ->Se puede hacer en pantalla nueva con una view nueva con un formulario. O se puede agregar abajo de la misma view un formulario.
+la posibilidad de editar un libro (PUT)
+
+Una vez que tengamos esto, lo vamos a pasar a client side
+
+//REMINDER: para arreglar el problema en "Memotest", meté un condicional que diga que si par=2 espere 1 seg antes de reiniciar)//

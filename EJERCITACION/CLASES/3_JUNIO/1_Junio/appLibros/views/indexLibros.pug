@@ -2,12 +2,14 @@ doctype html
 html
 	head
 		title= title
+		link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous")
 		link(rel='stylesheet', href='/stylesheets/styleLibros.css')
 		link(href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet")
 	body
 		block content
 			div.container
 				h1 ¡LIIIBROS!
+				button#agregar agregar libro
 				div#grilla
 					each libro in libros
 						div.campo
@@ -16,5 +18,11 @@ html
 								img(src=libro.img)
 							h4= libro.isbn
 							h5 precio: $#{libro.precio}
+							div.botones
+								form(action='' method='delete')
+									button(class="editbtn" type='submit') Eliminar
+								form(action='' method='put')
+									button(class="editbtn" type='submit') Editar
+
 
 

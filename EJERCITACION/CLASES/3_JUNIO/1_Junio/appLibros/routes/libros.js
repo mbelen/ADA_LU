@@ -46,7 +46,16 @@ router.get('/:isbn', function(req, res, next){
 			res.render('viewLibros',{nombre:libros[i].nombre, isbn:libros[i].isbn, imagen:libros[i].img, precio:libros[i].precio, blurb:libros[i].blurb});
 		}
 	}
-	
-})
+});
+
+router.delete('/delete/:isbn', function(req, res) {
+  var idLibro = req.param("isbn");
+    for(i=0;i<libros.length;i++){
+    if(idLibro===libros[i].isbn){
+      console.log("I have no idea what I'm doing");
+      libros.splice(libros[i]);      
+    }
+  }
+});
 
 module.exports = router;
