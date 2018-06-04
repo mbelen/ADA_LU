@@ -1,0 +1,20 @@
+doctype html
+html
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/styleLibros.css')
+		link(href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet")
+	body
+		block content
+			div.container
+				h1 ¡LIIIBROS!
+				div#grilla
+					each libro in libros
+						div.campo
+							h3= libro.nombre
+							figure
+								img(src=libro.img)
+							h4= libro.isbn
+							h5 precio: $#{libro.precio}
+
+

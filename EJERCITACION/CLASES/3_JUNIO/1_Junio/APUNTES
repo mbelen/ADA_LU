@@ -1,0 +1,35 @@
+MANEJO DE ERRORES
+
+200 ¡todo está bien!
+404 no es considerado un error en sí (es más bien un estatus). Quiere decir que no se encontró en todas las funciones de middleware una que atrape la petición solicitada. Que no se encuentra la ruta.
+Como no es un error, el generator lo gestiona con una función anónima que renderiza una vista.
+500 problema interno del servidor. Se rompió el programa y no tiene un camino de salida. Es un error en tiempo de ejecución. Suele ser un error lógico.
+
+Manejador de errores = error handler
+Es lo mismo que una función/módulo cualquiera, con la particularidad de que tiene un parámetro que es el error que se dispara.
+El error se identifica internamente y tiene un estatus. 
+res.locals.message = es un atributo de la respuesta. Guardo el mensaje de error en una variable de alcance amplio.
+'env'-> Entorno en el que está corriendo mi aplicación (si es 'development', en la variable error, guardo el objeto error, si no, guardo el objeto vacío).
+(err, como res y req, es un objeto)
+Si no tiene un parámetro de error, no es un handler de errores. Es simplemente un módulo con función.
+createError. Dispara una estructura que tiene dos parámetros: un estatus y un mensaje. Sirve para crear mi propia mensajería de errores.
+Tres formas de trabajar los errores 
+- Con el handler general
+- Trabajando el 404 con un use por defecto
+- O crear un create error que propague el 404 al handler
+(KE?)
+ 
+//////
+//En el generator, el contenido estático se guarda en la carpeta "public". Si usara less, por ejemplo, //iría ahí. Los scripts adicionales (xej: jquery) irían ahí.
+//Al subir cosas creadas con express a github, conviene mandarle un gitignore a los módulos - carpeta //node_modules - (total quien lo baja los puede instalar, y si no va a pesar mucho).
+//////
+
+**************
+__dirname is always the directory in which the currently executing script resides
+./ gives you the directory from which you ran the node command in your terminal window (i.e. your working directory).
+The exception is when you use ./ with require(). The path inside require is always relative to the file containing the call to require.
+**************
+
+- En el ejercicio de la ficha, agregar una foto y agregar el mensaje de error
+- Armar varias rutas.
+- Armar algo como el integrador flex con express y que pido un libro en particular por ID, lo traiga.

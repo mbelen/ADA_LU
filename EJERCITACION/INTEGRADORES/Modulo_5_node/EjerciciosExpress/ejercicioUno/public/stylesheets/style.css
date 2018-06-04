@@ -1,0 +1,37 @@
+* {
+	box-sizing:border-box;
+}
+
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.container {
+	width:50%;
+	margin:0 auto;
+	text-align:center;
+}
+
+.container p {
+	padding:15px 5px;
+	border:3px double plum;
+	width:50%;
+	margin:0 auto;
+}
+
+.celeste {
+	background: lightskyblue;
+}
+
+.rosa {
+	background:pink;
+}
+
+.none {
+	background:lightyellow;
+}
