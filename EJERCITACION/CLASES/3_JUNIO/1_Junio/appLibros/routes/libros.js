@@ -44,18 +44,29 @@ router.get('/:isbn', function(req, res, next){
 		if(idLibro===libros[i].isbn){
 			console.log("I'm working");
 			res.render('viewLibros',{nombre:libros[i].nombre, isbn:libros[i].isbn, imagen:libros[i].img, precio:libros[i].precio, blurb:libros[i].blurb});
-		}
+		}else{
+      res.render('error'); //atrapo el 404, lo puedo tunear, pasarle un mensaje
+    }
 	}
 });
 
-router.delete('/delete/:isbn', function(req, res) {
-  var idLibro = req.param("isbn");
-    for(i=0;i<libros.length;i++){
-    if(idLibro===libros[i].isbn){
-      console.log("I have no idea what I'm doing");
-      libros.splice(libros[i]);      
+router.get('/delete/:isbn', function(req,res,next) { //opción b router.get('/delete/:isbn', function(req,res,next){})
+  var idLibro = req.params.isbn;
+    for(i=0;i<libros.length;i++){ //podría hacer una función con esto y retornar el libro en cuestión (o null o lo que sea si no hay libro). Así no tendría que repetirlo en ambos métodos
+      if(idLibro===libros[i].isbn){
+        libros.splice(i,1);      
     }
   }
+  res.render('indexLibros', {libros:libros});
+  next(createError())
 });
 
+router.get('/put/:isbn'), function (req,res,next){
+
+}
+
 module.exports = router;
+//Buscá el método filter
+
+//Los scripts estáticos los linkeo en el layout. También los puedo separar por bloque funcional
+//Si quiero resolver el delete/edit con un listener al botón, tengo que generar un js estático que me llame el método a través de una llamada ajax

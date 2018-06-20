@@ -9,20 +9,33 @@ html
 		block content
 			div.container
 				h1 ¡LIIIBROS!
-				button#agregar agregar libro
 				div#grilla
 					each libro in libros
 						div.campo
-							h3= libro.nombre
-							figure
-								img(src=libro.img)
-							h4= libro.isbn
-							h5 precio: $#{libro.precio}
-							div.botones
-								form(action='' method='delete')
-									button(class="editbtn" type='submit') Eliminar
-								form(action='' method='put')
-									button(class="editbtn" type='submit') Editar
-
+							div.datos
+								div.botones
+									a(href='/libros/delete/'+libro.isbn)
+										i.far.fa-trash-alt
+									a(href="#")
+										i.far.fa-edit
+								h3= libro.nombre
+								figure
+									img(src=libro.img)
+								h4= libro.isbn
+								h5 precio: $#{libro.precio}
+								a(href="#") mostrar vista
+							div.ventanaEdit
+								label Nombre
+								input(type='text' data-id=libro.nombre placeholder=libro.nombre)
+				button#agregar agregar libro
+				div#formAgregar.invisible
+					label Título
+					input(type='text' id="tituloNuevo")
+					label ISBN
+					input(type='text' id="isbnNuevo")
+					label Precio
+					input(type='text' id="precioNuevo")
+					i.fas.fa-check
+<!--también puedo poner un a con un href que me lleve a la url de delete la ruta es algo así como href='/delete/libros'+libro.isbn (ver bien cómo escribirlo)-->
 
 

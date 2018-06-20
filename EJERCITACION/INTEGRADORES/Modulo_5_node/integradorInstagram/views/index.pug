@@ -1,0 +1,19 @@
+extends layout
+
+block content
+	div.container
+		button(id="mostrarForm") +
+		form(action="/upload" method="POST" id="formUpload" encType="multipart/form-data" class="hide")
+			input(id='inputImagen' type='file' name='miImagen' required)
+			input(id="texto" type='text' name='miMensaje' required)
+			label(for="miMensaje") Tu mensaje
+			input(id='submit' type='submit' value='enviar')
+		div#posteos
+			if(imagenes)
+				each imagen in imagenes
+					div.posteo
+						figure
+							img(src=imagen.ruta)
+						div.msj
+							p= imagen.mensaje
+							i.fas.fa-heart

@@ -1,0 +1,16 @@
+extends layout
+
+block content
+	div.container
+		div.login
+			h3.centrado Ingresá tu usuario y contraseña
+			form(class="formRegistro" id="formLogin" method="POST" action='/registro/ingreso')
+					label(for="usuario") usuario
+					input(type="text" id="usuario" name="logUser")
+					label(for="logPass") contraseña
+					input(type="password" id="contraseña" name="logPass")
+					a(href="/registro/registrarse" class="cambio") Crear una cuenta
+					p#errorIngreso
+					if error
+						p#errorPass= error
+					button(type="submit" id="ingresar") Ingresar

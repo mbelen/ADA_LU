@@ -1,0 +1,18 @@
+extends layout
+
+block content
+	div.container
+		div.owl-carousel
+			each favorito in favoritos
+				div.item
+					img(src=favorito.img)
+					h2= favorito.nombre
+					h5 precio: $#{favorito.precio}
+		div#about
+			div#cols
+				div
+					h2 ¿Quiénes somos?
+					p Candy canes brownie icing jelly-o toffee muffin. Macaroon pudding pastry chocolate. Halvah bonbon toffee muffin chocolate bar chocolate bar jelly beans gingerbread. Brownie chocolate cake dragée powder carrot cake topping cookie danish tiramisu. Liquorice chocolate bar chocolate bear claw. Oat cake croissant macaroon. Marzipan jujubes muffin. Jelly jelly beans bear claw. Pudding pie wafer. Sweet pudding lemon drops jelly-o toffee biscuit jelly. Soufflé cake caramels sweet biscuit sesame snaps dragée cake. Icing pastry icing pastry cake.
+				div
+					p.margen Cookie biscuit fruitcake tart chocolate dragée croissant croissant. Dragée cookie lemon drops dragée. Cotton candy toffee candy sweet lemon drops dragée. Chupa chups pastry chocolate cake tootsie roll gummies. Ice cream chocolate halvah. Gummies cupcake cheesecake pie chocolate bar sugar plum caramels brownie. Pudding brownie marzipan. Lemon drops icing halvah powder. Bonbon cupcake sesame snaps macaroon jujubes sweet roll toffee macaroon. 
+				img(src="/images/cupcake.png")
