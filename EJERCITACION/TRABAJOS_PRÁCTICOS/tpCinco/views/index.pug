@@ -1,0 +1,15 @@
+extends layout
+
+block content
+	div.grilla
+		each animal in animales
+			div.animal
+				figure
+					img(src=animal.imagen)
+				div.animalDatos
+					p=animal.nombre
+					div.icons
+						a(href="/views/"+animal.nombre)
+							i.fas.fa-eye
+						a(href="#")
+							i.fas.fa-heart

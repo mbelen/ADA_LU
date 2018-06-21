@@ -1,0 +1,151 @@
+*{
+	margin:0;
+	padding:0;
+	/*outline:1px solid red;*/
+}
+
+html {
+	background-image:url('/images/fondo.jpg');
+	background-size:780px auto;
+	height:100%;
+}
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height:100%;
+}
+
+
+.grilla {
+	display:grid;
+	grid-template-columns: 20% 20% 20% 20%;
+	grid-gap:15px;
+	justify-content:center;
+}
+
+.animal {
+		overflow:hidden;
+}
+
+.grilla figure {
+	width:200px;
+	height:200px;
+}
+
+.grilla figure img {
+	width:100%;
+	height:auto;
+	min-height:100%;
+}
+
+.container {
+	display:grid;
+	grid-template-columns:25% 75%;
+	background:white;
+	width:85%;
+	margin:0 auto;
+	padding-top:60px;
+	min-height:100%;
+}
+
+.animal {
+	box-shadow:2px 2px 3px lightgray;
+}
+
+.animal p {
+	margin:10px 0;
+	margin-left:2px;
+}
+
+.formulario {
+	display:flex;
+	justify-content:center;
+}
+
+
+label {
+	display:block;
+}
+
+select {
+	width:200px;
+	height:35px;
+	border-radius:3px;
+	margin-bottom:40px;
+}
+
+#filterButton {
+	display:block;
+	width:100px;
+	height:40px;
+	background-color:teal;
+	border:none;
+	text-transform:uppercase;
+	color:white;
+	border-radius:5px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+#filterButton:hover {
+	background:	#00bbbb;
+	transition:0.5s;
+}
+
+.animalDatos {
+	width:100%;
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+}
+
+i {
+	margin-left:5px;
+	margin-right:5px;
+	color:black;
+}
+
+.fa-heart:hover {
+	color:hotpink;
+}
+
+.fa-eye:hover {
+	color:lightskyblue;
+}
+
+.animalData {
+	display:grid;
+	grid-template-columns:35% 65%;
+}
+
+.animalDescripcion {
+	padding-right:10px;
+}
+
+.animalDescripcion p {
+	margin-top:40px;
+}
+
+.animalData img {
+	box-shadow:2px 2px 2px gray;
+}
+
+header {
+	width:85%;
+	margin:0 auto;
+	background:white;
+	
+	padding:20px 0;
+	font-family:"Coiny";
+	font-size:2.5em;
+	border-bottom:3px double teal;
+}
+
+header h1 {
+	margin-left:60px;
+	color:#e69500;
+}
+
+a {
+	text-decoration:none;
+}
