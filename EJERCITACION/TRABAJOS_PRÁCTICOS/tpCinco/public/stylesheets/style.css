@@ -46,10 +46,12 @@ body {
 	margin:0 auto;
 	padding-top:60px;
 	min-height:100%;
+	padding:15px;
 }
 
 .animal {
 	box-shadow:2px 2px 3px lightgray;
+	height:250px;
 }
 
 .animal p {
@@ -97,6 +99,7 @@ select {
 	display:flex;
 	justify-content:space-between;
 	align-items:center;
+	margin-top:18px;
 }
 
 i {
@@ -135,7 +138,7 @@ header {
 	margin:0 auto;
 	background:white;
 	
-	padding:20px 0;
+	padding:20px 15px;
 	font-family:"Coiny";
 	font-size:2.5em;
 	border-bottom:3px double teal;

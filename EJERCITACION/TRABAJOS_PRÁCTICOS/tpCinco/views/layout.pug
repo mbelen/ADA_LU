@@ -11,7 +11,7 @@ html
 				h1 Pancho SA
 		div.container
 			div.formulario
-				form
+				form(action="/views" method="POST")
 					label(for="especie") Especie
 					select(name="especie")
 						option(val="todas") Todas
@@ -27,5 +27,5 @@ html
 						option(val="todos") Todos
 						option(val="pequeño") Pequeño
 						option(val="grande") Grande
-					input(id="filterButton" action="/filtro" type="submit" value="filtrar")
+					input(id="filterButton" type="submit" value="filtrar")
 			block content
