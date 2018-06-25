@@ -1,0 +1,22 @@
+extends layout
+
+block content
+		h2 ingrese sus datos
+		form(method="POST" action='/user')
+			div.campo
+				label(for="nombre") Nombre
+				input(class="treinta" type="text" name="nombre")
+			p(id="error0" class="error")
+			div.campo
+				label(for="apellido") Apellido
+				input(class="treinta" type="text" name="apellido")
+			p(class="error" id="error1")
+			div.campo
+				label(for="telefono") Teléfono
+				input(type="tel" name="telefono" id="tel")
+			p(id="error2" class="error")
+			div.campo
+				label(for="mail") Mail
+				input(type="mail" name="mail" id="mail")
+			p(class="error" id="error3")
+			input(type="submit" action="/user" value="enviar" id="miBoton")

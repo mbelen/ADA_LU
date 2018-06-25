@@ -1,0 +1,110 @@
+* {
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+}
+
+body {
+   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+   background-image:url('/images/fondo.jpg');
+   background-size:400px auto;
+}
+
+.container {
+	width:70%;
+	margin:0 auto;
+	background:white;
+	margin-top:30px;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	padding:10px;
+	border-radius:10px;
+}
+
+label {
+	margin-right:20px;
+}
+
+.campo {
+	margin-top:10px;
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+}
+
+input {
+	height:30px;
+	border-radius:3px;
+}
+
+#miBoton {
+	width:90px;
+}
+
+table {
+	border-collapse:collapse;
+}
+
+thead {
+	border:3px solid gray;
+}
+
+th {
+	text-align:left;
+	padding-left:2px;
+	width:200px;
+	height:35px;
+	background:black;
+	color:white;
+	border-spacing:0;
+	border-right:1px solid black;
+}
+
+td {
+	padding:5px 2px;
+	border:1px solid black;
+}
+
+tr {
+	background-color:plum;
+}
+
+tr:nth-child(even) {
+	background-color: pink;
+}
+
+#buscaForm {
+	margin-top:10px;
+}
+
+#error {
+	width:500px;
+	height:auto;
+}
+
+.error {
+	font-size:0.7em;
+	color:red;
+	text-transform:uppercase;
+	margin-bottom:20px;
+	margin-left:72px;
+}
+
+#home {
+	font-size:4em;
+	width:70%;
+	margin:0 auto;
+	text-align:center;
+	margin-top:30px;
+}
+
+#home a {
+	color:white;
+	text-decoration:none;
+	font-weight:bold;
+}
+
+.linkInicio {
+	margin:10px 0;
+}

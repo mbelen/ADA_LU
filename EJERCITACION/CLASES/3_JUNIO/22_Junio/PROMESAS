@@ -1,0 +1,23 @@
+PROMESAS
+
+Opción a
+
+new promise
+
+then()
+then()
+...
+catch()
+
+Opción b
+
+try {}
+
+catch {}
+
+Estatus de promesas:
+- Pendiente
+- Resuelta
+- Rechazada
+
+Las promesas son útiles especialmente en casos en los que estoy trabajando algo que no puedo controlar por completo (x ej, leer un archivo o pegarle a una api)

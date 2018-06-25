@@ -170,11 +170,23 @@ edad:"cachorro",
 tamaño:"grande",
 imagen:"/images/cate10.jpg",
 descripcion:"Cupcake ipsum dolor sit. Amet halvah gingerbread topping muffin cake chupa chups. Lemon drops dessert jelly-o sweet bear claw oat cake muffin jelly-o. Chocolate cake cookie macaroon."	
-}]
+},
+{
+nombre:"Critter",
+especie:"gato",
+edad:"cachorro",
+tamaño:"grande",
+imagen:"/images/cate11.jpg",
+descripcion:"Cupcake ipsum dolor sit. Amet halvah gingerbread topping muffin cake chupa chups. Lemon drops dessert jelly-o sweet bear claw oat cake muffin jelly-o. Chocolate cake cookie macaroon."	
+}];
 
-self.cargarTodos = function(req,res,next){
-	res.render('index', {animales:animales})
-}
+var filtroEspecie = animales;
+var arrayPaginas = [];
+
+// self.cargarTodos = function(req,res,next){
+// 	var paginas = Math.floor(animales.length/4)+1;
+// 	res.render('index', {animales:animales})
+// }
 
 self.cargarVista = function(req,res,next){
 	let miAnimal = req.params.id;	
@@ -191,26 +203,55 @@ self.cargarVista = function(req,res,next){
 }
 
 self.filtrarForm = function(req,res,next){
+	//recupero los datos que se enviaron con el submit del formulario
 	var especie = req.body.especie.toLowerCase();
 	var edad = req.body.edad.toLowerCase();
 	var tamaño = req.body.tamaño.toLowerCase();
+    
+    //filtro por especie
 	if(especie!="todas"){
-		var filtroEspecie = animales.filter(function(item){return item.especie===especie});
+		filtroEspecie = animales.filter(function(item){return item.especie===especie});
 	}else{
-		var filtroEspecie = animales;
+		filtroEspecie = animales;
 	};
+	//filtro por edad
 	if(edad!="todas"){
 		filtroEspecie = filtroEspecie.filter(function(item){return item.edad===edad})
-	}//else{
-	// 	filtroEspecie = filtroEspecie;
-	// }
+	}
+	//filtro por tamaño
 	if(tamaño!="todos"){
 		filtroEspecie = filtroEspecie.filter(function(item){return item.tamaño===tamaño})
-	}//else{
-	// 	filtroEspecie = filtroEspecie;
-	// }
+	}
 
-res.render('index', {animales:filtroEspecie})
+	res.redirect('/views/filtro/1')
+};
+
+self.renderizar = function(req,res,next){
+	var numeroParam = req.params.page;
+	if(numeroParam){
+	var numero = numeroParam - 1
+	}else{
+		numero = 0;
+	}
+	var principioIntervalo = numero*4;
+	var finIntervalo = principioIntervalo + 4;
+	arrayPaginas = [];
+	var cantPaginas = filtroEspecie.length/4;
+	if(!Number.isInteger(cantPaginas)){
+		paginas = Math.floor(cantPaginas + 1)
+	}else{
+		paginas = cantPaginas
+	}
+	for(i=1; i<paginas+1;i++){
+		arrayPaginas.push(i);
+	}
+	console.log(arrayPaginas);
+	var animalesPagina = filtroEspecie.slice(principioIntervalo,finIntervalo) 
+	console.log(animalesPagina)
+	res.render('index', {animales:animalesPagina, paginas:arrayPaginas})
 }
 
+self.renderHome = function(req,res,next){
+	res.render('vistaHome')
+}
 module.exports = self;

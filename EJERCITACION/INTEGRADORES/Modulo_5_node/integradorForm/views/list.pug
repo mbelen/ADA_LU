@@ -1,0 +1,25 @@
+extends layout
+
+block content
+	h3 ¡Soy una lista!
+	a(href="/user/form") ¡Agregar!
+	if(usuarios.length>0)
+		table
+			thead
+				th Nombre
+				th Apellido
+				th Teléfono
+				th Mail
+			tbody(id="miTabla")
+				each usuario in usuarios
+					tr
+						td=usuario.usuario
+						td=usuario.apellido
+						td=usuario.tel
+						td=usuario.mail
+		form(id="buscaForm")
+			label(for="buscador") Filtrar tabla
+			input(type="text" name="buscador" id="buscador")
+	else
+		h4 Parece que no hay usuaries para mostrar ¡registrate!	
+		
