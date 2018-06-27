@@ -1,0 +1,177 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+html {
+	background-image:url('/images/fondo.jpg');
+	background-size:780px auto;
+	height:100%;
+}
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height:100%;
+}
+
+.paginas {
+	display:flex;
+	flex-wrap:wrap;
+	flex-direction:column;
+}
+
+.grilla {
+	display:flex;
+	flex-wrap:wrap;
+}
+
+.paginado {
+	margin-top:20px;
+	align-self:center;
+	display:flex;
+}
+
+.numero {
+	padding:10px;
+	border:1px solid black;
+	margin:5px;
+}
+
+.animal {
+		width:200px;
+		margin:0 5px;
+		overflow:hidden;
+}
+
+.grilla figure {
+	width:200px;
+	height:200px;
+}
+
+.grilla figure img {
+	width:100%;
+	height:auto;
+	min-height:100%;
+}
+
+.container {
+	display:grid;
+	grid-template-columns:28% 72%;
+	background:white;
+	width:85%;
+	margin:0 auto;
+	padding-top:60px;
+	min-height:100%;
+	padding:15px;
+}
+
+.animal {
+	box-shadow:2px 2px 3px lightgray;
+	height:250px;
+}
+
+.animal p {
+	margin:10px 0;
+	margin-left:2px;
+}
+
+.formulario {
+	display:flex;
+	justify-content:center;
+}
+
+
+label {
+	display:block;
+}
+
+select {
+	width:200px;
+	height:35px;
+	border-radius:3px;
+	margin-bottom:40px;
+}
+
+#filterButton {
+	display:block;
+	width:100px;
+	height:40px;
+	border-radius:5px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+#filterButton, .numero {
+	background-color:teal;
+	border:none;
+	text-transform:uppercase;
+	color:white;
+}
+
+#filterButton:hover,.numero:hover {
+	background:	#00bbbb;
+	transition:0.5s;
+}
+
+.animalDatos {
+	width:100%;
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+	margin-top:18px;
+}
+
+i {
+	margin-left:5px;
+	margin-right:5px;
+	color:black;
+}
+
+.fa-heart:hover {
+	color:hotpink;
+}
+
+.fa-eye:hover {
+	color:lightskyblue;
+}
+
+.animalData {
+	display:grid;
+	grid-template-columns:35% 65%;
+}
+
+.animalDescripcion {
+	padding-right:10px;
+}
+
+.animalDescripcion p {
+	margin-top:40px;
+}
+
+.animalData img {
+	box-shadow:2px 2px 2px gray;
+}
+
+header {
+	width:85%;
+	margin:0 auto;
+	background:white;
+	
+	padding:20px 15px;
+	font-family:"Coiny";
+	font-size:2.5em;
+	border-bottom:3px double teal;
+}
+
+header h1 {
+	margin-left:60px;
+	color:#e69500;
+}
+
+a {
+	text-decoration:none;
+}
+
+.favorito {
+	color:orange;
+}

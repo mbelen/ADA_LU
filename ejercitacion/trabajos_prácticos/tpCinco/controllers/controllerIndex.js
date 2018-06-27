@@ -1,0 +1,301 @@
+const self = {};
+
+//Creo el objeto con todos mis animales
+
+let animales = [
+{
+nombre:"Nosferatu",
+especie:"perro",
+edad:"cachorro",
+tamaño:"grande",
+imagen:"/images/doge1.jpg",
+favorito:false,
+descripcion:"Cupcake ipsum dolor sit amet topping sesame snaps. Powder cupcake sweet. Dessert muffin sweet. Bear claw carrot cake ice cream croissant chocolate ice cream soufflé. Sweet lollipop jujubes muffin tootsie roll cookie pie. Cookie muffin croissant topping marshmallow tootsie roll cupcake marzipan. Candy canes muffin cookie bonbon jelly gingerbread carrot cake. Sesame snaps carrot cake chocolate bar apple pie chocolate cake marzipan. Jujubes gummies jelly-o. Bear claw cupcake icing oat cake powder. Jelly beans pudding gummi bears. Tiramisu pastry topping cake candy. Gummi bears chocolate croissant gummi bears.",
+},
+{
+nombre:"Frankenstein",
+especie:"perro",
+edad:"cachorro",
+tamaño:"grande",
+imagen:"/images/doge2.jpg",
+favorito:false,
+descripcion:"Cupcake ipsum dolor sit amet topping sesame snaps. Powder cupcake sweet. Dessert muffin sweet. Bear claw carrot cake ice cream croissant chocolate ice cream soufflé. Sweet lollipop jujubes muffin tootsie roll cookie pie. Cookie muffin croissant topping marshmallow tootsie roll cupcake marzipan. Candy canes muffin cookie bonbon jelly gingerbread carrot cake. Sesame snaps carrot cake chocolate bar apple pie chocolate cake marzipan. Jujubes gummies jelly-o. Bear claw cupcake icing oat cake powder. Jelly beans pudding gummi bears. Tiramisu pastry topping cake candy. Gummi bears chocolate croissant gummi bears.",
+},
+{
+nombre:"Dr. Jeckyll",
+especie:"perro",
+edad:"cachorro",
+tamaño:"pequeño",
+imagen:"/images/doge3.jpg",
+favorito:false,
+descripcion:"Cupcake ipsum dolor sit amet topping sesame snaps. Powder cupcake sweet. Dessert muffin sweet. Bear claw carrot cake ice cream croissant chocolate ice cream soufflé. Sweet lollipop jujubes muffin tootsie roll cookie pie. Cookie muffin croissant topping marshmallow tootsie roll cupcake marzipan. Candy canes muffin cookie bonbon jelly gingerbread carrot cake. Sesame snaps carrot cake chocolate bar apple pie chocolate cake marzipan. Jujubes gummies jelly-o. Bear claw cupcake icing oat cake powder. Jelly beans pudding gummi bears. Tiramisu pastry topping cake candy. Gummi bears chocolate croissant gummi bears.",
+},
+{
+nombre:"Mr. Hyde",
+especie:"perro",
+edad:"cachorro",
+tamaño:"grande",
+imagen:"/images/doge4.jpg",
+favorito:false,
+descripcion:"Cupcake ipsum dolor sit amet topping sesame snaps. Powder cupcake sweet. Dessert muffin sweet. Bear claw carrot cake ice cream croissant chocolate ice cream soufflé. Sweet lollipop jujubes muffin tootsie roll cookie pie. Cookie muffin croissant topping marshmallow tootsie roll cupcake marzipan. Candy canes muffin cookie bonbon jelly gingerbread carrot cake. Sesame snaps carrot cake chocolate bar apple pie chocolate cake marzipan. Jujubes gummies jelly-o. Bear claw cupcake icing oat cake powder. Jelly beans pudding gummi bears. Tiramisu pastry topping cake candy. Gummi bears chocolate croissant gummi bears.",
+},
+{
+nombre:"Elvira",
+especie:"perro",
+edad:"cachorro",
+tamaño:"pequeño",
+imagen:"/images/doge5.jpg",
+favorito:false,
+descripcion:"Cupcake ipsum dolor sit amet topping sesame snaps. Powder cupcake sweet. Dessert muffin sweet. Bear claw carrot cake ice cream croissant chocolate ice cream soufflé. Sweet lollipop jujubes muffin tootsie roll cookie pie. Cookie muffin croissant topping marshmallow tootsie roll cupcake marzipan. Candy canes muffin cookie bonbon jelly gingerbread carrot cake. Sesame snaps carrot cake chocolate bar apple pie chocolate cake marzipan. Jujubes gummies jelly-o. Bear claw cupcake icing oat cake powder. Jelly beans pudding gummi bears. Tiramisu pastry topping cake candy. Gummi bears chocolate croissant gummi bears.",
+},
+{
+nombre:"Morticia",
+especie:"perro",
+edad:"cachorro",
+tamaño:"pequeño",
+imagen:"/images/doge6.jpg",
+favorito:false,
+descripcion:"Cupcake ipsum dolor sit amet topping sesame snaps. Powder cupcake sweet. Dessert muffin sweet. Bear claw carrot cake ice cream croissant chocolate ice cream soufflé. Sweet lollipop jujubes muffin tootsie roll cookie pie. Cookie muffin croissant topping marshmallow tootsie roll cupcake marzipan. Candy canes muffin cookie bonbon jelly gingerbread carrot cake. Sesame snaps carrot cake chocolate bar apple pie chocolate cake marzipan. Jujubes gummies jelly-o. Bear claw cupcake icing oat cake powder. Jelly beans pudding gummi bears. Tiramisu pastry topping cake candy. Gummi bears chocolate croissant gummi bears.",
+},
+{
+nombre:"Merlina",
+especie:"perro",
+edad:"adulto",
+tamaño:"grande",
+imagen:"/images/doge7.jpg",
+favorito:false,
+descripcion:"Cupcake ipsum dolor sit amet topping sesame snaps. Powder cupcake sweet. Dessert muffin sweet. Bear claw carrot cake ice cream croissant chocolate ice cream soufflé. Sweet lollipop jujubes muffin tootsie roll cookie pie. Cookie muffin croissant topping marshmallow tootsie roll cupcake marzipan. Candy canes muffin cookie bonbon jelly gingerbread carrot cake. Sesame snaps carrot cake chocolate bar apple pie chocolate cake marzipan. Jujubes gummies jelly-o. Bear claw cupcake icing oat cake powder. Jelly beans pudding gummi bears. Tiramisu pastry topping cake candy. Gummi bears chocolate croissant gummi bears.",
+},
+{
+nombre:"Ginger",	
+especie:"perro",
+edad:"adulto",
+tamaño:"grande",
+imagen:"/images/doge8.jpg",
+favorito:false,
+descripcion:"Cupcake ipsum dolor sit amet topping sesame snaps. Powder cupcake sweet. Dessert muffin sweet. Bear claw carrot cake ice cream croissant chocolate ice cream soufflé. Sweet lollipop jujubes muffin tootsie roll cookie pie. Cookie muffin croissant topping marshmallow tootsie roll cupcake marzipan. Candy canes muffin cookie bonbon jelly gingerbread carrot cake. Sesame snaps carrot cake chocolate bar apple pie chocolate cake marzipan. Jujubes gummies jelly-o. Bear claw cupcake icing oat cake powder. Jelly beans pudding gummi bears. Tiramisu pastry topping cake candy. Gummi bears chocolate croissant gummi bears.",
+},
+{
+nombre:"Jason",
+especie:"perro",
+edad:"adulto",
+tamaño:"grande",
+imagen:"/images/doge9.jpg",
+favorito:false,
+descripcion:"Cupcake ipsum dolor sit amet topping sesame snaps. Powder cupcake sweet. Dessert muffin sweet. Bear claw carrot cake ice cream croissant chocolate ice cream soufflé. Sweet lollipop jujubes muffin tootsie roll cookie pie. Cookie muffin croissant topping marshmallow tootsie roll cupcake marzipan. Candy canes muffin cookie bonbon jelly gingerbread carrot cake. Sesame snaps carrot cake chocolate bar apple pie chocolate cake marzipan. Jujubes gummies jelly-o. Bear claw cupcake icing oat cake powder. Jelly beans pudding gummi bears. Tiramisu pastry topping cake candy. Gummi bears chocolate croissant gummi bears.",
+},
+{
+nombre:"Freddy",
+especie:"perro",
+edad:"adulto",
+tamaño:"pequeño",
+imagen:"/images/doge10.jpg",
+favorito:false,
+descripcion:"Cupcake ipsum dolor sit amet topping sesame snaps. Powder cupcake sweet. Dessert muffin sweet. Bear claw carrot cake ice cream croissant chocolate ice cream soufflé. Sweet lollipop jujubes muffin tootsie roll cookie pie. Cookie muffin croissant topping marshmallow tootsie roll cupcake marzipan. Candy canes muffin cookie bonbon jelly gingerbread carrot cake. Sesame snaps carrot cake chocolate bar apple pie chocolate cake marzipan. Jujubes gummies jelly-o. Bear claw cupcake icing oat cake powder. Jelly beans pudding gummi bears. Tiramisu pastry topping cake candy. Gummi bears chocolate croissant gummi bears.",
+},
+{
+nombre:"Alfombra",
+especie:"perro",
+edad:"adulto",
+tamaño:"pequeño",
+imagen:"/images/doge11.jpg",
+favorito:false,
+descripcion:"Este perro tiene una descripción diferente porque es el más importante de todos los perros. Es Sir. Alfombra, es mi perro, no está, nunca estuvo y nunca estará a la venta y es muy probablemente el mejor perro del mundo. He dicho",
+},
+{
+nombre:"Clover",
+especie:"gato",
+edad:"adulto",
+tamaño:"pequeño",
+imagen:"/images/cate1.jpg",
+favorito:false,
+descripcion:"Cupcake ipsum dolor sit amet topping sesame snaps. Powder cupcake sweet. Dessert muffin sweet. Bear claw carrot cake ice cream croissant chocolate ice cream soufflé. Sweet lollipop jujubes muffin tootsie roll cookie pie. Cookie muffin croissant topping marshmallow tootsie roll cupcake marzipan. Candy canes muffin cookie bonbon jelly gingerbread carrot cake. Sesame snaps carrot cake chocolate bar apple pie chocolate cake marzipan. Jujubes gummies jelly-o. Bear claw cupcake icing oat cake powder. Jelly beans pudding gummi bears. Tiramisu pastry topping cake candy. Gummi bears chocolate croissant gummi bears.",
+},
+{
+nombre:"The Thing",
+especie:"gato",
+edad:"adulto",
+tamaño:"pequeño",
+imagen:"/images/cate2.jpg",
+favorito:false,
+descripcion:"Cupcake ipsum dolor sit amet topping sesame snaps. Powder cupcake sweet. Dessert muffin sweet. Bear claw carrot cake ice cream croissant chocolate ice cream soufflé. Sweet lollipop jujubes muffin tootsie roll cookie pie. Cookie muffin croissant topping marshmallow tootsie roll cupcake marzipan. Candy canes muffin cookie bonbon jelly gingerbread carrot cake. Sesame snaps carrot cake chocolate bar apple pie chocolate cake marzipan. Jujubes gummies jelly-o. Bear claw cupcake icing oat cake powder. Jelly beans pudding gummi bears. Tiramisu pastry topping cake candy. Gummi bears chocolate croissant gummi bears.",
+},
+{
+nombre:"Sadako",
+especie:"gato",
+edad:"adulto",
+tamaño:"pequeño",
+imagen:"/images/cate3.jpg",
+favorito:false,
+descripcion:"Cupcake ipsum dolor sit amet topping sesame snaps. Powder cupcake sweet. Dessert muffin sweet. Bear claw carrot cake ice cream croissant chocolate ice cream soufflé. Sweet lollipop jujubes muffin tootsie roll cookie pie. Cookie muffin croissant topping marshmallow tootsie roll cupcake marzipan. Candy canes muffin cookie bonbon jelly gingerbread carrot cake. Sesame snaps carrot cake chocolate bar apple pie chocolate cake marzipan. Jujubes gummies jelly-o. Bear claw cupcake icing oat cake powder. Jelly beans pudding gummi bears. Tiramisu pastry topping cake candy. Gummi bears chocolate croissant gummi bears.",
+},
+{
+nombre:"Salem",
+especie:"gato",
+edad:"adulto",
+tamaño:"pequeño",
+imagen:"/images/cate4.jpg",
+favorito:false,
+descripcion:"Cupcake ipsum dolor sit amet topping sesame snaps. Powder cupcake sweet. Dessert muffin sweet. Bear claw carrot cake ice cream croissant chocolate ice cream soufflé. Sweet lollipop jujubes muffin tootsie roll cookie pie. Cookie muffin croissant topping marshmallow tootsie roll cupcake marzipan. Candy canes muffin cookie bonbon jelly gingerbread carrot cake. Sesame snaps carrot cake chocolate bar apple pie chocolate cake marzipan. Jujubes gummies jelly-o. Bear claw cupcake icing oat cake powder. Jelly beans pudding gummi bears. Tiramisu pastry topping cake candy. Gummi bears chocolate croissant gummi bears.",
+},
+{
+nombre:"Buffy",	
+especie:"gato",
+edad:"adulto",
+tamaño:"pequeño",
+imagen:"/images/cate5.jpg",
+favorito:false,
+descripcion:"Cupcake ipsum dolor sit amet topping sesame snaps. Powder cupcake sweet. Dessert muffin sweet. Bear claw carrot cake ice cream croissant chocolate ice cream soufflé. Sweet lollipop jujubes muffin tootsie roll cookie pie. Cookie muffin croissant topping marshmallow tootsie roll cupcake marzipan. Candy canes muffin cookie bonbon jelly gingerbread carrot cake. Sesame snaps carrot cake chocolate bar apple pie chocolate cake marzipan. Jujubes gummies jelly-o. Bear claw cupcake icing oat cake powder. Jelly beans pudding gummi bears. Tiramisu pastry topping cake candy. Gummi bears chocolate croissant gummi bears.",
+},
+{
+nombre:"Xander",	
+especie:"gato",
+edad:"adulto",
+tamaño:"pequeño",
+imagen:"/images/cate6.jpg",
+favorito:false,
+descripcion:"Cupcake ipsum dolor sit amet topping sesame snaps. Powder cupcake sweet. Dessert muffin sweet. Bear claw carrot cake ice cream croissant chocolate ice cream soufflé. Sweet lollipop jujubes muffin tootsie roll cookie pie. Cookie muffin croissant topping marshmallow tootsie roll cupcake marzipan. Candy canes muffin cookie bonbon jelly gingerbread carrot cake. Sesame snaps carrot cake chocolate bar apple pie chocolate cake marzipan. Jujubes gummies jelly-o. Bear claw cupcake icing oat cake powder. Jelly beans pudding gummi bears. Tiramisu pastry topping cake candy. Gummi bears chocolate croissant gummi bears.",
+},
+{
+nombre:"Willow",
+especie:"gato",
+edad:"adulto",
+tamaño:"pequeño",
+imagen:"/images/cate7.jpg",
+favorito:false,
+descripcion:"Cupcake ipsum dolor sit amet topping sesame snaps. Powder cupcake sweet. Dessert muffin sweet. Bear claw carrot cake ice cream croissant chocolate ice cream soufflé. Sweet lollipop jujubes muffin tootsie roll cookie pie. Cookie muffin croissant topping marshmallow tootsie roll cupcake marzipan. Candy canes muffin cookie bonbon jelly gingerbread carrot cake. Sesame snaps carrot cake chocolate bar apple pie chocolate cake marzipan. Jujubes gummies jelly-o. Bear claw cupcake icing oat cake powder. Jelly beans pudding gummi bears. Tiramisu pastry topping cake candy. Gummi bears chocolate croissant gummi bears.",
+},
+{
+nombre:"Cordelia",
+especie:"gato",
+edad:"adulto",
+tamaño:"pequeño",
+imagen:"/images/cate8.jpg",
+favorito:false,
+descripcion:"Cupcake ipsum dolor sit amet topping sesame snaps. Powder cupcake sweet. Dessert muffin sweet. Bear claw carrot cake ice cream croissant chocolate ice cream soufflé. Sweet lollipop jujubes muffin tootsie roll cookie pie. Cookie muffin croissant topping marshmallow tootsie roll cupcake marzipan. Candy canes muffin cookie bonbon jelly gingerbread carrot cake. Sesame snaps carrot cake chocolate bar apple pie chocolate cake marzipan. Jujubes gummies jelly-o. Bear claw cupcake icing oat cake powder. Jelly beans pudding gummi bears. Tiramisu pastry topping cake candy. Gummi bears chocolate croissant gummi bears.",
+},
+{
+nombre:"Lion",
+especie:"gato",
+edad:"adulto",
+tamaño:"grande",
+imagen:"/images/cate9.jpg",
+favorito:false,
+descripcion:"Lion is a magical pink lion befriended by Steven that occasionally assists the Crystal Gems. Once a normal lion (presumably owned by Rose Quartz in the Desert hundreds of years ago), Lion eventually died through unknown means. Rose Quartz was able to resurrect Lion through her healing powers, giving Lion pink skin and magical abilities. After being entrusted with many of Rose's belongings, Lion roamed the Desert alone following Rose's departure until eventually being found by Steven."
+},
+{
+nombre:"Gizmo",
+especie:"gato",
+edad:"cachorro",
+tamaño:"grande",
+imagen:"/images/cate10.jpg",
+favorito:false,
+descripcion:"Cupcake ipsum dolor sit. Amet halvah gingerbread topping muffin cake chupa chups. Lemon drops dessert jelly-o sweet bear claw oat cake muffin jelly-o. Chocolate cake cookie macaroon."	
+},
+{
+nombre:"Critter",
+especie:"gato",
+edad:"cachorro",
+tamaño:"grande",
+imagen:"/images/cate11.jpg",
+favorito:false,
+descripcion:"Cupcake ipsum dolor sit. Amet halvah gingerbread topping muffin cake chupa chups. Lemon drops dessert jelly-o sweet bear claw oat cake muffin jelly-o. Chocolate cake cookie macaroon."	
+}];
+
+var filtroEspecie = animales;
+var arrayPaginas = [];
+var favoritos;
+
+self.renderHome = function(req,res,next){
+	res.render('vistaHome')
+}
+
+self.cargarVista = function(req,res,next){
+	let miAnimal = req.params.id;	
+	for(i=0;i<animales.length;i++){
+		if(miAnimal===animales[i].nombre){
+			var animal=animales[i]
+		}
+	}
+	if(animal){
+		res.render('indexVista', {animal:animal})
+	}else{
+		res.send('ups')
+	}
+}
+
+self.enviarRespuesta = function(req,res,next){
+	var hola = req.body.info
+	var parse = JSON.parse(hola)
+	favoritos = parse.favoritos
+	console.log(favoritos);
+	
+	for(i=0;i<favoritos.length;i++){
+		for(j=0;j<animales.length;j++){
+		if(animales[j].nombre===favoritos[i]){
+			animales[j].favorito=true
+		}
+	}
+	}
+	console.log(animales.filter(function(item){return item.favorito===true}))
+	console.log('recorte')
+}
+
+
+self.filtrarForm = function(req,res,next){
+	//recupero los datos que se enviaron con el submit del formulario
+	var especie = req.body.especie.toLowerCase();
+	var edad = req.body.edad.toLowerCase();
+	var tamaño = req.body.tamaño.toLowerCase();
+    
+    //filtro por especie
+	if(especie!="todas"){
+		filtroEspecie = animales.filter(function(item){return item.especie===especie});
+	}else{
+		filtroEspecie = animales;
+	};
+	//filtro por edad
+	if(edad!="todas"){
+		filtroEspecie = filtroEspecie.filter(function(item){return item.edad===edad})
+	}
+	//filtro por tamaño
+	if(tamaño!="todos"){
+		filtroEspecie = filtroEspecie.filter(function(item){return item.tamaño===tamaño})
+	}
+
+	res.redirect('/views/filtro/1')
+};
+
+self.renderizar = function(req,res,next){
+	var numeroParam = req.params.page;
+	if(numeroParam){
+	var numero = numeroParam - 1
+	}else{
+		numero = 0;
+	}
+	var principioIntervalo = numero*4;
+	var finIntervalo = principioIntervalo + 4;
+	arrayPaginas = [];
+	var cantPaginas = filtroEspecie.length/4;
+	if(!Number.isInteger(cantPaginas)){
+		paginas = Math.floor(cantPaginas + 1)
+	}else{
+		paginas = cantPaginas
+	}
+	for(i=1; i<paginas+1;i++){
+		arrayPaginas.push(i);
+	}
+	var animalesPagina = filtroEspecie.slice(principioIntervalo,finIntervalo) 
+	//console.log(animalesPagina)
+	res.render('index', {animales:animalesPagina, paginas:arrayPaginas})
+}
+
+self.renderHome = function(req,res,next){
+	res.render('vistaHome')
+};
+
+self.favoritos = function(req,res,next) {
+	var favoritos = [];
+
+}
+module.exports = self;

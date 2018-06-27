@@ -1,0 +1,22 @@
+extends layout
+
+block content
+	div.paginas
+		div.grilla
+			each animal in animales
+				div.animal
+					figure
+						img(src=animal.imagen)
+					div.animalDatos
+						p=animal.nombre
+						div.icons
+							a(href="/views/"+animal.nombre)
+								i.fas.fa-eye
+							if(animal.favorito)
+								i(class="fas fa-heart favorito" data-id=animal.nombre)
+							else
+								i(class="fas fa-heart" data-id=animal.nombre)
+		div.paginado
+			each pagina in paginas
+				a(class="numero" href='/views/filtro/'+pagina)
+						p=pagina
