@@ -1,0 +1,4 @@
+REACT
+
+es un framework/librería que "virtualiza" la vista. Me permite "dibujar" variables en html.
+REACT trabaja con Javascript extendido ->permite integrar html/javascript y me permite acceder a las variables sin tener código adicional. O sea, resuelve la lógica de la capa vista del MVC.

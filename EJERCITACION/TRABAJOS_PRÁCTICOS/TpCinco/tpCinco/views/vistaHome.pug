@@ -1,0 +1,15 @@
+extends layout
+
+block content
+	div(class="col-xs-12 col-sm-8 col-md-10" id="cuerpoHome")
+		div.row
+			div(class="col-xs-12 col-md-4")
+				img(src="images/pancho.png" id="pancho")
+			div(class="col-xs-12 col-md-8")
+				h2 ¡Bienvenidx a Pancho SA!
+				p Para conocer a nuestros panchos, elegí tus preferencias en el formulario de la izquierda y presioná el botón "Filtrar".
+				p Doggo ipsum puggo ur givin me a spook doing me a frighten extremely cuuuuuute, borkf most angery pupper I have ever seen. Shoober corgo doing me a frighten length boy lotsa pats heckin good boys and girls, h*ck heckin such treat. Shooberino maximum borkdrive many pats pupperino woofer you are doing me a frighten length boy such treat, he made many woofs blep I am bekom fat extremely cuuuuuute corgo. Extremely cuuuuuute pats long doggo you are doin me a concern maximum borkdrive long water shoob, super chub you are doing me the shock boofers super chub. length boy yapper. Boofers big ol snoot pupperino long doggo smol borking doggo with a long snoot for pats adorable doggo tungg, lotsa pats ruff heckin angery woofer dat tungg tho smol. 
+				h3 ¡Visitá a tus panchos favoritos!
+				if(favoritos.length>0)
+					each favorito in favoritos
+						a(class="favlink" href="/pancho/ficha/"+favorito)=favorito

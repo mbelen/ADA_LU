@@ -1,0 +1,10 @@
+extends layout
+
+block content
+	div(class="col-xs-12 col-sm-8 col-md-10" id="vistaError")
+		div.row
+			div.errorcontent
+				h1=mensaje
+				h3=detalle
+				img(src="/images/errorPug.jpg")
+				a(href="/") Volver a la página principal

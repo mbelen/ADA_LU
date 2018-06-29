@@ -1,0 +1,273 @@
+/*LAYOUT*/
+
+*{
+	margin:0;
+	padding:0;
+	outline:1px solid red;
+}
+
+html {
+	background-image:url('/images/fondo.jpg');
+	background-size:800px auto;
+}
+
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  height:100%;
+}
+
+header {
+	margin:0 auto;
+	margin-top:80px;
+	border-bottom:5px solid black;
+	width:85%;
+	background:white;
+	padding:10px 15px;
+	font-family:"Coiny";
+	font-size:2.5em;
+}
+
+header h1 {
+	padding:0;
+	margin-left:60px;
+	color:#e69500;
+}
+
+.container {
+	display:flex;
+	flex-wrap:wrap;
+	background:white;
+	width:85%;
+	margin:0 auto;
+	padding-top:60px;
+	min-height:100%;
+	padding:15px;
+}
+
+aside {
+	width:24%;
+	display:flex;
+	justify-content:center;
+}
+
+select {
+	width:200px;
+	height:35px;
+	border-radius:3px;
+	margin-bottom:40px;
+}
+
+label {
+	display:block;
+}
+
+#filterButton {
+	display:block;
+	width:100px;
+	height:40px;
+	border-radius:5px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+#filterButton, .numero {
+	background-color:teal;
+	border:none;
+	text-transform:uppercase;
+	color:white;
+}
+
+#filterButton:hover,.numero:hover {
+	background:	#00bbbb;
+	transition:0.5s;
+}
+
+/*GENERALES*/
+
+main, .paginas, .ficha {
+	width:76%;
+}
+
+a {
+	text-decoration:none;
+}
+
+a:hover {
+	text-decoration:none;
+}
+
+/*INDEX*/
+
+.paginas {
+	display:flex;
+	flex-wrap:wrap;
+	flex-direction:column;
+}
+
+.grilla {
+	display:flex;
+	flex-wrap:wrap;
+}
+
+.grilla figure {
+	width:225px;
+	height:225px;
+}
+
+.grilla figure img {
+	width:100%;
+	height:auto;
+	min-height:100%;
+}
+
+.paginado {
+	margin-top:20px;
+	align-self:center;
+	display:flex;
+}
+
+.numero {
+	padding:10px;
+	border:1px solid black;
+	margin:5px;
+}
+
+.animal {
+	width:230px;
+	height:280px;
+	margin:0 5px;
+	overflow:hidden;
+	box-shadow:2px 2px 3px lightgray;
+}
+
+.animal p {
+	margin:10px 0;
+	margin-left:2px;
+}
+
+
+.animalDatos {
+	width:100%;
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+	margin-top:18px;
+}
+
+i {
+	margin-left:5px;
+	margin-right:5px;
+	color:black;
+}
+
+.favorito { /*Clase que se le asigna al ícono corazón si el animal es favorito*/
+	color:orange;
+}
+
+.fa-heart:hover {
+	color:hotpink;
+}
+
+.fa-eye:hover {
+	color:lightskyblue;
+}
+
+/*VISTA INDIVIDUAL*/
+
+.animalData {
+	display:grid;
+	grid-template-columns:35% 65%;
+}
+
+.animalDescripcion {
+	padding-right:10px;
+}
+
+.animalDescripcion p {
+	margin-top:40px;
+}
+
+.animalData figure {
+	width:250px;
+	height:auto;
+}
+
+.animalData figure img {
+	box-shadow:2px 2px 2px gray;
+	width:100%;
+	height:auto;
+}
+
+.home {
+	display:flex;
+	flex-wrap:wrap;
+	align-items:center;
+}
+
+.home figure {
+	width:28%;
+	height:auto;
+}
+
+.home figure img {
+	width:100%;
+	height:auto;
+}
+
+.hometext {
+	width:65%;
+}
+
+/*PÁGINA DE ERROR*/
+
+.errorContainer {
+	margin:0 auto;
+	background:white;
+	width:50%;
+	display:flex;
+	flex-wrap:wrap;
+	align-items:center;
+	flex-direction:column;
+	margin-top:50px;
+	padding:20px;
+}
+
+.errorContainer h1 {
+	color:teal;
+}
+
+.errorContainer h3 {
+	margin:20px 0;
+}
+
+@media all and (max-width:1480) {
+
+.animal {
+	width:160px;
+	height:210px;
+	margin:0 5px;
+	overflow:hidden;
+	box-shadow:2px 2px 3px lightgray;
+}
+
+.animal p {
+	margin:10px 0;
+	margin-left:2px;
+}
+
+
+.animalDatos {
+	width:100%;
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+	margin-top:18px;
+}
+
+.grilla figure {
+	width:160px;
+	height:160px;
+}
+
+
+}

@@ -1,0 +1,16 @@
+extends layout
+
+block content
+	div(class="col-xs-12 col-sm-8 col-md-10" id="vistaIndividual")
+		div.row
+			div(class="col-xs-12 col-md-3 borde")
+				img(src=animal.imagen class="fichaImagen")
+			div(class="col-xs-12 col-md-9 ficha")
+				h2=animal.nombre
+				h5 especie: #{animal.especie}
+				h5 edad: #{animal.edad}
+				h5 tamaño: #{animal.tamaño}
+				p=animal.descripcion
+				if(animal.favorito===true)
+					p.favorito ¡Este es uno de tus panchos favoritos!
+				a(href="/pancho/filtro/1") Volver al listado de panchos
