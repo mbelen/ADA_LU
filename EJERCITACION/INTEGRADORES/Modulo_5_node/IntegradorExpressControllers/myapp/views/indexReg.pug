@@ -1,0 +1,18 @@
+extends layout
+
+block content
+	div.container
+		h3.centrado Completá los datos para registrarte
+		form(class="formRegistro" id="formReg" method="POST" action='/registro/newuser')
+			label(for="regEmail") E-mail
+			input(type="text" id="regMail" name="regMail") 
+			label(for="regUser") usuario
+			input(type="text" id="regUser" name="regUser") 
+			label(for="contraseña") contraseña
+			input(type="password" id="regContraseña" name="regPass")
+			label(for="contraseña") reingrese la contraseña
+			input(type="password" id="regContraseñaConf")
+			p#errorPass
+			a(href="/registro" class="cambio") Ya estoy registrado
+			p#errorRegistro
+			button(type="submit" id="registrar") Registrarse

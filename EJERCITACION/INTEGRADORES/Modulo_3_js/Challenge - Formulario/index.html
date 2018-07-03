@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+	
+	<head>
+		<title></title>
+		<meta name="viewport" content="width=	, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<!--google font-->
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+		<!--hoja de estilo-->
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+	</head>
+
+	<body>
+		<div class="container">
+				<h1>Formulario de inscripción</h1>
+				<form>
+					<h3>Datos personales</h3>
+					<!--Nombre-->
+					<div class="campo">
+						<label for="nombre">Nombre</label>
+						<input type="text" name="nombre" class="validar"/>
+						<label class="error"></label>
+					</div>
+					<!--apellido-->
+					<div class="campo">
+						<label for="apellido">Apellido</label>
+						<input type="text" name="apellido" class="validar"/>
+						<label class="error"></label>
+					</div>
+					<!--nacionalidad-->
+					<div class="campo">
+						<label>Nacionalidad</label>
+						<select class="validar" id="nacionalidad">
+							<option value="0">Seleccione una opción</option>
+						</select>
+						<label class="error"></label>
+					</div>
+					<!--fecha de nacimiento-->
+					<div class="campo">
+						<label for="birthday">Fecha de Nacimiento</label>
+						<input type="date" name="birthday" class="validar" id="birthday" />
+						<label class="error"></label>
+						<label id="edaderror"></label>
+					</div>
+					<!--documento-->
+					<div class="campo" id="doc">
+						<!--tipo-->
+						<div class="campo">
+							<label for="tipodoc">Tipo de documento</label>
+							<select name="tipodoc" class="validar" id="tipodoc">
+								<option value="0">Seleccione una opción</option>
+							</select>
+							<label class="error"></label>
+						</div>
+						<!--número-->
+						<div class="campo">
+							<label for="numdoc">Número de documento</label>
+							<input type="text" name="numdoc" class="validar long"/>
+							<label class="error"></label>
+						</div>
+					</div>
+					<!--domicilio-->
+					<h3>Domicilio</h3>
+					<div id="domicilio" class="campo">
+						<!--calle-->
+						<div class="campo">
+							<label for="calle">Calle</label>
+							<input type="text" name="calle" class="long"/>
+						</div>
+						<!--número-->
+						<div class="campo">
+							<label for="numcalle">Número</label>
+							<input type="text" name="numcalle"/>
+						</div>
+						<!--piso-->
+						<div class="campo">
+							<label for="numcalle">Piso</label>
+							<input type="text" name="piso"/>
+						</div>
+						<!--depto-->
+						<div class="campo">
+							<label for="depto">Departamento</label>
+							<input type="text" name="depto"/>
+						</div>
+						<!--provincia-->
+						<div class="campo">
+							<label for="prov">Provincia</label>
+							<select name="prov" id="prov">
+								<option value="0">Seleccione una opción</option>
+							</select>
+						</div>
+						<!--ciudad-->
+						<div class="campo">
+							<label for="ciudad">Ciudad</label>
+							<select name="ciudad" id="ciudad">
+								<option value="0">Seleccione una opción</option>
+							</select>
+						</div>
+					</div>
+					<h3>Información personal</h3>
+					<!--género-->
+					<div class="campo" id="genero">
+						<label for="género">Género</label>
+						<input type="radio" name="genero" value="masculino" id="masc">
+						<label class="inline">Masculino</label>
+						<input type="radio" name="genero" value="femenino" id="fem">
+						<label class="inline">Femenino</label>
+						<label id="generror"></label>
+					</div>
+					<!--datos biométricos-->
+					<div class="campo" id="biometria">
+						<!--altura-->
+						<div class="campo">
+							<label for="altura">Altura</label>
+							<input type="text" name="altura"/>
+						</div>
+						<!--peso-->
+						<div class="campo">
+							<label for="altura">Peso</label>
+							<input type="text" name="altura"/>
+						</div>
+					</div>
+					<!--deportes-->
+					<div id="deportes">
+						<label>Deportes</label>
+						<div>
+							<input type="checkbox" name="sport1">
+							<label class="inline">Deporte 1</label>
+						</div>
+						<div>
+							<input type="checkbox" name="sport2">
+							<label class="inline">Deporte 2</label>
+						</div>
+						<div>
+							<input type="checkbox" name="sport3">
+							<label class="inline">Deporte 3</label>
+						</div>
+					</div>
+					<!--datos de contacto-->
+					<div class="campo" id="contacto">
+						<!--tel-->
+						<h3>Datos de contacto</h3>
+						<div class="campo">
+							<label for="tel">Teléfono</label>
+							<input type="text" name="tel" id="tel" class="validar"/>
+							<label class="error"></label>
+							<label id="telerror"></label>
+						</div>
+						<!--mail-->
+						<div class="campo">
+							<label for="mail">E-mail</label>
+							<input class="validar" type="text" name="mail" id="mail"/>
+							<label class="error"></label>
+							<label id="mailerror"></label>
+						</div>
+					</div>
+					<!--observaciones-->
+					<div>
+						<label for="observaciones">Observaciones</label>
+						<textarea rows="10" cols="30" id="observaciones"/>Escriba un comentario aquí</textarea>
+					</div>
+					
+					<!--submit-->	
+					<input type="button" id="submitme" value="botóoon"/>
+				</form>
+		</div>
+		<script type="text/javascript" src="js/main.js"></script>
+	</body>
+</html>

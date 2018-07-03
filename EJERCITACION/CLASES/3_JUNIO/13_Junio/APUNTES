@@ -1,0 +1,41 @@
+PROMISES JAVASCRIPT
+
+JQuery no tiene =(
+
+llamada a funcion	
+	then(otra funcion)
+
+	then(otra)
+
+	catch(entro por acá si alguna función falla)
+
+GITHUB AXIOS
+Es una librería para hacer requests http (WAT). 
+Se instala en el proyecto ($ npm install axios). Y habrá que requerirla  - require('axios') - o importartla  - import axios from 'axios' - 
+Se puede usar tanto a nivel cliente como a nivel servidor.
+Está basada en promesas => no usa callbacks
+Axios es un objeto con varios métodos (get, post, put...esos).
+
+axios
+	.get('direccion a la que quiero hacer el request')
+	.then(function{mi función})
+	.catch(entra por acá si algo explota)
+
+Los then concatenados se ejecutan secuencialmente.
+
+Ejercicio:
+- En el ejemplo que hicimos ayer (el que tiene una listita de usuarios con detalle de un usuario específico). Ese ejemplo hace que al traer al usuario traiga sus repos de Github.
+- Agregar en el getUser (en userServices) completarlo modificando :
+  El controller
+  Que getUser pase a ser una función asincrónica (y tonces todas las funciones van a tener algo asíncrono).
+- Github services ahora está vacío. Hacer con axios que le pegue a la api y me devuelva los repos.
+
+Quiero que la vista de user me muestre los repos que tiene en Github
+
+Ahora la app tiene un método llamado GetUser que llamaba al servicio que creamos ayer pasando el ID del usuario. La función, lo que hace es ir a buscar en users el usuario que coincida con el ID especificado y devolvía el objeto. Queremos agregar que si el objeto existe, se consulte en github los repos que tiene ese usuario. 
+La función en GitHubService está vacía. El paso 1) es agregar la llamada con axios a la API de github para obtener los repos. De ese modo, la función va a pasar a ser asíncrona. 
+
+Cuando un usuario entra a mi página, en nodeJS lo primero que se activa es el controller con la función getUser. Dentro del getUser es donde yo llamo a UserService (en particular, también, una función que se llama getUser) y dentro de userService llamo a Github Services y a la función que es Get Repositories. Ahora estamos agregando una función que es asíncrona. 
+Como getuser no va a poder responder hasta que getrepository conteste, también se va a volver asíncrona.
+
+Una promesa es un objeto de javascript que contiene como mínimo una función then y una función catch. Cuando ejecuto then (que, recordemos, es una función) 

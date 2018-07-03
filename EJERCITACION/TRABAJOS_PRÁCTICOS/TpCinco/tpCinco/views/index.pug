@@ -1,0 +1,22 @@
+extends layout
+
+block content
+	div(class="col-xs-12 col-sm-8 col-md-10" id="calesitaPanchos")
+		div(class="row centrar")
+			each animal in animales
+				div(class="col-xs-6 col-md-3 panchoitem")
+					img(src=src=animal.imagen class="panchoimagen")
+					p.panchoParrafo=animal.nombre
+					div.icons
+						a(href="/pancho/ficha/"+animal.nombre)
+							i.fas.fa-eye
+						if(animal.favorito)
+							i(class="fas fa-heart favorito" data-id=animal.nombre)
+						else
+							i(class="fas fa-heart" data-id=animal.nombre)
+			div(class="row")
+				div(class="divnumeros col-xs-12")
+					each pagina in paginas
+						a(href='/pancho/filtro/'+pagina class="numero")=pagina
+
+

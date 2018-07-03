@@ -1,0 +1,20 @@
+CONTROLLERS
+
+En express se generan 
+- Controllers -> Creo una carpeta a la misma altura que routes y views
+- Routes 
+- Views
+
+MVC
+Model -> datos que yo quiero manejar
+View -> el html o el pug/jade, etc. Lo que va a ver el usuario en el navegador.
+Controller -> son un intermediario entre el modelo y las vistas.
+
+(el usuario hace una petición, el controller la recibe y determina qué hacer con la llamada)
+
+----
+
+Services (otra carpeta a la misma altura de controllers y routes)
+Se encarga de todo lo que sea manipulación de datos
+
+

@@ -1,0 +1,49 @@
+.container {
+	width:99%;
+}
+
+header{
+	height: 190px;
+	background: #0abab5;
+}
+
+header h1{
+	font-size: 22px;
+	text-align:center;
+}
+
+.products-row{
+
+	display: flex;
+	justify-content: space-between;
+}
+
+.product{
+
+	width: 20%;
+}
+
+.precio{
+
+	font-weight: bold;
+}
+
+.precio::before {
+	content: "$";
+}
+
+#cerrar {
+	margin:10px auto;
+}
+
+li {
+	list-style:none;
+	text-align:left;
+}
+
+footer{
+
+	height: 60px;
+	background: #0abab5;
+	text-align: center;
+}

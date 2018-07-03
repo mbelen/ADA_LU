@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Carrito</title>
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="css/estilos.css">
+</head>
+<body>
+	<div class="container">
+
+		<header>
+			<h1>Estructura de carrito</h1>
+			<h4>Mi carrito</h4>
+			<label id="vacio"></label>
+			<ul id="items">
+			</ul>
+		</header>
+		
+		<div class="products-row">
+
+			<div class="product">
+				<img src="products/b.jpg">
+				<p class="descripcion">Pulsera</p>
+				<p class="precio">1500</p>
+				<input type="number" min="0" name="Pulsera" id="pulsera">
+				<button class="add">Agregar</button>
+			</div>
+
+			<div class="product">
+				<img src="products/e.jpg">
+				<p class="descripcion">Anillo de diamantes</p>
+				<p class="precio">8500</p>
+				<input type="number" min="0" name="Anillo de diamantes" id="anillouno">
+				<button class="add">Agregar</button>
+			</div>
+
+			<div class="product">
+				<img src="products/f.jpg">
+				<p class="descripcion">Collar colores</p>
+				<p class="precio">4500</p>
+				<input type="number" min="0" name="Collar de colores" id="collar">
+				<button class="add">Agregar</button>
+			</div>
+
+			<div class="product">
+				<img src="products/g.jpg">
+				<p class="descripcion">Anillo de diamantes 2</p>
+				<p class="precio">8400</p>
+				<input type="number" min="0" name="Anillo de diamantes 2" id="anillodos">
+				<button class="add">Agregar</button>
+			</div>
+			
+		</div>
+		<button id="cerrar" type="button">¡Finalizar compra!</button>
+	</div>
+
+	<footer>
+		<p>Este es el footer</p>
+	</footer>
+	
+	<!--Scripts-->
+	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	
+</body>
+</html>

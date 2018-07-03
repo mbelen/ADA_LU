@@ -1,0 +1,17 @@
+{
+  "name": "playground",
+  "version": "1.0.0",
+  "description": "mi entorno de prueba de hoy",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lucilyn",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3",
+    "express-generator": "^4.16.0",
+    "pug": "^2.0.3"
+  }
+}

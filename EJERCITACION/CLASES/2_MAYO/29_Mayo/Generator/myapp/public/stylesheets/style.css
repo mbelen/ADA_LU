@@ -1,0 +1,30 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.container {
+	width:50%;
+	margin:0 auto;
+	text-align:center;
+	border: 3px double lightskyblue;
+}
+
+img {
+	max-width:250px;
+	height:auto;
+	padding:2px 4px;
+}
+
+h1 {
+	font-family: 'Indie Flower', cursive;
+}
+
+li {
+	list-style:none;
+	color:plum;
+}

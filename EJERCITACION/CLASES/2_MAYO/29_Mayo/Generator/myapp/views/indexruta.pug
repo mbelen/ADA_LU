@@ -1,0 +1,14 @@
+extends layout
+
+block content
+	div.container
+		h1 Yo soy otra ruta
+		p= content 
+		img(src='/images/unicornio0.jpg')
+		p y ahora voy a hacer una lista y pasarle el contenido de un array porque soy re grossa
+		ul
+			for verdura in verduras
+				li=verdura
+		p como último truco, pasaré imágenes desde un array:
+		each imagen in imagenes
+			img(src=imagen)

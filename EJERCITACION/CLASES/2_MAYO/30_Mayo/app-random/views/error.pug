@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  div.error
+    h1 ¿Que hiciste QUÉ?
+    h2= error.status
+    img(src='/stylesheets/angrypug.jpeg')
+    pre #{error.stack}

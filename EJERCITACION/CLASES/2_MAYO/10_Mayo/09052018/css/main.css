@@ -1,0 +1,19 @@
+* {
+	margin:5px auto;
+}
+
+body {
+	background-image:url(../img/fondo.jpg);
+	background-size:1580px auto;
+}
+
+.container {
+	width:20%;
+	margin:30px auto;
+	padding:50px 120px;
+	border:3px double black;
+}
+
+#ejes {
+	width:70px;
+}

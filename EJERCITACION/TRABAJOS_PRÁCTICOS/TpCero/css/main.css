@@ -1,0 +1,72 @@
+/*Generales*/
+
+* {
+	margin:0 auto;
+}
+
+.container {
+	text-align:center;
+}
+
+form {
+	margin:1.5% 0;
+}
+
+/*Imagen*/
+
+#galaxia {
+	margin-top:2%;
+	width:1480px;
+	height:440px;
+}
+
+/*Formulario*/
+
+input {
+	margin:0 15px;
+}
+
+/*Redes Sociales*/
+
+#social {
+	width:1480px;
+	text-align:right;
+}
+
+#social img {
+	width:36px;
+	height:36px;
+}
+#social img:hover {
+	opacity:0.5;
+}
+
+/*Copyright*/
+
+#copyright {
+	margin-top:50px;
+}
+
+/*Media queries*/
+
+@media all and (orientation:portrait) {
+
+input, label {
+	margin:10px 0;
+}
+#social {
+	text-align:center;
+}
+
+}
+
+@media all and (max-width:1480px) {
+.container {
+	max-width:95%;
+}
+#galaxia, #social {
+	max-width:100%;
+	height:auto;
+}
+}
+

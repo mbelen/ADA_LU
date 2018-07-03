@@ -1,0 +1,32 @@
+.ball {
+	border-radius:90%;
+	width:200px;
+	height:200px;
+}
+
+.container {
+	div {
+	.ball;
+	display:inline-block;
+	}
+
+	.rojo {
+	@color:red;
+	background:@color;
+	&:hover{
+		background:darken(@color,30%);
+	}
+	}
+
+	.azul {
+	@color:blue;
+	background:@color;
+	&:hover{
+	background:desaturate(@color,30%);
+	}
+
+	.verde {
+	@color:yellow;
+	background:@color;
+	}
+}

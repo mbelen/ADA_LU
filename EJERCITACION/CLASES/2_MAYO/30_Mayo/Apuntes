@@ -1,0 +1,3 @@
+El DS_Store es un coso de mac, se puede borrar, no pasa nada.
+bodyParser: me permite tomar parámetros. Me permite manejar contenido de tipo JSON. 
+cors: permite a mi aplicación recibir peticiones externas

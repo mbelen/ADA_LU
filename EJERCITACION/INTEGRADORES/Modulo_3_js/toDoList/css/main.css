@@ -1,0 +1,123 @@
+
+* {
+	margin:0;
+	padding:0;
+	font-family: 'Open Sans', sans-serif;
+}
+
+body {
+	background-image: url("Rainbow16.jpg");
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+.container {
+	width:80%;
+	margin:0 auto;
+	background:#d7f4ff;
+	padding:40px;
+	min-height:680px;
+}
+
+
+h1 {
+	margin:30px 0;
+	font-family: 'Gamja Flower', cursive;
+	font-size:40px;
+	color:#8d68b0;
+}
+h1, #ingreso {
+	text-align:center;
+}
+
+#ingreso {
+	display:flex;
+	flex-flow:column wrap;
+	align-items:center;
+	width:80%;
+	margin:0 auto;
+}
+
+#input-boton {
+	display:flex;
+	align-content:center;
+	width:100%;
+}
+
+#agregar {
+	border:none;
+	background:	#ff8ba5;
+	color:black;
+	padding:0 10px;
+	width:60%;
+	opacity:0.7;
+}
+
+#agregar:hover {
+	opacity:0.85;
+}
+
+#agregar:active {
+	opacity:1;
+}
+
+input {
+	width:90%;
+	margin-right:5px;
+}
+
+#agregar, input {
+	height:40px;
+	border-radius:10px;
+}
+
+ul {
+	margin:10px 0;
+	text-align:left;
+	width:100%;
+}
+
+ul li {
+	margin:10px 0;
+	padding:10px;
+	list-style:none;
+	display:flex;
+	width:98%;
+	flex-wrap:wrap;
+	align-items:center;
+	align-content:center;
+	justify-content:space-between;
+	background:#cfdeff;	
+}
+
+
+
+.eliminar, .editar, .edit {
+	height:40px;
+	margin:0 10px;
+	margin-left:0px;
+}
+
+.edit {
+	margin-top:20px;
+}
+
+.ocultar {
+	display:none;
+}
+
+.show {
+	display:block;
+}
+ 
+i {
+	color:#cc9495;
+}
+
+i:hover {
+	color:#58d1ff;
+}
+
+i:active {
+    transform: translateY(5%);
+}

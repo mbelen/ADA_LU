@@ -1,0 +1,41 @@
+doctype html
+html
+	head
+		title= title
+		link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous")
+		link(rel='stylesheet', href='/stylesheets/styleLibros.css')
+		link(href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet")
+	body
+		block content
+			div.container
+				h1 ¡LIIIBROS!
+				div#grilla
+					each libro in libros
+						div.campo
+							div.datos
+								div.botones
+									a(href='/libros/delete/'+libro.isbn)
+										i.far.fa-trash-alt
+									a(href="#")
+										i.far.fa-edit
+								h3= libro.nombre
+								figure
+									img(src=libro.img)
+								h4= libro.isbn
+								h5 precio: $#{libro.precio}
+								a(href="#") mostrar vista
+							div.ventanaEdit
+								label Nombre
+								input(type='text' data-id=libro.nombre placeholder=libro.nombre)
+				button#agregar agregar libro
+				div#formAgregar.invisible
+					label Título
+					input(type='text' id="tituloNuevo")
+					label ISBN
+					input(type='text' id="isbnNuevo")
+					label Precio
+					input(type='text' id="precioNuevo")
+					i.fas.fa-check
+<!--también puedo poner un a con un href que me lleve a la url de delete la ruta es algo así como href='/delete/libros'+libro.isbn (ver bien cómo escribirlo)-->
+
+

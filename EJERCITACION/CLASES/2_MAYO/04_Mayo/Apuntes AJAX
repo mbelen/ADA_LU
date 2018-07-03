@@ -1,0 +1,16 @@
+API:
+Me dice: qué funcionalidades tengo disponibles
+Define una cantidad de métodos/acciones para prestar un servicio.
+Una API es una interfaz en la cual puedo consumir. Vienen predefinidas (lo que puedo o no puedo
+hacer está predefinido).
+La documentación de la api incluye
+-parámetros (hay parámetros de seguridad y parámetros para procesar)
+-valores de retorno
+-método (get y post) ->puedo pegarle a la misma función por ambos métodos (y hacer que haga algo != en cada caso)
+
+Cuando trabajamos con una API usamos:
+JSON
+Llamadas asincrónicas (Ajax)
+Ajax se usa para el intercambio de información.
+(intercambia objetos JSON de modo asincrónico, esto es, sin recargar toooda la página)
+Los objetos tipo AJAX los maneja Javascript. 

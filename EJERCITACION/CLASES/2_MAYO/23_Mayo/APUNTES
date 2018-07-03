@@ -1,0 +1,71 @@
+NODE
+No me lee las imágenes o la hoja de estilo porque no le estoy diciendo dónde están. Lo vamos a resolver con Express.
+
+EXPRESS
+Hasta ahora lo que estuvimos haciendo con Node es crear un servidor. Es como un programita que se ejecuta todo el tiempo y que responde a mis requests (porque está todo el tiempo escuchando).
+Express es un módulo que permite, por un lado, crear el servidor y por otro lado me da otras funcionalidades que lo vuelven más sencillo y más extensible.
+Lo único tengo que hacer es instalarlo, incorporarlo en el proyecto y lo puedo empezar a usar. 
+Hay dos formas de crear una aplicación usando Express:
+- crear el proyecto, pararnos en el directorio y mando npm init. Me va a pedir el nombre del paquete (que en mi caso va a ser el proyecto en sí, pero también puede ser un módulo que yo quiera que la gente use). Le pongo el nombre del proyecto.
+Va a preguntar versión (dejo lo que está) y descripción. Después me pide entry point (esto es, el archivo JS principal -index.js o server.js). Test command:es para si quiero usar testing automático. Por ahora lo dejamos vacío. Git respository: es meramente informativo. Keywords (por si lo quiero subir a npm oficial). Autor:eso mismo. Lucía wainfeld <luwainfeld@gmail.com>. Licencia: eso. Cuando termine me va a mostrar un package.JSON ->es un JSON con toda la info relevante de mi proyecto. Me va a preguntar si es ok, si digo "no" me va a hacer todas las preguntas otra vez. Por ahora, mi proyecto va a tener solamente mi package.json. Lo siguiente que hago es crear el archivo de mi entry point.
+npm start -> si lo pongo en la consola parada en mi directorio, va a ir a buscar mi entry point y ejecutarlo. A veces no sale y ahí hay que agregar en los scripts del json uno de start (ver ejemplo en esta carpeta). Los scripts que se ponen en "scripts" son comandos que se puedan ejecutar por consola.
+
+PUERTOS (xej: 8080): así como las computadoras tienen IP, también tienen un puerto que es como un canal de entrada a ella.Van del número 1 al 64mil y pico. Los puertos 1 a 1024 son para uso del sistema operativo y de ahí en adelante son puertos que yo puedo usar. Yo puedo poner cualquier número (o sea, que si pongo 13600 también va a andar). Usar 8080 es, por lo visto, una convención.  El 80 es el puerto por default por el que se navega en internet.El 25 es para mandar mails. De 1024 en adelante, medio que puedo usar el que quiera. Los más comunes son el 8080, 3000 y 9000. 
+
+Instalar express npm install me va a instalar todas las dependencias que tenga el proyecto. Cuando hago el npm install se agrega una línea en el package.json y una carpeta en mi directorio. Así cuando subo el proyecto y alguien lo baja, le va a ir con todas las dependencias.
+
+Con las siguientes tres líneas de código ya tengo un servidor andando
+
+var express = require('express');
+var app = express();
+
+app.listen(3000);
+
+
+/////////////////////////
+Métodos del protocolo http: get - post - put - patch - delete
+get = obtener
+post = guardar datos nuevos
+put = editar objeto con los datos que estoy pasando
+patch = editar ciertas propiedades del objeto
+delete = eliminar
+/////////////////////////
+
+req -> Request
+res -> Response
+
+req: es toda la información que express tiene sobre el pedido que me acaban de hacer
+
+Bajate Postman
+
+app.all -> pasa todos los métodos http a la vez (o sea, ejecutará la función para get, post, patch, delete, etc)
+
+ROUTERS
+permite separar las rutas de los scripts de modo extensible.
+
+var router = express.Router(); -> creo un contenedor de rutas que voy a usar en express y que después, llamaré desde mi app.
+Esto me permite modularizar.
+
+función use: es de express. Usa módulos que traigo de afuera.
+
+app.use('/rutaquevoyausar', require(./moduloquevoyausar.js))
+
+motores de búsqueda
+-ejs
+-pug
+etc
+ayudan a hacer más dinámico el html.
+Por ejemplo, ejs me permite agregar javascript en mi html
+
+Generar un express con el generador
+Instalo globalmente:
+npm install express generator -g
+
+Comandeo:
+express nombreDeMiAplicación //(no uses guiones bajos en los nombres)
+al tocar enter me crea la carpeta y dentro de ella toda una organización de subcarpetas.
+
+La carpeta views tendrá las vistas que mostraré al usuario (en Jade)
+la carpeta bin tiene el código compilado
+
+googleá server renderer.

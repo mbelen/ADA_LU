@@ -1,0 +1,35 @@
+* {
+	margin:0 auto;
+}
+
+#tablero {
+	position:relative;
+}
+
+.cuadrado {
+	height:264px;
+	width:264px;
+	display:inline-block;
+}
+
+.lila {
+	background:plum;
+}
+
+.rosa {
+	background:pink;
+}
+
+.circulo {
+	height:250px;
+	width:250px;
+	border-radius:100%;
+	position:absolute;
+	top:275px;
+	background:lightskyblue;
+}
+
+img {
+	position:absolute;
+	left:264px;
+}

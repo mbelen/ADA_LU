@@ -1,0 +1,21 @@
+.container {
+	width:30%;
+	margin:0 auto;
+}
+
+#guardoImagen {
+	display:flex;
+	flex-direction:column;
+	flex-wrap:wrap;
+}
+
+#guardoImagen figure {
+	width:300px;
+	height:300px;
+	overflow:hidden;
+}
+
+#guardoImagen figure img {
+	width:100%;
+	height:auto;
+}

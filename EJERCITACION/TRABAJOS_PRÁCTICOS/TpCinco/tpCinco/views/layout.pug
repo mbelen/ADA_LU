@@ -1,0 +1,39 @@
+doctype html
+html
+	head
+		meta(charset='utf-8')
+		title Pancho SA
+		meta(name='viewport', content='width=device-width, initial-scale=1')
+		link(rel="icon" href="/images/pancho.png")
+		link(rel='stylesheet' href='https://use.fontawesome.com/releases/v5.0.13/css/all.css' integrity='sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp' crossorigin='anonymous')
+		link(href='https://fonts.googleapis.com/css?family=Coiny' rel='stylesheet')
+		link(rel='stylesheet' href="/stylesheets/bootstrap.min.css")
+		link(rel='stylesheet', href='/stylesheets/style.css')
+	body
+		div(class="container container-fluid")
+			div.row
+				header 
+					a(href="/")
+						h1 Pancho SA
+			div(class="row" id="principal")
+				div(class="col-xs-12 col-sm-4 col-md-2")
+					form(action="/pancho/filtro" method="POST")
+						label(for="especie") Especie
+						select(name="especie")
+							option(val="todas") Todas
+							option(val="perro") Perro
+							option(val="gato") Gato
+						label(for="edad") Edad
+						select(name="edad") 
+							option(val="todas") Todas
+							option(val="cachorro") Cachorro
+							option(val="adulto") Adulto
+						label(for="tamaño") Tamaño
+						select(name="tamaño")
+							option(val="todos") Todos
+							option(val="pequeño") Pequeño
+							option(val="grande") Grande
+						input(id="filterButton" type="submit" value="filtrar")
+				block content
+		script(src='https://code.jquery.com/jquery-3.3.1.min.js' integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=' crossorigin='anonymous')
+		script(src='/javascripts/main.js')

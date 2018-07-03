@@ -1,0 +1,44 @@
+* {
+	font-family: "Open Sans";
+	margin:0;
+	padding:0;
+}
+
+body {
+	background-image: url("../img/background.jpg");
+}
+
+.container {
+	width:30%;
+	background:pink;
+	margin:0 auto;
+	padding:50px  0;
+	height:658px;
+}
+
+form {
+	margin:0 auto;
+	width:90%;
+	text-align:center;
+}
+
+#slot {
+	width:280px;
+	height:280px;
+	margin:70px auto;
+	background-image: url("../img/fondo.jpg");
+	background-size:340px auto;
+	display:flex;
+	flex-wrap:wrap;
+	justify-content:center;
+	align-items:center;
+}
+
+.imagen {
+	width:100%;
+	height:auto;
+}
+
+#kitty, #melody, #tuxedoSam, #keroppi {
+	display:none;
+}

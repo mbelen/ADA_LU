@@ -1,0 +1,18 @@
+doctype html
+html
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/styleLibros.css')
+		link(href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet")
+	body
+		block content
+			div.container
+				h1 ¡LIIIBRO!
+				div.ficha
+					img(src=imagen)
+					h3= nombre
+					h4 precio: $#{precio}
+					p= blurb
+				
+
+

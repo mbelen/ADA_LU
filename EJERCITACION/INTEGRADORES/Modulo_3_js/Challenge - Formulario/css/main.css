@@ -1,0 +1,98 @@
+* {
+	margin:0;
+	padding:0;
+	font-family: 'Open Sans', sans-serif;
+}
+body {
+	background-image: url("fondo.png");
+}
+.container {
+	width:40%;
+	margin:0 auto;
+	background:#e9e9e9;
+	padding:20px;
+
+}
+
+.campo {
+	
+	margin:10px 0;
+}
+
+label {
+	display:block;
+	margin-bottom:5px;
+}
+
+#doc {
+	display:flex;
+}
+
+#doc div, #domicilio div {
+	margin-right:40px;
+}
+
+.inline {
+	display:inline;
+}
+
+.error, #mailerror, #generror, #telerror, #edaderror {
+	margin-top:5px;
+	color:#fc4a1a;
+	text-transform:uppercase;
+	font-size:11px;
+	font-weight:bold;
+}
+
+#domicilio, #biometria {
+	display:flex;
+	flex-wrap:wrap;
+}
+
+#domicilio div, #biometria div {
+	width:40%;
+}
+
+#submitme {
+	width:100%;
+	margin:20px auto;
+	padding:20px 45%;
+	background:lightgray;
+}
+
+#submitme:hover {
+	background:darkgray;
+}
+
+h1 {
+	margin:20px 0;
+	color:#fc4a1a
+}
+
+h3 {
+	color:#4abdac;
+}
+
+.long {
+	width:300px;
+	margin-right:10px;
+}
+
+#genero label {
+	margin-right:40px;
+}
+
+#observaciones {
+	width:100%;
+	height:300px;
+}
+
+@media all and (max-width:1400px) {
+	.container {
+	width:75%;
+	}
+
+	.long {
+		width:180px;
+	}
+}

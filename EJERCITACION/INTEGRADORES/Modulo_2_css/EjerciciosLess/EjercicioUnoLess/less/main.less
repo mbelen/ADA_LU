@@ -1,0 +1,115 @@
+@ancho:800px;
+@padding:10px;
+
+* {
+	margin:0;
+	padding:0;
+}
+
+.container {
+	width:@ancho;
+}
+
+#primerafila {
+	height:auto;
+	padding:@padding;
+	background:lightyellow;
+
+	article {
+	height:@ancho / 2;
+	width: (@ancho / 2) - @padding * 2;
+	display:inline-block;
+	}
+
+  #primero {
+  	background:yellow;
+    margin-right:@padding / 2;
+    &:hover{background:plum;}
+    }
+
+  #segundo {
+   	background:peru;
+   	margin-left:@padding / 2;
+    &:hover{background:lightskyblue;}
+    }
+}
+
+#segundafila {
+	padding: @padding;
+	background:gray;
+	
+	article {
+		display:inline-block;
+		background:lightskyblue;
+		height:@ancho / 4;
+		width: (@ancho / 2) - @padding * 2;
+		&:hover {
+			background:coral;
+	}
+}
+
+ 	#one {
+ 		margin-right:@padding / 2;
+ 	}
+
+ 	#two {
+ 		margin-left:@padding / 2;
+ 	}
+}
+
+#tercerafila {
+	text-align:center;
+	background:coral;
+	padding:@padding + 10px;
+}
+
+@media all and (max-width:780px) {
+@margenmobile:5px;
+@anchomobile:90%;
+
+.flexit {
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+}
+
+.container {
+	width:85%;
+}
+
+#primerafila {
+	width:@anchomobile;
+	.flexit;
+	
+	article {
+	width:@anchomobile;
+	}
+	
+	#primero, #segundo {
+		margin:@margenmobile;
+	}
+}
+
+#segundafila {
+	width:@anchomobile;
+	.flexit;
+	
+	article {
+		width:@anchomobile;
+	}
+
+	#one, #two {
+	margin:@margenmobile;
+	}
+}
+
+#tercerafila {
+	.flexit;
+	width:@anchomobile;
+	padding:@padding;
+	
+	p {
+	margin:@margenmobile;
+	}
+}
+}	

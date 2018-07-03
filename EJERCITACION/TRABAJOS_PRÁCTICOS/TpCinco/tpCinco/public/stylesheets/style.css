@@ -1,0 +1,216 @@
+/*GENERALES*/
+*{
+	font-family:"Arial";
+	box-sizing:border-box;
+}
+body {
+	background-image:url('/images/fondo.jpg');
+}
+
+img {
+	max-width:100%;
+	height:auto;
+}
+
+a:hover {
+	text-decoration:none !important;
+}
+
+a{
+	color:black;
+}
+
+.container {
+	width:85%;
+	margin:0 auto;
+	background:white;
+	margin-top:80px;
+	height:auto;
+	padding-bottom:10px;
+	max-width:1500px;
+}
+
+#pancho, .fichaImagen {
+	 margin: auto;    
+     display: block;
+}
+
+
+/*HEADER*/
+header h1 {
+	font-family:"Coiny";
+	font-size:4em;
+	color:#ff3d00;
+	margin-left:15px;
+}
+
+/*FORMULARIO*/
+#principal label {
+	display:block;
+	color:#00b686;
+	font-weight:bold;
+}
+
+#principal select {
+	margin-bottom:30px;
+	width:100%;
+	height:35px;
+	border-radius:5px;
+}
+
+#filterButton {
+
+	width:100%;
+	display:block;
+	height:40px;
+	border-radius:5px;
+	text-transform:uppercase;
+	margin-top:10px;
+	margin-bottom:15px;
+	
+}
+
+#filterButton, .numero {
+	background-color:#1de9b6;
+	font-weight:bold;
+}
+
+#filterButton:hover, .numero:hover {
+	background-color:#ff3d00;
+	color:white;
+	transition:0.5s;
+
+}
+
+/*HOME*/
+.favlink {
+	margin:5px;
+	color:#ff3d00;
+}
+
+.favlink:hover{
+	color:#c30000;
+}
+
+#cuerpoHome h2 {
+	margin-top:0;
+}
+
+#pancho {
+	min-width:240px;
+}
+
+/*INDEX*/
+
+.panchoitem {
+	margin-bottom:15px;
+	max-width:280px;
+}
+
+.panchoimagen {
+	max-width:100%;
+	padding-top:15px;
+	padding-bottom:15px;
+	border:3px solid black; 
+	border-bottom:none;
+}
+
+.panchoitem p {
+	padding-left:4px;
+	border-left:3px solid black;
+	border-right:3px solid black;
+	margin-bottom:0;
+}
+
+.icons {
+	text-align:right;
+	border:3px solid black;
+	border-top:none;
+	width:300px;
+}
+
+.icons i {
+	margin-right:5px;
+}
+
+.animalnombre,.icons{
+	max-width:100%;
+}
+
+.fa-eye:hover {
+	color:lightskyblue;
+}
+
+.fa-heart:hover{
+	color:#c30000;
+}
+
+.favorito {
+	color:#c30000;
+}
+
+.divnumeros {
+	display:flex;
+	justify-content:center;
+	margin-bottom:15px;
+}
+
+.numero {
+	width:35px;
+	height:35px;
+	margin:3px;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+
+.number a{
+	line-height:35px;
+	color:black;
+}
+
+/*VISTA*/
+.ficha h2 {
+	margin-top:0;
+	color:#00b686;
+	font-weight:bold;
+}
+
+.ficha {
+	margin:0 auto!important;
+}
+
+.fichaImagen {
+	min-width:160px;
+}
+
+.centrar {
+	margin:0 auto;
+}
+
+.borde {
+	border:3px double black;
+}
+
+/*ERROR*/
+.errorcontent{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	flex-wrap:wrap;
+	align-items:center;
+}
+
+.errorcontent h1  {
+	margin:15px 0;
+}
+
+.errorcontent h3 {
+	margin-top:0;
+}
+
+
+
+
+
+

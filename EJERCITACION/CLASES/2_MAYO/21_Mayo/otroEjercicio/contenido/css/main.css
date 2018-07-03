@@ -1,0 +1,13 @@
+.container {
+	margin:0 auto;
+	width:20%;
+	text-align:center;
+	border:3px double teal;
+	padding:20px;
+}
+
+img {
+	width:200px;
+	height:200px;
+	border-radius:50%;
+}

@@ -1,0 +1,100 @@
+
+* {
+	margin:0;
+	padding:0;
+	font-family: 'Gamja Flower', sans-serif;
+}
+
+body {
+	background-image:url("cute.jpg");
+	background-size:600px auto;
+}
+
+.container {
+	background:#CBFDCB;
+	width:40%;
+	margin:0 auto;
+	margin-top:40px;
+	min-height:690px;
+	padding:10px;
+}
+
+
+#grillaflex {
+	margin:32px 0;
+	display:flex;
+	flex-flow:column;
+	align-items:center;
+	justify-content:center;
+}
+
+#grillaflex div {
+	width:90%;
+	/*height:200px;*/
+	flex-wrap:wrap;
+}
+
+#filauno {
+	margin:0 auto;
+	width:100%;
+	color:#cc00cc;
+	text-align:center;
+	height:80px;
+	line-height:80px;
+	margin-bottom:10px;
+}
+
+.unaclase {
+	background:#cc00cc;
+	color:#cc00cc;
+	font-size:0;
+}
+
+.claseuno {
+	background:#ffc966;
+	color:white;
+	font-size:16px;
+}
+
+
+#filados {
+	display:flex;
+	justify-content:space-between;
+
+}
+
+#filados div {
+	width:49%;
+	height:300px;
+}
+
+.dos {
+	background:turquoise;
+	width:100%;
+}
+
+.dosdos {
+	background-image:url("cat.gif");
+	background-size:90% auto;
+	background-size:100% auto;
+}
+
+#filatres {
+	margin-top:10px;
+	display:flex;
+	justify-content:space-between;
+	height:200px;
+}
+
+#filatres div {
+	width:32%;
+}
+
+.tres {
+	background:#ffc966;
+}
+
+.ultima {
+	background-image: url("penguin.gif");
+	background-size:100% auto;
+}

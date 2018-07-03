@@ -1,0 +1,10 @@
+extends layout
+
+block content
+	if(mensaje)
+		h2=mensaje
+	if(imagen)
+		img(src=imagen)
+	a(href="/user/form" class="linkInicio") ¡Registrate!
+	a(href="/user/list" class="linkInicio") ¡Listado!
+	a(href="/ping" class="linkInicio") ¡Ping!

@@ -1,0 +1,57 @@
+Un objeto JSON tiene la misma sintaxis que un objeto común, salvo porque los nombres también van entre comillas
+
+var objetoComun = {
+	nombre:valor,
+}
+
+var objetoJSON** = {
+	"nombre":valor,
+}
+
+el valor puede ser una variable de cualquiera de los siguientes tipos:
+- String
+- Número
+- Booleana
+- Array 
+- Null
+
+Los objetos JSON se utilizan, entre otras cosas, para enviar/recibir información a través de un servidor. Para enviar datos a un servidor, estos deben ser un string. Por eso usamos la función JSON.stringify para convertirlos.
+
+var JSONString = JSON.stringify(objetoJSON); 
+
+Una vez que creamos el objeto, lo podemos guardar en localStorage del siguiente modo:
+
+localStorage.setItem("nombre", JSONString);
+(El nombre es lo que usaremos luego para recuperarlo).
+
+Para recuperar algo que guardamos en localStorage, lo llamamos del siguiente modo:
+let datosGuardados = localStorage.getItem("nombre");
+
+Cuando recuperamos un objeto JSON que fue convertido en un string, tenemos que parsearlo para volverlo a su estado original. Para eso, usamos JSON parse
+
+var JSONParse = JSON.parse(JSONString);
+
+Muchas veces, en nuestro programa, vamos a querer usar lo que nos traemos de localStorage como variable, pero esto puede resultar un tema porque, la primera vez que corremos el programa (o sea, cuando localStorage está vacío), lo va a traer como "null" y, si queremos hacer una operación sobre esa variable más adelante, nos va a tirar errores. Para resolver esto, nos conviene poner un condicional al principio que defina la variable vacía si no hay nada en localStorage y con lo que haya en caso contrario:
+Imaginemos que mi objeto es el siguiente
+
+miObjeto = {
+	"nombres": ["unNombre", "otroNombre"],
+}
+
+Y quiero traerme los nombres en mi programa: 
+
+Voy a primero crear la variable como indefinida:
+var miVariable;
+
+Y después definirla con un condicional:
+function recuperarDatos(){
+	let datosGuardados = localStorage.getItem("nombre");
+	if(datosGuardados==null){
+	miVariable = [];
+	}else{
+	miVariable = JSON.parse(datosGuardados).nombres; 
+	}
+}
+function recuperarDatos();
+
+**(Vale decir que siempre está bueno nombrar las variables de un modo más semánticamente copado y que remita a lo que efectivamente estamos guardando).

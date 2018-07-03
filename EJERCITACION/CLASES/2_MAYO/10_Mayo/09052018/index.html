@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+	<div class="container">
+		<h2>Datos del vehículo</h2>
+		<form>
+			<label>Patente</label>
+			<input type="text" name="patente" id="patente">
+			<br/>
+			<label>Tipo de vehiculo</label>
+			<select id="tipo">
+				<option value="1">Auto</option>
+				<option value="2">Camión</option>
+			</select>
+			<label id="ejeslabel" for="ejes">Ejes</label>
+			<input type="text" id="ejes"/>
+			<br/>
+			<label>Velocidad</label>
+			<input type="text" name="velocidad" id="velocidad">
+			<br/>
+			<button id="cargar">Cargar</button>
+		</form>
+	</div>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+	<!--creamos un JS para clase que incorporamos. Se recomienda tener un archivo por clase-->
+	<script type="text/javascript" src="js/rodado.js"></script> 
+	<script type="text/javascript" src="js/auto.js"></script> 
+	<script type="text/javascript" src="js/camion.js"></script> 
+	<!--consigna: crear una clase "auto" y una "camión" y elegirla/crearla en el JS según corresponda-->
+</body>
+</html>

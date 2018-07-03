@@ -1,0 +1,50 @@
+.yes {
+  display: flex;
+}
+.container {
+  width: 800px;
+  margin: 10px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  display: flex;
+}
+.container div {
+  max-width: 100%;
+}
+.filauno {
+  padding: 10px;
+  display: flex;
+  background: lightskyblue;
+}
+.filauno div {
+  height: 200px;
+  margin: 10px;
+  width: 380px;
+}
+.uno {
+  background: yellow;
+}
+.uno:hover {
+  background: plum;
+}
+.dos {
+  background: peru;
+}
+.dos:hover {
+  background: palegreen;
+}
+.filados {
+  background: yellow;
+  display: flex;
+}
+.filados div {
+  background: pink;
+  margin: 10px;
+  height: 100px;
+  width: 380px;
+}
+@media all and (max-width: 500px) {
+  .container {
+    width: 100%;
+  }
+}
